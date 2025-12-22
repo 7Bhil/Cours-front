@@ -836,7 +836,6 @@ public class Rectangle extends FormeGeometrique implements Forme {
 </template>
 
 <script>
-import Java from '@/views/Java.vue'
 
 export default {
   name: 'JavaPage',
