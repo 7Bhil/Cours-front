@@ -6,5 +6,6 @@
 </template>
 
 <script setup>
-import JavaScriptLearning from '@/components/JavaScriptLearning.vue'
+import JavaScriptLearning from '../../../components/JavaScriptLearning.vue'
+
 </script>

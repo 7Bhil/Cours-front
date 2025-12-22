@@ -121,7 +121,7 @@ export const COURSE_LEVELS = [
                 <pre class="text-xs bg-gray-100 p-2 rounded"><code>&lt;script&gt;code ici&lt;/script&gt;</code></pre>
                 <p class="text-sm text-gray-600 mt-2">Pour petits scripts</p>
               </div>
-              <div class="bg-white p-5 rounded-xl border border-gray-200 shadow-sm border-green-300 bg-green-50">
+              <div class=" p-5 rounded-xl border  shadow-sm border-green-300 bg-green-50">
                 <div class="text-3xl mb-3">✅</div>
                 <h4 class="font-bold text-gray-900 mb-2">External</h4>
                 <pre class="text-xs bg-gray-100 p-2 rounded"><code>&lt;script src="app.js"&gt;&lt;/script&gt;</code></pre>

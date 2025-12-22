@@ -1,10 +1,10 @@
 <template>
   <div class="javascript-page bg-white">
-    <!-- Hero Section -->
+    <!-- Hero Section identique -->
     <section class="relative bg-gradient-to-b from-yellow-50 to-white py-16">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col md:flex-row items-center gap-8">
-          <!-- Logo et titre -->
+          <!-- Logo identique -->
           <div class="flex-shrink-0">
             <div class="w-24 h-24 bg-yellow-400 rounded-2xl flex items-center justify-center shadow-lg">
               <svg class="w-16 h-16 text-gray-900" fill="currentColor" viewBox="0 0 24 24">
@@ -13,14 +13,27 @@
             </div>
           </div>
 
-          <!-- Texte -->
+          <!-- Texte amélioré -->
           <div class="flex-1 text-center md:text-left">
             <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              JavaScript
+              JavaScript Masterclass
             </h1>
             <p class="text-xl text-gray-600 mb-6">
-              Le langage incontournable du web moderne. Apprenez à créer des sites interactifs, des applications web et même des serveurs avec Node.js.
+              Apprenez JavaScript de A à Z avec un parcours structuré et interactif. De la syntaxe de base aux concepts avancés.
             </p>
+            
+            <!-- Bouton d'accès au cours -->
+            <router-link 
+              to="/javascript/cours"
+              class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-yellow-400 to-amber-500 text-gray-900 font-bold rounded-xl hover:from-yellow-500 hover:to-amber-600 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 mb-6"
+            >
+              <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+              </svg>
+              Démarrer le cours interactif
+            </router-link>
+
+            <!-- Badges identiques -->
             <div class="flex flex-wrap gap-3 justify-center md:justify-start">
               <span class="px-4 py-2 bg-white border border-gray-200 rounded-lg text-sm font-medium text-gray-700">
                 Frontend
@@ -37,7 +50,7 @@
       </div>
     </section>
 
-    <!-- Navigation rapide -->
+    <!-- Navigation rapide identique -->
     <section class="sticky top-16 z-40 bg-white border-b border-gray-200 shadow-sm">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav class="flex space-x-8 overflow-x-auto py-4">
@@ -53,11 +66,8 @@
           <button @click="scrollTo('ressources')" class="text-sm font-medium text-gray-600 hover:text-blue-600 whitespace-nowrap transition-colors focus:outline-none">
             Ressources
           </button>
-          <button @click="scrollTo('pratique')" class="text-sm font-medium text-gray-600 hover:text-blue-600 whitespace-nowrap transition-colors focus:outline-none">
-            Exercices
-          </button>
-          <button @click="scrollTo('explorer')" class="text-sm font-medium text-gray-600 hover:text-blue-600 whitespace-nowrap transition-colors focus:outline-none">
-            Explorer plus
+          <button @click="scrollTo('quiz')" class="text-sm font-medium text-gray-600 hover:text-blue-600 whitespace-nowrap transition-colors focus:outline-none">
+            Quiz rapide
           </button>
         </nav>
       </div>
@@ -65,575 +75,439 @@
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        <!-- Contenu principal -->
+        <!-- Contenu principal identique -->
         <div class="lg:col-span-2 space-y-12">
-          <!-- Installation -->
+          <!-- Installation - Version simplifiée -->
           <section id="installation" class="scroll-mt-32">
-            <h2 class="text-3xl font-bold text-gray-900 mb-6">Installation et configuration</h2>
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">🏗️ Installation et configuration</h2>
             
-            <div class="bg-gray-50 border border-gray-200 rounded-lg p-6 mb-6">
-              <h3 class="text-lg font-semibold text-gray-900 mb-4">Navigateur web (Frontend)</h3>
-              <p class="text-gray-600 mb-4">
+            <div class="bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-200 rounded-lg p-6 mb-6">
+              <h3 class="text-xl font-semibold text-gray-900 mb-4">Navigateur web (Frontend)</h3>
+              <p class="text-gray-700 mb-4">
                 JavaScript fonctionne directement dans votre navigateur. Aucune installation nécessaire !
               </p>
-              <div class="bg-white border border-gray-200 rounded-lg p-4">
-                <p class="text-sm text-gray-600 mb-2">Ouvrez la console de votre navigateur :</p>
+              <div class="bg-white border border-blue-300 rounded-lg p-4">
+                <p class="text-sm font-medium text-gray-900 mb-2">Ouvrez la console de votre navigateur :</p>
                 <ul class="space-y-2 text-sm text-gray-700">
-                  <li><strong>Chrome/Edge :</strong> F12 ou Ctrl+Shift+J</li>
-                  <li><strong>Firefox :</strong> F12 ou Ctrl+Shift+K</li>
-                  <li><strong>Safari :</strong> Cmd+Option+C (activer d'abord le menu Développement)</li>
+                  <li class="flex items-center">
+                    <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                    <strong>Chrome/Edge :</strong> F12 ou Ctrl+Shift+J
+                  </li>
+                  <li class="flex items-center">
+                    <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                    <strong>Firefox :</strong> F12 ou Ctrl+Shift+K
+                  </li>
+                  <li class="flex items-center">
+                    <span class="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
+                    <strong>Safari :</strong> Cmd+Option+C (activer d'abord le menu Développement)
+                  </li>
                 </ul>
               </div>
             </div>
 
-            <div class="bg-gray-50 border border-gray-200 rounded-lg p-6">
-              <h3 class="text-lg font-semibold text-gray-900 mb-4">Node.js (Backend)</h3>
-              <p class="text-gray-600 mb-4">
-                Pour exécuter JavaScript côté serveur, installez Node.js :
+            <div class="bg-gradient-to-r from-green-50 to-green-100 border border-green-200 rounded-lg p-6">
+              <h3 class="text-xl font-semibold text-gray-900 mb-4">Node.js (Backend)</h3>
+              <p class="text-gray-700 mb-4">
+                Pour exécuter JavaScript côté serveur :
               </p>
               <div class="bg-gray-900 text-gray-100 rounded-lg p-4 font-mono text-sm overflow-x-auto mb-4">
-                <pre># Windows & macOS : Téléchargez depuis
-https://nodejs.org
-
-# Ubuntu/Debian
-sudo apt update
-sudo apt install nodejs npm
+                <pre># Téléchargez depuis https://nodejs.org
+# Version LTS recommandée
 
 # Vérification
 node --version
 npm --version</pre>
               </div>
-              <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+              <div class="bg-gradient-to-r from-green-100 to-green-50 border border-green-300 rounded-lg p-4">
                 <div class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  <svg class="w-5 h-5 text-green-600 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
                   </svg>
-                  <p class="text-sm text-blue-800">
-                    <strong>Conseil :</strong> Téléchargez la version LTS (Long Term Support) pour plus de stabilité.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="bg-gray-50 border border-gray-200 rounded-lg p-6 mt-6">
-              <h3 class="text-lg font-semibold text-gray-900 mb-4">Éditeur de code recommandé</h3>
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bg-white border border-gray-200 rounded-lg p-4">
-                  <h4 class="font-semibold text-gray-900 mb-2">Visual Studio Code</h4>
-                  <p class="text-sm text-gray-600 mb-3">Gratuit, léger et puissant avec de nombreuses extensions.</p>
-                  <a href="https://code.visualstudio.com" target="_blank" class="text-sm text-blue-600 hover:text-blue-700 font-medium underline">
-                    Télécharger →
-                  </a>
-                </div>
-                <div class="bg-white border border-gray-200 rounded-lg p-4">
-                  <h4 class="font-semibold text-gray-900 mb-2">Extensions utiles</h4>
-                  <ul class="text-sm text-gray-600 space-y-1">
-                    <li>• ESLint (vérification du code)</li>
-                    <li>• Prettier (formatage)</li>
-                    <li>• Live Server (serveur local)</li>
-                  </ul>
+                  <div>
+                    <p class="text-sm font-medium text-green-800 mb-1">Conseil Pro</p>
+                    <p class="text-sm text-green-700">
+                      Téléchargez la version LTS (Long Term Support) pour plus de stabilité.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
           </section>
 
-          <!-- Les bases -->
+          <!-- Les bases - Version concise -->
           <section id="bases" class="scroll-mt-32">
-            <h2 class="text-3xl font-bold text-gray-900 mb-6">Les bases de JavaScript</h2>
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">📚 Les bases essentielles</h2>
             
-            <!-- Variables -->
-            <div class="mb-8">
-              <h3 class="text-xl font-semibold text-gray-900 mb-4">1. Variables et types de données</h3>
-              <p class="text-gray-600 mb-4">
-                JavaScript utilise trois mots-clés pour déclarer des variables : <code class="bg-gray-100 px-2 py-1 rounded text-sm">let</code>, <code class="bg-gray-100 px-2 py-1 rounded text-sm">const</code> et <code class="bg-gray-100 px-2 py-1 rounded text-sm">var</code>.
-              </p>
-              <div class="bg-gray-900 text-gray-100 rounded-lg p-4 font-mono text-sm overflow-x-auto">
-                <pre>// Déclaration de variables
-let nom = "Marie";           // Peut changer
-const age = 25;              // Ne peut pas changer
-var ville = "Paris";         // Ancienne méthode (évitez)
-
-// Types de données
-let texte = "Bonjour";       // String (texte)
-let nombre = 42;             // Number (nombre)
-let vrai = true;             // Boolean (vrai/faux)
-let liste = [1, 2, 3];       // Array (tableau)
-let personne = {             // Object (objet)
-  nom: "Jean",
-  age: 30
-};</pre>
-              </div>
-              <div class="mt-4 bg-green-50 border border-green-200 rounded-lg p-4">
-                <p class="text-sm text-green-800">
-                  <strong>Bonne pratique :</strong> Utilisez <code class="bg-green-100 px-2 py-1 rounded">const</code> par défaut, et <code class="bg-green-100 px-2 py-1 rounded">let</code> seulement si la valeur doit changer.
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <!-- Variables -->
+              <div class="bg-gradient-to-br from-blue-50 to-white border border-blue-200 rounded-xl p-6">
+                <h3 class="text-lg font-bold text-gray-900 mb-3">Variables</h3>
+                <div class="bg-gray-900 text-gray-100 rounded-lg p-3 font-mono text-sm overflow-x-auto mb-3">
+                  <pre>let nom = "Alice";      // Modifiable
+const age = 25;        // Constant
+var ville = "Paris";   // Ancien (éviter)</pre>
+                </div>
+                <p class="text-sm text-gray-600">
+                  Utilisez <code class="bg-blue-100 px-1.5 py-0.5 rounded">const</code> par défaut, <code class="bg-blue-100 px-1.5 py-0.5 rounded">let</code> si modification nécessaire.
                 </p>
               </div>
-            </div>
 
-            <!-- Fonctions -->
-            <div class="mb-8">
-              <h3 class="text-xl font-semibold text-gray-900 mb-4">2. Fonctions</h3>
-              <p class="text-gray-600 mb-4">
-                Les fonctions permettent de regrouper du code réutilisable.
-              </p>
-              <div class="bg-gray-900 text-gray-100 rounded-lg p-4 font-mono text-sm overflow-x-auto">
-                <pre>// Fonction classique
-function direBonjour(nom) {
-  return "Bonjour " + nom + " !";
+              <!-- Fonctions -->
+              <div class="bg-gradient-to-br from-green-50 to-white border border-green-200 rounded-xl p-6">
+                <h3 class="text-lg font-bold text-gray-900 mb-3">Fonctions</h3>
+                <div class="bg-gray-900 text-gray-100 rounded-lg p-3 font-mono text-sm overflow-x-auto mb-3">
+                  <pre>function saluer(nom) {
+  return `Bonjour ${nom}`;
 }
 
-// Fonction fléchée (moderne)
-const direAuRevoir = (nom) => {
-  return "Au revoir " + nom + " !";
-};
-
-// Version courte
-const saluer = nom => "Salut " + nom + " !";
-
-// Utilisation
-console.log(direBonjour("Marie"));  // "Bonjour Marie !"
-console.log(saluer("Jean"));        // "Salut Jean !"</pre>
+// Fléchée (moderne)
+const saluer = nom => 
+  `Bonjour ${nom}`;</pre>
+                </div>
+                <p class="text-sm text-gray-600">
+                  Les fonctions fléchées sont plus concises et ont un comportement <code>this</code> différent.
+                </p>
               </div>
-            </div>
 
-            <!-- Conditions -->
-            <div class="mb-8">
-              <h3 class="text-xl font-semibold text-gray-900 mb-4">3. Conditions</h3>
-              <div class="bg-gray-900 text-gray-100 rounded-lg p-4 font-mono text-sm overflow-x-auto">
-                <pre>const age = 18;
-
-// If/else
-if (age >= 18) {
-  console.log("Vous êtes majeur");
+              <!-- Conditions -->
+              <div class="bg-gradient-to-br from-yellow-50 to-white border border-yellow-200 rounded-xl p-6">
+                <h3 class="text-lg font-bold text-gray-900 mb-3">Conditions</h3>
+                <div class="bg-gray-900 text-gray-100 rounded-lg p-3 font-mono text-sm overflow-x-auto mb-3">
+                  <pre>if (age >= 18) {
+  // Majeur
 } else {
-  console.log("Vous êtes mineur");
+  // Mineur
 }
 
-// Opérateur ternaire (raccourci)
-const statut = age >= 18 ? "majeur" : "mineur";
-
-// Switch
-const jour = "lundi";
-switch (jour) {
-  case "lundi":
-    console.log("Début de semaine");
-    break;
-  case "vendredi":
-    console.log("Bientôt le weekend !");
-    break;
-  default:
-    console.log("Jour normal");
-}</pre>
+// Ternaire
+const statut = age >= 18 
+  ? "majeur" 
+  : "mineur";</pre>
+                </div>
+                <p class="text-sm text-gray-600">
+                  L'opérateur ternaire est utile pour des conditions courtes et simples.
+                </p>
               </div>
-            </div>
 
-            <!-- Boucles -->
-            <div class="mb-8">
-              <h3 class="text-xl font-semibold text-gray-900 mb-4">4. Boucles</h3>
-              <div class="bg-gray-900 text-gray-100 rounded-lg p-4 font-mono text-sm overflow-x-auto">
-                <pre>const fruits = ["pomme", "banane", "orange"];
-
-// Boucle for classique
-for (let i = 0; i < fruits.length; i++) {
-  console.log(fruits[i]);
+              <!-- Boucles -->
+              <div class="bg-gradient-to-br from-purple-50 to-white border border-purple-200 rounded-xl p-6">
+                <h3 class="text-lg font-bold text-gray-900 mb-3">Boucles</h3>
+                <div class="bg-gray-900 text-gray-100 rounded-lg p-3 font-mono text-sm overflow-x-auto mb-3">
+                  <pre>for (let i = 0; i < 5; i++) {
+  console.log(i);
 }
 
-// For...of (moderne, recommandé)
-for (const fruit of fruits) {
-  console.log(fruit);
-}
-
-// forEach (méthode de tableau)
-fruits.forEach(fruit => {
-  console.log(fruit);
-});
-
-// While
-let compteur = 0;
-while (compteur < 5) {
-  console.log(compteur);
-  compteur++;
+// Moderne
+for (const item of items) {
+  console.log(item);
 }</pre>
+                </div>
+                <p class="text-sm text-gray-600">
+                  <code>for...of</code> est plus simple pour itérer sur les tableaux.
+                </p>
               </div>
             </div>
           </section>
 
-          <!-- Concepts clés -->
+          <!-- Concepts clés - Version condensée -->
           <section id="concepts" class="scroll-mt-32">
-            <h2 class="text-3xl font-bold text-gray-900 mb-6">Concepts clés à maîtriser</h2>
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">🎯 Concepts clés</h2>
             
-            <div class="space-y-6">
-              <div class="bg-white border border-gray-200 rounded-lg p-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-3">DOM (Document Object Model)</h3>
-                <p class="text-gray-600 mb-4">
-                  Le DOM permet de manipuler les éléments HTML d'une page web.
-                </p>
-                <div class="bg-gray-900 text-gray-100 rounded-lg p-4 font-mono text-sm overflow-x-auto">
-                  <pre>// Sélectionner un élément
-const titre = document.querySelector('h1');
-const bouton = document.getElementById('monBouton');
-
-// Modifier le contenu
-titre.textContent = "Nouveau titre";
-
-// Ajouter un événement
-bouton.addEventListener('click', () => {
-  alert('Bouton cliqué !');
+            <div class="space-y-4">
+              <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-blue-500 pl-6 pr-4 py-4">
+                <h3 class="text-lg font-bold text-gray-900 mb-2">DOM Manipulation</h3>
+                <p class="text-gray-700 mb-2">Interagir avec les éléments HTML</p>
+                <div class="bg-gray-800 text-gray-100 rounded-lg p-3 font-mono text-sm overflow-x-auto">
+                  <pre>const btn = document.querySelector('button');
+btn.addEventListener('click', () => {
+  alert('Clic !');
 });</pre>
                 </div>
               </div>
 
-              <div class="bg-white border border-gray-200 rounded-lg p-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-3">Programmation asynchrone</h3>
-                <p class="text-gray-600 mb-4">
-                  Gérez les opérations qui prennent du temps (requêtes réseau, lecture de fichiers).
-                </p>
-                <div class="bg-gray-900 text-gray-100 rounded-lg p-4 font-mono text-sm overflow-x-auto">
-                  <pre>// Avec async/await (moderne)
-async function chargerDonnees() {
-  try {
-    const response = await fetch('https://api.example.com/data');
-    const data = await response.json();
-    console.log(data);
-  } catch (erreur) {
-    console.error('Erreur:', erreur);
-  }
-}
-
-// Avec Promises
-fetch('https://api.example.com/data')
-  .then(response => response.json())
-  .then(data => console.log(data))
-  .catch(erreur => console.error(erreur));</pre>
+              <div class="bg-gradient-to-r from-green-50 to-emerald-50 border-l-4 border-green-500 pl-6 pr-4 py-4">
+                <h3 class="text-lg font-bold text-gray-900 mb-2">Programmation Asynchrone</h3>
+                <p class="text-gray-700 mb-2">Gérer les opérations qui prennent du temps</p>
+                <div class="bg-gray-800 text-gray-100 rounded-lg p-3 font-mono text-sm overflow-x-auto">
+                  <pre>async function getData() {
+  const response = await fetch(url);
+  const data = await response.json();
+  return data;
+}</pre>
                 </div>
               </div>
 
-              <div class="bg-white border border-gray-200 rounded-lg p-6">
-                <h3 class="text-lg font-semibold text-gray-900 mb-3">ES6+ (JavaScript moderne)</h3>
-                <p class="text-gray-600 mb-4">
-                  Fonctionnalités modernes qui simplifient le code.
-                </p>
-                <div class="bg-gray-900 text-gray-100 rounded-lg p-4 font-mono text-sm overflow-x-auto">
-                  <pre>// Destructuration
-const personne = { nom: "Marie", age: 25 };
+              <div class="bg-gradient-to-r from-purple-50 to-violet-50 border-l-4 border-purple-500 pl-6 pr-4 py-4">
+                <h3 class="text-lg font-bold text-gray-900 mb-2">ES6+ Features</h3>
+                <p class="text-gray-700 mb-2">Syntaxe moderne de JavaScript</p>
+                <div class="bg-gray-800 text-gray-100 rounded-lg p-3 font-mono text-sm overflow-x-auto">
+                  <pre>// Destructuring
 const { nom, age } = personne;
 
 // Spread operator
-const tab1 = [1, 2, 3];
-const tab2 = [...tab1, 4, 5];  // [1, 2, 3, 4, 5]
+const newArr = [...arr, 4, 5];
 
-// Template literals
-const message = `Bonjour ${nom}, vous avez ${age} ans`;
-
-// Optional chaining
-const ville = personne?.adresse?.ville;</pre>
+// Template strings
+`Bonjour ${nom}`;</pre>
                 </div>
               </div>
             </div>
           </section>
 
-          <!-- Ressources -->
+          <!-- Ressources - Même design que vous aviez -->
           <section id="ressources" class="scroll-mt-32">
-            <h2 class="text-3xl font-bold text-gray-900 mb-6">Ressources de formation</h2>
+            <div class="flex items-center justify-between mb-6">
+              <h2 class="text-3xl font-bold text-gray-900">📁 Ressources de formation</h2>
+              <span class="text-sm font-medium text-gray-500 bg-gray-100 px-3 py-1 rounded-full">PDF • Gratuit</span>
+            </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+              <!-- Guide -->
+              <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                 <div class="flex items-start mb-4">
-                  <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                    <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 shadow-md">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
                     </svg>
                   </div>
                   <div>
-                    <h3 class="font-semibold text-gray-900 mb-1">Guide complet JavaScript</h3>
-                    <p class="text-sm text-gray-600 mb-2">Cours détaillé couvrant tous les fondamentaux</p>
-                    <span class="text-xs text-gray-500">PDF • 3.2 MB</span>
+                    <h3 class="font-bold text-gray-900 text-lg mb-1">Guide Complet JavaScript</h3>
+                    <p class="text-sm text-gray-600 mb-2">Couvre tous les fondamentaux de A à Z</p>
+                    <div class="flex items-center text-xs">
+                      <span class="text-gray-500 mr-3">📄 45 pages</span>
+                      <span class="text-gray-500">⚡ 3.2 MB</span>
+                    </div>
                   </div>
                 </div>
                 <button 
-                  @click="downloadPDF('01-javascript-bases.pdf')"
-                  class="w-full bg-blue-600 text-white py-2.5 rounded-lg font-medium hover:bg-blue-700 transition-colors focus:outline-none"
+                  @click="downloadPDF('guide-javascript.pdf')"
+                  class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 rounded-lg font-semibold hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-md hover:shadow-lg"
                 >
-                  Télécharger le guide
+                  <span class="flex items-center justify-center">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                    </svg>
+                    Télécharger le guide
+                  </span>
                 </button>
               </div>
 
-              <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+              <!-- Exercices -->
+              <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                 <div class="flex items-start mb-4">
-                  <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                    <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+                  <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 shadow-md">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
                     </svg>
                   </div>
                   <div>
-                    <h3 class="font-semibold text-gray-900 mb-1">50 exercices pratiques</h3>
-                    <p class="text-sm text-gray-600 mb-2">Entraînez-vous avec des exercices progressifs</p>
-                    <span class="text-xs text-gray-500">PDF • 1.8 MB</span>
+                    <h3 class="font-bold text-gray-900 text-lg mb-1">50 Exercices Pratiques</h3>
+                    <p class="text-sm text-gray-600 mb-2">Progression du débutant à l'avancé</p>
+                    <div class="flex items-center text-xs">
+                      <span class="text-gray-500 mr-3">📄 38 pages</span>
+                      <span class="text-gray-500">⚡ 1.8 MB</span>
+                    </div>
                   </div>
                 </div>
                 <button 
-                  @click="downloadPDF('02-javascript-exercices.pdf')"
-                  class="w-full bg-blue-600 text-white py-2.5 rounded-lg font-medium hover:bg-blue-700 transition-colors focus:outline-none"
+                  @click="downloadPDF('exercices-javascript.pdf')"
+                  class="w-full bg-gradient-to-r from-green-600 to-emerald-700 text-white py-3 rounded-lg font-semibold hover:from-green-700 hover:to-emerald-800 transition-all duration-300 shadow-md hover:shadow-lg"
                 >
-                  Télécharger les exercices
+                  <span class="flex items-center justify-center">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                    </svg>
+                    Télécharger les exercices
+                  </span>
                 </button>
               </div>
 
-              <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+              <!-- Projets -->
+              <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                 <div class="flex items-start mb-4">
-                  <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                    <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  <div class="w-12 h-12 bg-gradient-to-br from-yellow-500 to-amber-600 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 shadow-md">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
                     </svg>
                   </div>
                   <div>
-                    <h3 class="font-semibold text-gray-900 mb-1">Corrigés détaillés</h3>
-                    <p class="text-sm text-gray-600 mb-2">Solutions commentées de tous les exercices</p>
-                    <span class="text-xs text-gray-500">PDF • 2.1 MB</span>
+                    <h3 class="font-bold text-gray-900 text-lg mb-1">5 Projets Complets</h3>
+                    <p class="text-sm text-gray-600 mb-2">Applications réelles à réaliser</p>
+                    <div class="flex items-center text-xs">
+                      <span class="text-gray-500 mr-3">📄 52 pages</span>
+                      <span class="text-gray-500">⚡ 2.5 MB</span>
+                    </div>
                   </div>
                 </div>
                 <button 
-                  @click="downloadPDF('03-javascript-corriges.pdf')"
-                  class="w-full bg-blue-600 text-white py-2.5 rounded-lg font-medium hover:bg-blue-700 transition-colors focus:outline-none"
+                  @click="downloadPDF('projets-javascript.pdf')"
+                  class="w-full bg-gradient-to-r from-yellow-600 to-amber-700 text-white py-3 rounded-lg font-semibold hover:from-yellow-700 hover:to-amber-800 transition-all duration-300 shadow-md hover:shadow-lg"
                 >
-                  Télécharger les corrigés
+                  <span class="flex items-center justify-center">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                    </svg>
+                    Télécharger les projets
+                  </span>
                 </button>
               </div>
 
-              <div class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+              <!-- Référence -->
+              <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                 <div class="flex items-start mb-4">
-                  <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                    <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-violet-600 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 shadow-md">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                     </svg>
                   </div>
                   <div>
-                    <h3 class="font-semibold text-gray-900 mb-1">Projets pratiques</h3>
-                    <p class="text-sm text-gray-600 mb-2">5 projets complets pour mettre en pratique</p>
-                    <span class="text-xs text-gray-500">PDF • 2.5 MB</span>
+                    <h3 class="font-bold text-gray-900 text-lg mb-1">Référence Rapide</h3>
+                    <p class="text-sm text-gray-600 mb-2">Mémo syntaxe et API principales</p>
+                    <div class="flex items-center text-xs">
+                      <span class="text-gray-500 mr-3">📄 28 pages</span>
+                      <span class="text-gray-500">⚡ 1.2 MB</span>
+                    </div>
                   </div>
                 </div>
                 <button 
-                  @click="downloadPDF('04-javascript-projets.pdf')"
-                  class="w-full bg-blue-600 text-white py-2.5 rounded-lg font-medium hover:bg-blue-700 transition-colors focus:outline-none"
+                  @click="downloadPDF('reference-javascript.pdf')"
+                  class="w-full bg-gradient-to-r from-purple-600 to-violet-700 text-white py-3 rounded-lg font-semibold hover:from-purple-700 hover:to-violet-800 transition-all duration-300 shadow-md hover:shadow-lg"
                 >
-                  Télécharger les projets
+                  <span class="flex items-center justify-center">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                    </svg>
+                    Télécharger la référence
+                  </span>
                 </button>
               </div>
             </div>
           </section>
 
-          <!-- Exercices pratiques -->
-          <section id="pratique" class="scroll-mt-32">
-            <h2 class="text-3xl font-bold text-gray-900 mb-6">Exercices pratiques</h2>
+          <!-- Quiz rapide -->
+          <section id="quiz" class="scroll-mt-32">
+            <h2 class="text-3xl font-bold text-gray-900 mb-6">🧠 Quiz rapide</h2>
             
-            <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-6 mb-6">
-              <h3 class="text-lg font-semibold text-gray-900 mb-3">Testez vos connaissances</h3>
-              <p class="text-gray-600 mb-4">
-                Commencez par les exercices de base, puis progressez vers des défis plus complexes. Chaque exercice inclut une solution détaillée.
-              </p>
-              <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div class="bg-white rounded-lg p-4 border border-gray-200">
-                  <div class="text-green-600 font-semibold mb-2">Débutant</div>
-                  <div class="text-2xl font-bold text-gray-900">15 exercices</div>
-                </div>
-                <div class="bg-white rounded-lg p-4 border border-gray-200">
-                  <div class="text-yellow-600 font-semibold mb-2">Intermédiaire</div>
-                  <div class="text-2xl font-bold text-gray-900">20 exercices</div>
-                </div>
-                <div class="bg-white rounded-lg p-4 border border-gray-200">
-                  <div class="text-red-600 font-semibold mb-2">Avancé</div>
-                  <div class="text-2xl font-bold text-gray-900">15 exercices</div>
-                </div>
+            <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-6">
+              <div class="mb-4">
+                <span class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
+                  Question 1/3
+                </span>
               </div>
+              
+              <h3 class="text-lg font-bold text-gray-900 mb-4">
+                Quelle est la différence entre <code class="bg-blue-100 px-2 py-1 rounded">let</code> et <code class="bg-blue-100 px-2 py-1 rounded">const</code> ?
+              </h3>
+              
+              <div class="space-y-3 mb-6">
+                <label class="flex items-center p-3 bg-white border border-gray-300 rounded-lg hover:border-blue-400 cursor-pointer transition-colors">
+                  <input type="radio" name="quiz1" value="1" class="mr-3" v-model="quizAnswer">
+                  <span class="text-gray-700">Aucune différence</span>
+                </label>
+                <label class="flex items-center p-3 bg-white border border-gray-300 rounded-lg hover:border-blue-400 cursor-pointer transition-colors">
+                  <input type="radio" name="quiz1" value="2" class="mr-3" v-model="quizAnswer">
+                  <span class="text-gray-700"><code>let</code> ne peut pas être réassigné</span>
+                </label>
+                <label class="flex items-center p-3 bg-white border border-gray-300 rounded-lg hover:border-blue-400 cursor-pointer transition-colors">
+                  <input type="radio" name="quiz1" value="3" class="mr-3" v-model="quizAnswer">
+                  <span class="text-gray-700"><code>const</code> ne peut pas être réassigné</span>
+                </label>
+              </div>
+              
+              <button 
+                @click="checkQuiz"
+                class="w-full bg-gradient-to-r from-yellow-400 to-amber-500 text-gray-900 font-bold py-3 rounded-lg hover:from-yellow-500 hover:to-amber-600 transition-all duration-300 shadow-md hover:shadow-lg"
+              >
+                Vérifier ma réponse
+              </button>
             </div>
           </section>
 
-          <!-- Explorer plus -->
-          <section id="explorer" class="scroll-mt-32">
-            <h2 class="text-3xl font-bold text-gray-900 mb-6">Prêt à aller plus loin ?</h2>
+          <!-- CTA Final -->
+          <section class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-8 text-white text-center">
+            <h3 class="text-2xl md:text-3xl font-bold mb-4">🚀 Prêt pour l'aventure interactive ?</h3>
+            <p class="text-blue-100 mb-6 text-lg">
+              Rejoignez notre cours interactif avec progression, quiz et apprentissage personnalisé !
+            </p>
             
-            <div class="bg-gradient-to-r from-yellow-50 to-orange-50 border border-yellow-200 rounded-lg p-8">
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+              <router-link 
+                to="/javascript/cours"
+                class="inline-flex items-center justify-center px-8 py-3.5 bg-gradient-to-r from-yellow-400 to-amber-500 text-gray-900 font-bold rounded-xl hover:from-yellow-500 hover:to-amber-600 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 group"
+              >
+                <svg class="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                </svg>
+                Démarrer le cours interactif
+              </router-link>
+              
+              <button 
+                @click="showDemo"
+                class="px-8 py-3.5 bg-white/20 backdrop-blur-sm text-white font-medium rounded-xl hover:bg-white/30 transition-colors border border-white/30"
+              >
+                Voir une démo
+              </button>
+            </div>
+            
+            <div class="grid grid-cols-3 gap-4 max-w-md mx-auto">
               <div class="text-center">
-                <h3 class="text-2xl font-bold text-gray-900 mb-4">Découvrez notre formation complète</h3>
-                <p class="text-gray-600 mb-6">
-                  Apprenez JavaScript de A à Z avec un parcours structuré, des projets concrets et un accompagnement personnalisé.
-                </p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                  <div class="bg-white rounded-lg p-4 border border-gray-200">
-                    <div class="text-blue-600 font-semibold mb-2">🎯</div>
-                    <h4 class="font-semibold text-gray-900 mb-2">Parcours guidé</h4>
-                    <p class="text-sm text-gray-600">20 chapitres progressifs avec exercices</p>
-                  </div>
-                  <div class="bg-white rounded-lg p-4 border border-gray-200">
-                    <div class="text-green-600 font-semibold mb-2">🚀</div>
-                    <h4 class="font-semibold text-gray-900 mb-2">Projets réels</h4>
-                    <p class="text-sm text-gray-600">10 applications complètes à réaliser</p>
-                  </div>
-                  <div class="bg-white rounded-lg p-4 border border-gray-200">
-                    <div class="text-purple-600 font-semibold mb-2">👨‍🏫</div>
-                    <h4 class="font-semibold text-gray-900 mb-2">Support expert</h4>
-                    <p class="text-sm text-gray-600">Réponses à vos questions en 24h</p>
-                  </div>
-                </div>
-                
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                  <button 
-                    @click="showInfo('formation')"
-                    class="bg-yellow-500 text-white px-8 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition-colors"
-                  >
-                    Découvrir la formation
-                  </button>
-                  <button 
-                    @click="showInfo('contact')"
-                    class="bg-white text-gray-700 border border-gray-300 px-8 py-3 rounded-lg font-semibold hover:bg-gray-50 transition-colors"
-                  >
-                    Poser une question
-                  </button>
-                </div>
+                <div class="text-2xl font-bold">38</div>
+                <div class="text-xs text-blue-200">Chapitres</div>
+              </div>
+              <div class="text-center">
+                <div class="text-2xl font-bold">150+</div>
+                <div class="text-xs text-blue-200">Exercices</div>
+              </div>
+              <div class="text-center">
+                <div class="text-2xl font-bold">6</div>
+                <div class="text-xs text-blue-200">Niveaux</div>
               </div>
             </div>
           </section>
         </div>
 
-        <!-- Sidebar -->
+        <!-- Sidebar - Version améliorée -->
         <div class="lg:col-span-1">
           <div class="sticky top-32 space-y-6">
             <!-- Explorer plus -->
-            <div class="bg-white border border-gray-200 rounded-lg p-6">
-              <h3 class="text-lg font-semibold text-gray-900 mb-4">À découvrir</h3>
-              <p class="text-sm text-gray-600 mb-4">
-                Des ressources pour approfondir vos connaissances :
-              </p>
+            <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+              <h3 class="text-lg font-bold text-gray-900 mb-4">📌 Explorer plus</h3>
               <div class="space-y-3">
-                <button 
-                  @click="showInfo('cours')"
-                  class="w-full flex items-center justify-between bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-200 text-blue-700 py-3 px-4 rounded-lg font-medium hover:from-blue-100 hover:to-blue-200 transition-all group"
+                <router-link 
+                  to="/javascript/cours"
+                  class="flex items-center justify-between bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-200 text-blue-700 py-3 px-4 rounded-lg font-medium hover:from-blue-100 hover:to-blue-200 transition-all group"
                 >
                   <div class="flex items-center">
                     <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
                     </svg>
-                    <span>Cours complet</span>
+                    <span>Cours interactif</span>
                   </div>
                   <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
                   </svg>
-                </button>
-                
-                <button 
-                  @click="showInfo('projets')"
-                  class="w-full flex items-center justify-between bg-gradient-to-r from-green-50 to-green-100 border border-green-200 text-green-700 py-3 px-4 rounded-lg font-medium hover:from-green-100 hover:to-green-200 transition-all group"
-                >
-                  <div class="flex items-center">
-                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-                    </svg>
-                    <span>Projets avancés</span>
-                  </div>
-                  <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                  </svg>
-                </button>
-                
-                <button 
-                  @click="showInfo('exercices')"
-                  class="w-full flex items-center justify-between bg-gradient-to-r from-purple-50 to-purple-100 border border-purple-200 text-purple-700 py-3 px-4 rounded-lg font-medium hover:from-purple-100 hover:to-purple-200 transition-all group"
-                >
-                  <div class="flex items-center">
-                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
-                    </svg>
-                    <span>Exercices interactifs</span>
-                  </div>
-                  <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                  </svg>
-                </button>
+                </router-link>
               </div>
               
               <div class="mt-4 pt-4 border-t border-gray-200">
                 <p class="text-xs text-gray-500 text-center">
-                  Cliquez pour découvrir ce que nous proposons
+                  Cliquez pour découvrir le cours interactif
                 </p>
               </div>
-            </div>
-
-            <!-- Progression -->
-            <div class="bg-white border border-gray-200 rounded-lg p-6">
-              <h3 class="text-lg font-semibold text-gray-900 mb-4">Votre progression</h3>
-              <div class="space-y-4">
-                <div>
-                  <div class="flex justify-between text-sm text-gray-600 mb-1">
-                    <span>Les bases</span>
-                    <span>25%</span>
-                  </div>
-                  <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
-                    <div class="h-full bg-blue-600 rounded-full" style="width: 25%"></div>
-                  </div>
-                </div>
-                <div>
-                  <div class="flex justify-between text-sm text-gray-600 mb-1">
-                    <span>DOM & Événements</span>
-                    <span>10%</span>
-                  </div>
-                  <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
-                    <div class="h-full bg-blue-600 rounded-full" style="width: 10%"></div>
-                  </div>
-                </div>
-                <div>
-                  <div class="flex justify-between text-sm text-gray-600 mb-1">
-                    <span>Asynchrone</span>
-                    <span>0%</span>
-                  </div>
-                  <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
-                    <div class="h-full bg-gray-300 rounded-full" style="width: 0%"></div>
-                  </div>
-                </div>
-              </div>
-              <button @click="scrollTo('bases')" class="w-full mt-6 bg-gray-100 text-gray-700 py-2.5 rounded-lg font-medium hover:bg-gray-200 transition-colors text-sm focus:outline-none">
-                Reprendre mon apprentissage
-              </button>
-            </div>
-
-            <!-- Quiz rapide -->
-            <div class="bg-white border border-gray-200 rounded-lg p-6">
-              <h3 class="text-lg font-semibold text-gray-900 mb-4">Quiz rapide</h3>
-              <div class="bg-gray-50 rounded-lg p-4 mb-4">
-                <p class="text-sm font-medium text-gray-900 mb-3">
-                  Quelle est la différence entre <code class="bg-gray-200 px-1 rounded">let</code> et <code class="bg-gray-200 px-1 rounded">const</code> ?
-                </p>
-                <div class="space-y-2">
-                  <label class="flex items-center text-sm text-gray-700 cursor-pointer">
-                    <input type="radio" name="quiz" value="1" v-model="quizAnswer" class="mr-2">
-                    <span>Aucune différence</span>
-                  </label>
-                  <label class="flex items-center text-sm text-gray-700 cursor-pointer">
-                    <input type="radio" name="quiz" value="2" v-model="quizAnswer" class="mr-2">
-                    <span><code>let</code> ne peut pas être réassigné</span>
-                  </label>
-                  <label class="flex items-center text-sm text-gray-700 cursor-pointer">
-                    <input type="radio" name="quiz" value="3" v-model="quizAnswer" class="mr-2">
-                    <span><code>const</code> ne peut pas être réassigné</span>
-                  </label>
-                </div>
-              </div>
-              <button @click="checkQuiz" class="w-full bg-blue-600 text-white py-2.5 rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm focus:outline-none">
-                Vérifier la réponse
-              </button>
             </div>
 
             <!-- Conseils -->
-            <div class="bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <div class="bg-gradient-to-r from-yellow-50 to-amber-50 border border-yellow-200 rounded-xl p-6">
               <div class="flex items-start">
-                <svg class="w-5 h-5 text-blue-600 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
-                </svg>
+                <div class="w-10 h-10 bg-gradient-to-br from-yellow-500 to-amber-600 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
+                  <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </div>
                 <div>
-                  <p class="text-sm font-medium text-blue-800 mb-1">Conseil Pro</p>
-                  <p class="text-xs text-blue-700">
-                    Maîtrisez ES6+ (const/let, arrow functions, destructuring) avant de passer aux frameworks comme React ou Vue.
+                  <p class="text-sm font-bold text-gray-900 mb-1">Astuce Pro</p>
+                  <p class="text-xs text-gray-700">
+                    Maîtrisez ES6+ avant de passer aux frameworks comme React ou Vue.
                   </p>
                 </div>
               </div>
@@ -647,19 +521,17 @@ const ville = personne?.adresse?.ville;</pre>
 
 <script>
 export default {
-  name: 'JavaScriptPage',
+  name: 'JavaScriptLandingPage',
   data() {
     return {
-      showModal: false,
       quizAnswer: null
     }
   },
   methods: {
-    // Méthode pour le défilement fluide
     scrollTo(id) {
       const element = document.getElementById(id);
       if (element) {
-        const offset = 100; // Ajustement pour le header fixe
+        const offset = 100;
         const elementPosition = element.getBoundingClientRect().top;
         const offsetPosition = elementPosition + window.pageYOffset - offset;
 
@@ -668,60 +540,36 @@ export default {
           behavior: 'smooth'
         });
         
-        // Mettre à jour l'URL sans recharger la page
         history.pushState(null, null, `#${id}`);
       }
     },
     
-    // Méthode pour télécharger les fichiers PDF
     downloadPDF(filename) {
-      // Chemin vers les fichiers dans le dossier public
-      const filePath = `/pdf/langages/javascript/${filename}`;
+      // En production :
+      // const filePath = `/pdf/javascript/${filename}`;
+      // const link = document.createElement('a');
+      // link.href = filePath;
+      // link.download = filename;
+      // link.click();
       
-      // Créer un lien temporaire pour le téléchargement
-      const link = document.createElement('a');
-      link.href = filePath;
-      link.download = filename;
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-      
-      // Afficher une notification
-      this.showNotification(`Téléchargement de ${filename} commencé`);
+      // Pour l'instant, simulation
+      alert(`✅ Téléchargement de "${filename}" démarré !`);
     },
     
-    // Méthode pour vérifier le quiz
     checkQuiz() {
       if (this.quizAnswer === '3') {
-        this.showNotification('✅ Bonne réponse ! const ne peut pas être réassigné, alors que let peut l\'être.', 'success');
+        alert('🎉 Bravo ! const ne peut pas être réassigné, alors que let peut l\'être.');
       } else if (this.quizAnswer) {
-        this.showNotification('❌ Réponse incorrecte. La bonne réponse est: const ne peut pas être réassigné.', 'error');
+        alert('❌ Presque ! La bonne réponse est : const ne peut pas être réassigné.');
       } else {
-        this.showNotification('⚠️ Veuillez sélectionner une réponse.', 'warning');
+        alert('⚠️ Sélectionnez une réponse avant de vérifier.');
       }
     },
     
-    // Méthode pour afficher des notifications
-    showNotification(message, type = 'info') {
-      alert(message);
+    showDemo() {
+      alert("🎬 Découvrez notre cours interactif avec :\n\n✅ 38 chapitres progressifs\n✅ Quiz après chaque chapitre\n✅ Progression sauvegardée\n✅ Interface moderne et intuitive\n✅ Support complet\n\nCliquez sur 'Démarrer le cours interactif' pour commencer !");
     },
     
-    // Méthode pour montrer des infos sur les options
-    showInfo(type) {
-      const messages = {
-        cours: "📚 Notre cours complet JavaScript comprend :\n• 20 chapitres progressifs\n• 100+ exercices pratiques\n• 5 projets concrets\n• Accès à une communauté d'entraide\n• Certificat de fin de formation\n\nIntéressé(e) ? Contactez-nous pour en savoir plus !",
-        projets: "🚀 Projets avancés à réaliser :\n• Application météo en temps réel\n• To-Do List avec stockage local\n• Calculateur d'IMC interactif\n• Jeu du pendu en JavaScript\n• Générateur de citations aléatoires\n• Portfolio personnel dynamique\n\nParfait pour mettre en pratique vos connaissances !",
-        exercices: "🧠 Exercices interactifs :\n• Quiz avec correction immédiate\n• Challenges de code en ligne\n• Exercices corrigés étape par étape\n• Tests de niveau personnalisés\n• Mini-projets guidés\n\nIdéal pour renforcer votre apprentissage !",
-        formation: "🎓 Formation complète JavaScript :\n\n✅ Parcours structuré de A à Z\n✅ 50+ heures de contenu\n✅ 10 projets pratiques\n✅ Support expert illimité\n✅ Accès à vie\n✅ Certificat de réussite\n\nContactez-nous pour les modalités et tarifs !",
-        contact: "💬 Vous avez une question ?\n\nNous sommes là pour vous aider :\n• Choix de la formation adaptée\n• Difficultés techniques\n• Questions sur JavaScript\n• Projets personnels\n\nEnvoyez-nous un message :\n📧 7bhilal.chitou7@gmail.com\n📱 WhatsApp : +229 98 87 40 19"
-      };
-      
-      if (messages[type]) {
-        alert(messages[type]);
-      }
-    },
-    
-    // Initialiser le défilement depuis l'URL
     initScrollFromUrl() {
       if (window.location.hash) {
         const hash = window.location.hash.replace('#', '');
@@ -732,10 +580,7 @@ export default {
     }
   },
   mounted() {
-    // Initialiser le défilement depuis l'URL au chargement
     this.initScrollFromUrl();
-    
-    // Écouter les changements d'URL
     window.addEventListener('hashchange', () => {
       this.initScrollFromUrl();
     });
@@ -752,34 +597,28 @@ export default {
   min-height: 100vh;
 }
 
-/* Styles pour la navigation */
-nav button {
-  cursor: pointer;
-}
-
-/* Amélioration du focus pour l'accessibilité */
-button:focus, a:focus {
-  outline: 2px solid #2563eb;
-  outline-offset: 2px;
-}
-
-/* Styles pour les boutons radio */
-input[type="radio"] {
-  cursor: pointer;
-}
-
-/* Styles pour les liens */
-a {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
 /* Styles pour le code */
 code {
   font-family: 'Courier New', Courier, monospace;
   font-size: 0.875em;
+}
+
+/* Effets d'ombre et transitions */
+.hover\:shadow-xl:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.transition-all {
+  transition: all 0.3s ease;
+}
+
+/* Styling des inputs radio */
+input[type="radio"] {
+  accent-color: #3B82F6;
+}
+
+/* Animation pour les cartes */
+.hover\:-translate-y-1:hover {
+  transform: translateY(-4px);
 }
 </style>
