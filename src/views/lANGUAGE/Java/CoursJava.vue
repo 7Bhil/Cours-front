@@ -1,85 +1,82 @@
 <template>
-  <!-- Le même template que précédemment, mais simplifié ici pour la clarté -->
-  <div class="min-h-screen bg-gradient-to-b from-emerald-50 to-gray-50">
+  <div class="min-h-screen bg-gradient-to-b from-blue-50 to-gray-50">
     <!-- Header responsive -->
-    <header class="fixed z-10 w-full bg-gradient-to-r from-emerald-600 to-emerald-800 text-white shadow-lg">
-  <div class="container mx-auto px-4 py-3 sm:py-4">
-    <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-      <!-- Logo et titre AVEC BOUTON RETOUR -->
-      <div class="flex items-center justify-between">
-        <div class="flex items-center space-x-2">
-          <!-- Bouton Retour -->
-          <Router-Link 
-            to="/python"
-            class="w-8 h-8 sm:w-10 sm:h-10 bg-emerald-900/30 backdrop-blur-sm rounded-lg sm:rounded-xl flex items-center justify-center hover:bg-emerald-900/40 transition-all group mr-1"
-            title="Retour à l'accueil"
-          >
-            <svg class="w-4 h-4 sm:w-5 sm:h-5 text-emerald-100 group-hover:scale-110 transition-transform" 
-                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
-            </svg>
-          </Router-Link>
-          
-          <!-- Logo Python -->
-          <div class="flex items-center space-x-3">
-            <div class="w-8 h-8 sm:w-10 sm:h-10 bg-green-500 backdrop-blur-sm rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg border border-emerald-400/30 group hover:shadow-emerald-400/20 hover:scale-105 transition-all">
-              <svg class="w-6 h-6 text-green-100" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/>
+    <header class="fixed z-10 w-full bg-gradient-to-r from-red-600 to-red-800 text-white shadow-lg">
+      <div class="container mx-auto px-4 py-3 sm:py-4">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+          <!-- Logo et titre AVEC BOUTON RETOUR -->
+          <div class="flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+              <!-- Bouton Retour -->
+              <Router-Link 
+                to="/java"
+                class="w-8 h-8 sm:w-10 sm:h-10 bg-red-900/30 backdrop-blur-sm rounded-lg sm:rounded-xl flex items-center justify-center hover:bg-red-900/40 transition-all group mr-1"
+                title="Retour aux langages"
+              >
+                <svg class="w-4 h-4 sm:w-5 sm:h-5 text-red-100 group-hover:scale-110 transition-transform" 
+                     fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+                </svg>
+              </Router-Link>
+              
+              <!-- Logo Java -->
+              <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 sm:w-10 sm:h-10 bg-gradient-to-br from-red-500 to-red-700 backdrop-blur-sm rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg border border-red-400/30 group hover:shadow-red-400/20 hover:scale-105 transition-all">
+                  <svg class="w-12 h-12 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8.851 18.56s-.917.534.653.714c1.902.218 2.874.187 4.969-.211 0 0 .552.346 1.321.646-4.699 2.013-10.633-.118-6.943-1.149M8.276 15.933s-1.028.761.542.924c2.032.209 3.636.227 6.413-.308 0 0 .384.389.987.602-5.679 1.661-12.007.13-7.942-1.218M13.116 11.475c1.158 1.333-.304 2.533-.304 2.533s2.939-1.518 1.589-3.418c-1.261-1.772-2.228-2.652 3.007-5.688 0-.001-8.216 2.051-4.292 6.573M19.33 20.504s.679.559-.747.991c-2.712.822-11.288 1.069-13.669.033-.856-.373.75-.89 1.254-.998.527-.114.828-.093.828-.093-.953-.671-6.156 1.317-2.643 1.887 9.58 1.553 17.462-.7 14.977-1.82M9.292 13.21s-4.362 1.036-1.544 1.412c1.189.159 3.561.123 5.77-.062 1.806-.152 3.618-.477 3.618-.477s-.637.272-1.098.587c-4.429 1.165-12.986.623-10.522-.568 2.082-1.006 3.776-.892 3.776-.892M17.116 17.584c4.503-2.34 2.421-4.589.968-4.285-.355.074-.515.138-.515.138s.132-.207.385-.297c2.875-1.011 5.086 2.981-.928 4.562 0-.001.07-.062.09-.118M14.401 0s2.494 2.494-2.365 6.33c-3.896 3.077-.888 4.832-.001 6.836-2.274-2.053-3.943-3.858-2.824-5.539 1.644-2.469 6.197-3.665 5.19-7.627M9.734 23.924c4.322.277 10.959-.153 11.116-2.198 0 0-.302.775-3.572 1.391-3.688.694-8.239.613-10.937.168 0-.001.553.457 3.393.639"/>
+                </svg>
+                </div>
+                <div>
+                  <h1 class="text-lg sm:text-xl font-bold tracking-tight">Java Masterclass</h1>
+                  <p class="text-xs sm:text-sm text-red-200/90">
+                    {{ totalChapters }} chapitres • {{ currentLevel.subtitle || 'Formation complète' }}
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Menu mobile -->
+            <button @click="mobileMenuOpen = true" class="sm:hidden p-2 hover:bg-red-700/50 rounded-lg transition-colors">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
               </svg>
+            </button>
+          </div>
+          
+          <!-- Progression -->
+          <div class="flex items-center justify-between sm:justify-center gap-4">
+            <div class="flex-1 sm:flex-none flex items-center space-x-2">
+              <div class="hidden sm:block text-sm text-red-100">Progression</div>
+              <div class="flex-1 sm:w-32 bg-red-900/30 rounded-full h-2">
+                <div 
+                  class="h-full bg-gradient-to-r from-red-400 to-red-300 rounded-full transition-all duration-700 shadow-inner"
+                  :style="{ width: progressPercentage + '%' }"
+                ></div>
+              </div>
+              <span class="text-sm font-medium min-w-[40px] text-white">{{ progressPercentage }}%</span>
             </div>
-            <div>
-              <h1 class="text-lg sm:text-xl font-bold tracking-tight">Python Masterclass</h1>
-              <p class="text-xs sm:text-sm text-emerald-200/90">
-                {{ totalChapters }} chapitres • {{ currentLevel.subtitle || 'Formation complète' }}
-              </p>
+            
+            <!-- Stats -->
+            <div class="flex items-center space-x-3 sm:space-x-4">
+              <div class="text-center hidden sm:block">
+                <div class="text-lg font-bold text-white">{{ completedCount }}</div>
+                <div class="text-xs text-red-200/90">Terminés</div>
+              </div>
+              <div class="text-center hidden sm:block">
+                <div class="text-lg font-bold text-white">{{ totalChapters }}</div>
+                <div class="text-xs text-red-200/90">Chapitres</div>
+              </div>
+              <!-- Stats mobiles -->
+              <div class="flex items-center space-x-2 sm:hidden">
+                <span class="px-2 py-1 bg-red-900/30 rounded text-xs text-red-100 backdrop-blur-sm">
+                  {{ completedCount }}/{{ totalChapters }}
+                </span>
+              </div>
             </div>
-          </div>
-        </div>
-        
-        <!-- Menu mobile -->
-        <button @click="mobileMenuOpen = true" class="sm:hidden p-2 hover:bg-emerald-700/50 rounded-lg transition-colors">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
-        </button>
-      </div>
-      
-      <!-- Progression -->
-      <div class="flex items-center justify-between sm:justify-center gap-4">
-        <div class="flex-1 sm:flex-none flex items-center space-x-2">
-          <div class="hidden sm:block text-sm text-emerald-100">Progression</div>
-          <div class="flex-1 sm:w-32 bg-emerald-900/30 rounded-full h-2">
-            <div 
-              class="h-full bg-gradient-to-r from-emerald-400 to-emerald-300 rounded-full transition-all duration-700 shadow-inner"
-              :style="{ width: progressPercentage + '%' }"
-            ></div>
-          </div>
-          <span class="text-sm font-medium min-w-[40px] text-white">{{ progressPercentage }}%</span>
-        </div>
-        
-        <!-- Stats -->
-        <div class="flex items-center space-x-3 sm:space-x-4">
-          <div class="text-center hidden sm:block">
-            <div class="text-lg font-bold text-white">{{ completedCount }}</div>
-            <div class="text-xs text-emerald-200/90">Terminés</div>
-          </div>
-          <div class="text-center hidden sm:block">
-            <div class="text-lg font-bold text-white">{{ totalChapters }}</div>
-            <div class="text-xs text-emerald-200/90">Chapitres</div>
-          </div>
-          <!-- Stats mobiles -->
-          <div class="flex items-center space-x-2 sm:hidden">
-            <span class="px-2 py-1 bg-emerald-900/30 rounded text-xs text-emerald-100 backdrop-blur-sm">
-              {{ completedCount }}/{{ totalChapters }}
-            </span>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-</header>
-
-
+    </header>
 
     <div class="pt-28 container mx-auto px-4 py-6">
       <div class="flex flex-col lg:flex-row gap-6">
@@ -98,7 +95,7 @@
               <!-- En-tête -->
               <div class="flex items-center justify-between mb-6">
                 <div>
-                  <h2 class="text-lg font-bold text-gray-800">Menu Python</h2>
+                  <h2 class="text-lg font-bold text-gray-800">Menu Java</h2>
                   <p class="text-sm text-gray-600">Navigation</p>
                 </div>
                 <button @click="mobileMenuOpen = false" class="p-2">
@@ -117,7 +114,7 @@
                     :class="[
                       'p-3 rounded-lg cursor-pointer transition-all',
                       selectedLevel === levelIndex 
-                        ? 'bg-emerald-50 border border-emerald-200' 
+                        ? 'bg-red-50 border border-red-200' 
                         : 'hover:bg-gray-50'
                     ]"
                   >
@@ -155,7 +152,7 @@
                         <div v-if="chapter.completed" class="text-green-500">
                           ✓
                         </div>
-                        <div v-else-if="chapter.unlocked" class="text-emerald-500">
+                        <div v-else-if="chapter.unlocked" class="text-red-500">
                           {{ chapter.icon || getChapterNumber(levelIndex, chapterIndex) }}
                         </div>
                         <div v-else class="text-gray-400">
@@ -188,7 +185,7 @@
                   :class="[
                     'w-full px-4 py-2 text-sm font-medium rounded-lg border transition-all',
                     hasNextChapter
-                      ? 'bg-emerald-600 text-white border-emerald-600 hover:bg-emerald-700'
+                      ? 'bg-red-600 text-white border-red-600 hover:bg-red-700'
                       : 'bg-gray-400 text-white border-gray-400 cursor-not-allowed'
                   ]"
                 >
@@ -203,9 +200,9 @@
         <aside class="hidden lg:block lg:w-1/3 xl:w-1/4">
           <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden sticky top-6">
             <!-- En-tête sidebar -->
-            <div class="bg-gradient-to-r from-emerald-600 to-emerald-700 p-4">
-              <h2 class="text-lg font-bold text-white">Parcours Python</h2>
-              <p class="text-emerald-100 text-sm">{{ currentLevel.name }} • {{ getLevelProgress(selectedLevel) }}% complété</p>
+            <div class="bg-gradient-to-r from-red-600 to-red-700 p-4">
+              <h2 class="text-lg font-bold text-white">Parcours Java</h2>
+              <p class="text-red-100 text-sm">{{ currentLevel.name }} • {{ getLevelProgress(selectedLevel) }}% complété</p>
             </div>
 
             <!-- Contenu sidebar -->
@@ -217,7 +214,7 @@
                   :class="[
                     'flex items-center justify-between p-3 rounded-lg cursor-pointer transition-all mb-2',
                     selectedLevel === levelIndex 
-                      ? 'bg-emerald-50 border border-emerald-200' 
+                      ? 'bg-red-50 border border-red-200' 
                       : 'hover:bg-gray-50'
                   ]"
                 >
@@ -264,7 +261,7 @@
                           </svg>
                         </div>
                         <div v-else-if="chapter.unlocked" 
-                             class="w-6 h-6 bg-emerald-500 rounded-md flex items-center justify-center text-white text-xs font-bold">
+                             class="w-6 h-6 bg-red-500 rounded-md flex items-center justify-center text-white text-xs font-bold">
                           {{ chapter.icon || getChapterNumber(levelIndex, chapterIndex) }}
                         </div>
                         <div v-else 
@@ -277,7 +274,7 @@
 
                       <!-- Info chapitre -->
                       <div class="flex-1 min-w-0">
-                        <h4 class="text-xs font-medium text-gray-800 truncate group-hover:text-emerald-600">
+                        <h4 class="text-xs font-medium text-gray-800 truncate group-hover:text-red-600">
                           {{ chapter.title }}
                         </h4>
                         <div class="flex items-center text-xs text-gray-500">
@@ -316,7 +313,7 @@
                   :class="[
                     'flex-1 px-3 py-2 text-sm font-medium rounded-lg border transition-all flex items-center justify-center',
                     hasNextChapter
-                      ? 'bg-emerald-600 text-white border-emerald-600 hover:bg-emerald-700'
+                      ? 'bg-red-600 text-white border-red-600 hover:bg-red-700'
                       : 'bg-gray-400 text-white border-gray-400 cursor-not-allowed'
                   ]"
                 >
@@ -334,20 +331,20 @@
         <main class="flex-1">
           <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
             <!-- Header du contenu -->
-            <div class="bg-gradient-to-r from-emerald-50 to-emerald-100 p-4 sm:p-6 border-b border-gray-200">
+            <div class="bg-gradient-to-r from-red-50 to-red-100 p-4 sm:p-6 border-b border-gray-200">
               <div class="space-y-4">
                 <!-- Breadcrumb -->
                 <div class="flex flex-wrap items-center gap-2">
                   <button 
                     @click="mobileMenuOpen = true"
-                    class="lg:hidden flex items-center gap-1 px-3 py-1.5 bg-emerald-600 text-white text-xs font-medium rounded-lg"
+                    class="lg:hidden flex items-center gap-1 px-3 py-1.5 bg-red-600 text-white text-xs font-medium rounded-lg"
                   >
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
                     </svg>
                     Menu
                   </button>
-                  <span class="px-3 py-1.5 bg-emerald-600 text-white text-xs font-medium rounded-lg">
+                  <span class="px-3 py-1.5 bg-red-600 text-white text-xs font-medium rounded-lg">
                     {{ currentLevel.name }}
                   </span>
                   <span class="text-gray-400">/</span>
@@ -360,7 +357,7 @@
                 <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
                   <div class="flex-1">
                     <div class="flex items-start gap-3">
-                      <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-lg sm:rounded-xl flex items-center justify-center text-white font-bold text-lg sm:text-xl">
+                      <div class="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-red-500 to-red-600 rounded-lg sm:rounded-xl flex items-center justify-center text-white font-bold text-lg sm:text-xl">
                         {{ currentChapter.icon || currentChapterNumber }}
                       </div>
                       <div>
@@ -397,9 +394,9 @@
 
                 <!-- Métriques -->
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                  <div class="bg-emerald-50 p-3 rounded-lg border border-emerald-200">
+                  <div class="bg-red-50 p-3 rounded-lg border border-red-200">
                     <div class="flex items-center gap-2">
-                      <div class="w-8 h-8 bg-emerald-500 rounded-md flex items-center justify-center">
+                      <div class="w-8 h-8 bg-red-500 rounded-md flex items-center justify-center">
                         <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
@@ -472,7 +469,7 @@
                 <!-- Théorie -->
                 <section class="space-y-4">
                   <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 bg-emerald-500 rounded-lg flex items-center justify-center">
+                    <div class="w-10 h-10 bg-red-500 rounded-lg flex items-center justify-center">
                       <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                       </svg>
@@ -534,14 +531,14 @@
                 <section class="text-center py-6 sm:py-8">
                   <div class="max-w-md mx-auto">
                     <div class="mb-4 sm:mb-6">
-                      <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                      <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
                         <span class="text-2xl sm:text-3xl">🎯</span>
                       </div>
                       <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Validation des connaissances</h3>
                       <p class="text-gray-600 text-sm sm:text-base mb-2">
                         Testez votre compréhension avec {{ currentChapter.quiz?.length || 0 }} questions.
                       </p>
-                      <p class="text-xs sm:text-sm text-emerald-600 font-medium">
+                      <p class="text-xs sm:text-sm text-red-600 font-medium">
                         ✓ Score minimum requis : 70%
                       </p>
                     </div>
@@ -550,7 +547,7 @@
                       @click="startQuiz"
                       :disabled="!currentChapter.quiz || currentChapter.quiz.length === 0"
                       :class="[
-                        'inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-emerald-600 to-emerald-700 text-white font-bold rounded-lg sm:rounded-xl hover:from-emerald-700 hover:to-emerald-800 transition-all duration-300 hover:shadow-lg text-sm sm:text-base',
+                        'inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-red-600 to-red-700 text-white font-bold rounded-lg sm:rounded-xl hover:from-red-700 hover:to-red-800 transition-all duration-300 hover:shadow-lg text-sm sm:text-base',
                         (!currentChapter.quiz || currentChapter.quiz.length === 0) && 'opacity-50 cursor-not-allowed'
                       ]"
                     >
@@ -578,7 +575,7 @@
            'fixed bottom-4 left-1/2 transform -translate-x-1/2 px-4 py-3 rounded-lg shadow-lg z-50 transition-all duration-300',
            toast.type === 'success' ? 'bg-green-500 text-white' :
            toast.type === 'error' ? 'bg-red-500 text-white' :
-           'bg-emerald-500 text-white'
+           'bg-red-500 text-white'
          ]">
       {{ toast.message }}
     </div>
@@ -587,12 +584,23 @@
 
 <script setup>
 import { ref, computed, onMounted } from 'vue'
-import QuizInterface from '../../../components/QuizInterface.vue'
-
-// Importation de TES données depuis ton fichier
-import { COURSE_LEVELS, getProgress } from '@/data/python-courses'
-import Python from '@/views/lANGUAGE/Python/Python.vue'
+import QuizInterface from '@/components/QuizInterface.vue'
+import { COURSE_LEVELS } from '@/data/java-courses'
 import C from '@/views/lANGUAGE/C/C.vue'
+
+// Fonction pour calculer la progression
+function getProgress(levels) {
+  const totalChapters = levels.reduce((sum, level) => sum + level.chapters.length, 0)
+  const completedChapters = levels.reduce((sum, level) => 
+    sum + level.chapters.filter(ch => ch.completed).length, 0
+  )
+  
+  return {
+    completed: completedChapters,
+    total: totalChapters,
+    percentage: totalChapters > 0 ? Math.round((completedChapters / totalChapters) * 100) : 0
+  }
+}
 
 // État
 const selectedLevel = ref(0)
@@ -646,7 +654,6 @@ const hasNextChapter = computed(() => {
 
 // Méthodes
 function getLevelColor(level) {
-  // Utilise les couleurs définies dans tes données
   const colorMap = {
     'emerald': '#10B981',
     'blue': '#3B82F6', 
@@ -657,7 +664,7 @@ function getLevelColor(level) {
     'pink': '#EC4899',
     'indigo': '#6366F1'
   }
-  return colorMap[level.color] || colorMap.emerald
+  return colorMap[level.color] || colorMap.red // Par défaut rouge pour Java
 }
 
 function getLevelProgress(levelIndex) {
@@ -805,11 +812,11 @@ function saveProgress() {
     timestamp: new Date().toISOString()
   }
   
-  localStorage.setItem('python-courses-progress', JSON.stringify(progress))
+  localStorage.setItem('java-courses-progress', JSON.stringify(progress))
 }
 
 function loadProgress() {
-  const saved = localStorage.getItem('python-courses-progress')
+  const saved = localStorage.getItem('java-courses-progress')
   if (saved) {
     try {
       const progress = JSON.parse(saved)
@@ -848,7 +855,6 @@ onMounted(() => {
 </script>
 
 <style scoped>
-/* Mêmes styles optimisés que précédemment */
 .content-prose :deep(*) {
   font-size: 0.875rem;
 }
@@ -858,7 +864,7 @@ onMounted(() => {
   font-weight: 700;
   margin-top: 1rem;
   margin-bottom: 0.5rem;
-  color: #065f46;
+  color: #7f1d1d;
 }
 
 .content-prose :deep(h2) {
@@ -866,7 +872,7 @@ onMounted(() => {
   font-weight: 600;
   margin-top: 0.75rem;
   margin-bottom: 0.5rem;
-  color: #047857;
+  color: #991b1b;
 }
 
 .content-prose :deep(h3) {
@@ -874,15 +880,15 @@ onMounted(() => {
   font-weight: 600;
   margin-top: 0.5rem;
   margin-bottom: 0.25rem;
-  color: #059669;
+  color: #dc2626;
 }
 
 .content-prose :deep(code) {
-  background-color: #d1fae5;
+  background-color: #fee2e2;
   padding: 0.125rem 0.25rem;
   border-radius: 0.125rem;
   font-size: 0.8125rem;
-  color: #065f46;
+  color: #7f1d1d;
   font-family: 'Courier New', monospace;
 }
 

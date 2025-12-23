@@ -66,634 +66,7 @@ export const COURSE_LEVELS = [
           <div class="space-y-6">
             <div class="bg-gray-900 rounded-xl p-5 overflow-hidden">
               <div class="flex items-center justify-between mb-4">
-                <div class="text-sm font-semibold text-gray-300">Exemple : Conditions en pratique</div>
-                <button class="text-xs text-blue-400 hover:text-blue-300 font-medium" @click="copyCode('exemple5')">
-                  Copier
-                </button>
-              </div>
-              <pre class="text-gray-200 text-sm overflow-x-auto"><code id="exemple5">public class Conditions {
-    public static void main(String[] args) {
-        // if/else/else if
-        int age = 20;
-        
-        if (age < 13) {
-            System.out.println("Enfant");
-        } else if (age < 18) {
-            System.out.println("Adolescent");
-        } else {
-            System.out.println("Adulte");
-        }
-        
-        // Switch classique
-        int jour = 3;
-        String nomJour;
-        
-        switch(jour) {
-            case 1:
-                nomJour = "Lundi";
-                break;
-            case 2:
-                nomJour = "Mardi";
-                break;
-            case 3:
-                nomJour = "Mercredi";
-                break;
-            default:
-                nomJour = "Autre jour";
-                break;
-        }
-        
-        // Switch expression (Java 14+)
-        String typeJour = switch(jour) {
-            case 1, 2, 3, 4, 5 -> "Jour de travail";
-            case 6, 7 -> "Weekend";
-            default -> "Jour invalide";
-        };
-        
-        // Opérateur ternaire
-        String statut = (age >= 18) ? "Majeur" : "Mineur";
-        
-        // Notes
-        int note = 85;
-        String mention;
-        
-        if (note >= 90) {
-            mention = "Excellent";
-        } else if (note >= 80) {
-            mention = "Très bien";
-        } else if (note >= 70) {
-            mention = "Bien";
-        } else if (note >= 60) {
-            mention = "Passable";
-        } else {
-            mention = "Insuffisant";
-        }
-        
-        System.out.println("Mention: " + mention);
-    }
-}</code></pre>
-              <div class="mt-4 pt-4 border-t border-gray-800">
-                <p class="text-sm text-gray-400">N'oubliez pas <code class="bg-gray-800 px-1 rounded">break</code> dans les switch classiques</p>
-              </div>
-            </div>
-          </div>
-        `,
-        keyPoints: [
-          "if/else pour conditions simples",
-          "switch pour multiples valeurs",
-          "Switch expressions (Java 14+)",
-          "Opérateur ternaire pour affectations conditionnelles"
-        ],
-        quiz: [
-          {
-            question: 'Que se passe-t-il si on oublie le break dans un switch ?',
-            options: ['Erreur de compilation', 'Fall-through : exécution des cas suivants', 'Rien, le break est optionnel', 'Le programme plante'],
-            correct: 1,
-            explanation: 'Sans break, l\'exécution continue dans les cas suivants (fall-through), ce qui est rarement voulu.'
-          },
-          {
-            question: 'Quelle version de Java a introduit les switch expressions ?',
-            options: ['Java 8', 'Java 11', 'Java 14', 'Java 17'],
-            correct: 2,
-            explanation: 'Les switch expressions avec -> ont été introduites en Java 14.'
-          },
-          {
-            question: 'Peut-on utiliser String dans un switch ?',
-            options: ['Non, seulement int', 'Oui, depuis Java 7', 'Non, seulement enum', 'Oui, depuis toujours'],
-            correct: 1,
-            explanation: 'Le switch avec String est supporté depuis Java 7.'
-          }
-        ]
-      },
-      {
-        id: "1.6",
-        title: "Boucles",
-        description: "for, while, do-while et enhanced for",
-        readTime: "18 min",
-        unlocked: false,
-        completed: false,
-        difficulty: "débutant",
-        icon: "🔄",
-        examplesCount: 4,
-        content: `
-          <div class="space-y-6">
-            <h3 class="text-xl font-bold text-gray-900">🔄 Boucles en Java</h3>
-            <p class="text-gray-700 leading-relaxed">
-              Les boucles permettent de répéter des instructions. Java propose plusieurs types de boucles.
-            </p>
-            
-            <div class="grid md:grid-cols-3 gap-4">
-              <div class="bg-blue-50 p-5 rounded-xl border border-blue-200">
-                <h4 class="font-bold text-blue-700 mb-3">for</h4>
-                <pre class="text-xs bg-white p-3 rounded"><code>for (int i = 0; i < 10; i++) {
-    // code
-}</code></pre>
-                <p class="text-sm text-gray-600 mt-2">Itérations comptées</p>
-              </div>
-              
-              <div class="bg-green-50 p-5 rounded-xl border border-green-200">
-                <h4 class="font-bold text-green-700 mb-3">while</h4>
-                <pre class="text-xs bg-white p-3 rounded"><code>while (condition) {
-    // code
-}</code></pre>
-                <p class="text-sm text-gray-600 mt-2">Condition en début</p>
-              </div>
-              
-              <div class="bg-purple-50 p-5 rounded-xl border border-purple-200">
-                <h4 class="font-bold text-purple-700 mb-3">for-each</h4>
-                <pre class="text-xs bg-white p-3 rounded"><code>for (Type item : collection) {
-    // code
-}</code></pre>
-                <p class="text-sm text-gray-600 mt-2">Itération sur collections</p>
-              </div>
-            </div>
-            
-            <div class="bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg">
-              <div class="flex items-center">
-                <div class="flex-shrink-0">
-                  <svg class="h-5 w-5 text-red-500" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
-                  </svg>
-                </div>
-                <div class="ml-3">
-                  <p class="text-sm text-red-700">
-                    <strong class="font-bold">Attention :</strong> Vérifiez toujours que votre condition de boucle finira par être fausse pour éviter les boucles infinies !
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        `,
-        examples: `
-          <div class="space-y-6">
-            <div class="bg-gray-900 rounded-xl p-5 overflow-hidden">
-              <div class="flex items-center justify-between mb-4">
-                <div class="text-sm font-semibold text-gray-300">Exemple : Différents types de boucles</div>
-                <button class="text-xs text-blue-400 hover:text-blue-300 font-medium" @click="copyCode('exemple6')">
-                  Copier
-                </button>
-              </div>
-              <pre class="text-gray-200 text-sm overflow-x-auto"><code id="exemple6">public class Boucles {
-    public static void main(String[] args) {
-        // Boucle for classique
-        for (int i = 0; i < 5; i++) {
-            System.out.println("Itération " + i);
-        }
-        
-        // Boucle for-each (enhanced for)
-        int[] nombres = {1, 2, 3, 4, 5};
-        for (int nombre : nombres) {
-            System.out.println("Nombre: " + nombre);
-        }
-        
-        // Boucle while
-        int compteur = 0;
-        while (compteur < 3) {
-            System.out.println("Compteur: " + compteur);
-            compteur++;
-        }
-        
-        // Boucle do-while (exécute au moins une fois)
-        int x = 0;
-        do {
-            System.out.println("x = " + x);
-            x++;
-        } while (x < 3);
-        
-        // Break et continue
-        for (int i = 0; i < 10; i++) {
-            if (i == 5) {
-                break; // Sort de la boucle
-            }
-            if (i % 2 == 0) {
-                continue; // Passe à l'itération suivante
-            }
-            System.out.println(i); // Affiche seulement les impairs
-        }
-        
-        // Boucles imbriquées
-        for (int i = 1; i <= 3; i++) {
-            for (int j = 1; j <= 3; j++) {
-                System.out.print(i + "x" + j + "=" + (i*j) + " ");
-            }
-            System.out.println();
-        }
-        
-        // Labels (étiquettes) pour boucles imbriquées
-        outer: for (int i = 0; i < 3; i++) {
-            for (int j = 0; j < 3; j++) {
-                if (i == 1 && j == 1) {
-                    break outer; // Sort de la boucle externe
-                }
-                System.out.println("i=" + i + ", j=" + j);
-            }
-        }
-    }
-}</code></pre>
-              <div class="mt-4 pt-4 border-t border-gray-800">
-                <p class="text-sm text-gray-400">La boucle for-each est préférable pour parcourir des collections (plus lisible)</p>
-              </div>
-            </div>
-          </div>
-        `,
-        keyPoints: [
-          "for pour itérations comptées",
-          "for-each pour parcourir collections",
-          "while pour conditions variables",
-          "break et continue pour contrôle de flux"
-        ],
-        quiz: [
-          {
-            question: 'Quelle est la différence entre while et do-while ?',
-            options: ['Aucune différence', 'do-while exécute le corps au moins une fois', 'while est plus rapide', 'do-while ne peut pas utiliser break'],
-            correct: 1,
-            explanation: 'do-while vérifie la condition après avoir exécuté le corps, garantissant au moins une exécution.'
-          },
-          {
-            question: 'Que fait l\'instruction continue dans une boucle ?',
-            options: ['Sort de la boucle', 'Passe à l\'itération suivante', 'Arrête le programme', 'Recommence depuis le début'],
-            correct: 1,
-            explanation: 'continue saute le reste du corps de la boucle et passe directement à l\'itération suivante.'
-          },
-          {
-            question: 'Peut-on modifier la variable d\'itération dans une boucle for-each ?',
-            options: ['Oui', 'Non, c\'est une copie', 'Seulement avec des objets', 'Seulement si déclarée final'],
-            correct: 1,
-            explanation: 'La variable dans un for-each est une copie, la modifier n\'affecte pas la collection originale.'
-          }
-        ]
-      },
-      {
-        id: "1.7",
-        title: "Tableaux (Arrays)",
-        description: "Déclaration, manipulation et tableaux multidimensionnels",
-        readTime: "16 min",
-        unlocked: false,
-        completed: false,
-        difficulty: "débutant",
-        icon: "📊",
-        examplesCount: 3,
-        content: `
-          <div class="space-y-6">
-            <h3 class="text-xl font-bold text-gray-900">📊 Les Tableaux en Java</h3>
-            <p class="text-gray-700 leading-relaxed">
-              Les tableaux sont des structures de données de taille fixe qui stockent des éléments du même type.
-            </p>
-            
-            <div class="grid md:grid-cols-2 gap-6">
-              <div class="bg-blue-50 p-5 rounded-xl border border-blue-200">
-                <h4 class="font-bold text-blue-700 mb-3">Déclaration</h4>
-                <pre class="text-sm bg-white p-3 rounded"><code>int[] nombres = new int[5];
-String[] noms = {"Alice", "Bob"};</code></pre>
-                <p class="text-sm text-gray-600 mt-2">Taille fixe, indexés à partir de 0</p>
-              </div>
-              
-              <div class="bg-green-50 p-5 rounded-xl border border-green-200">
-                <h4 class="font-bold text-green-700 mb-3">Accès et modification</h4>
-                <pre class="text-sm bg-white p-3 rounded"><code>nombres[0] = 42;
-int premier = nombres[0];
-int taille = nombres.length;</code></pre>
-                <p class="text-sm text-gray-600 mt-2">Accès direct par index</p>
-              </div>
-            </div>
-            
-            <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-r-lg">
-              <div class="flex items-center">
-                <div class="flex-shrink-0">
-                  <svg class="h-5 w-5 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
-                  </svg>
-                </div>
-                <div class="ml-3">
-                  <p class="text-sm text-yellow-700">
-                    <strong class="font-bold">Important :</strong> La taille d'un tableau est fixe. Pour une taille dynamique, utilisez <code>ArrayList</code>.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        `,
-        examples: `
-          <div class="space-y-6">
-            <div class="bg-gray-900 rounded-xl p-5 overflow-hidden">
-              <div class="flex items-center justify-between mb-4">
-                <div class="text-sm font-semibold text-gray-300">Exemple : Manipulation de tableaux</div>
-                <button class="text-xs text-blue-400 hover:text-blue-300 font-medium" @click="copyCode('exemple7')">
-                  Copier
-                </button>
-              </div>
-              <pre class="text-gray-200 text-sm overflow-x-auto"><code id="exemple7">import java.util.Arrays;
-
-public class Tableaux {
-    public static void main(String[] args) {
-        // Déclaration et initialisation
-        int[] nombres = new int[5];  // Tableau de 5 int initialisés à 0
-        String[] fruits = {"Pomme", "Banane", "Orange"};
-        
-        // Accès et modification
-        nombres[0] = 10;
-        nombres[1] = 20;
-        System.out.println("Premier: " + nombres[0]);
-        System.out.println("Taille: " + nombres.length);
-        
-        // Parcours avec for
-        for (int i = 0; i < fruits.length; i++) {
-            System.out.println(fruits[i]);
-        }
-        
-        // Parcours avec for-each
-        for (String fruit : fruits) {
-            System.out.println(fruit);
-        }
-        
-        // Tableaux multidimensionnels
-        int[][] matrice = {
-            {1, 2, 3},
-            {4, 5, 6},
-            {7, 8, 9}
-        };
-        
-        System.out.println("Element [1][2]: " + matrice[1][2]); // 6
-        
-        // Parcours de tableau 2D
-        for (int i = 0; i < matrice.length; i++) {
-            for (int j = 0; j < matrice[i].length; j++) {
-                System.out.print(matrice[i][j] + " ");
-            }
-            System.out.println();
-        }
-        
-        // Méthodes utiles de la classe Arrays
-        int[] nums = {5, 2, 8, 1, 9};
-        
-        Arrays.sort(nums);  // Tri
-        System.out.println("Trié: " + Arrays.toString(nums));
-        
-        int index = Arrays.binarySearch(nums, 8);  // Recherche (tableau trié)
-        System.out.println("Index de 8: " + index);
-        
-        int[] copie = Arrays.copyOf(nums, nums.length);  // Copie
-        
-        Arrays.fill(nombres, 42);  // Remplit tout le tableau avec 42
-        
-        boolean egaux = Arrays.equals(nums, copie);  // Comparaison
-        System.out.println("Égaux: " + egaux);
-        
-        // Tableau de tableaux (tailles différentes)
-        int[][] jagged = new int[3][];
-        jagged[0] = new int[]{1, 2};
-        jagged[1] = new int[]{3, 4, 5};
-        jagged[2] = new int[]{6};
-    }
-}</code></pre>
-              <div class="mt-4 pt-4 border-t border-gray-800">
-                <p class="text-sm text-gray-400">Utilisez <code class="bg-gray-800 px-1 rounded">Arrays.toString()</code> pour afficher facilement un tableau</p>
-              </div>
-            </div>
-          </div>
-        `,
-        keyPoints: [
-          "Taille fixe définie à la création",
-          "Indexés à partir de 0",
-          "length est une propriété, pas une méthode",
-          "Classe Arrays pour opérations utiles"
-        ],
-        quiz: [
-          {
-            question: 'Quel est l\'index du premier élément d\'un tableau ?',
-            options: ['1', '0', '-1', 'Dépend du type'],
-            correct: 1,
-            explanation: 'Les tableaux en Java sont indexés à partir de 0.'
-          },
-          {
-            question: 'Comment obtenir la taille d\'un tableau ?',
-            options: ['array.size()', 'array.length', 'array.length()', 'array.size'],
-            correct: 1,
-            explanation: 'length est une propriété publique (pas une méthode) des tableaux.'
-          },
-          {
-            question: 'Peut-on changer la taille d\'un tableau après sa création ?',
-            options: ['Oui, avec resize()', 'Oui, avec setSize()', 'Non, la taille est fixe', 'Seulement pour augmenter'],
-            correct: 2,
-            explanation: 'La taille d\'un tableau est fixe. Pour une taille dynamique, utilisez ArrayList.'
-          }
-        ]
-      }
-    ]
-  },
-  {
-    id: 2,
-    name: "NIVEAU 2",
-    subtitle: "Programmation Orientée Objet",
-    color: "blue",
-    icon: "🔵",
-    chapters: [
-      {
-        id: "2.1",
-        title: "Classes et Objets",
-        description: "Créer des classes, instancier des objets et comprendre l'encapsulation",
-        readTime: "25 min",
-        unlocked: false,
-        completed: false,
-        difficulty: "intermédiaire",
-        icon: "🎯",
-        examplesCount: 4,
-        content: `
-          <div class="space-y-6">
-            <h3 class="text-xl font-bold text-gray-900">🎯 Classes et Objets en Java</h3>
-            <p class="text-gray-700 leading-relaxed">
-              Java est un langage orienté objet. Les classes sont des modèles pour créer des objets.
-            </p>
-            
-            <div class="grid md:grid-cols-2 gap-6">
-              <div class="bg-blue-50 p-5 rounded-xl border border-blue-200">
-                <h4 class="font-bold text-blue-700 mb-3">Classe</h4>
-                <pre class="text-sm bg-white p-3 rounded"><code>public class Voiture {
-    // Attributs (propriétés)
-    private String marque;
-    private int vitesse;
-    
-    // Méthodes
-    public void accelerer() {
-        vitesse++;
-    }
-}</code></pre>
-                <p class="text-sm text-gray-600 mt-2">Modèle/Blueprint</p>
-              </div>
-              
-              <div class="bg-green-50 p-5 rounded-xl border border-green-200">
-                <h4 class="font-bold text-green-700 mb-3">Objet</h4>
-                <pre class="text-sm bg-white p-3 rounded"><code>// Instanciation
-Voiture maVoiture = new Voiture();
-
-// Utilisation
-maVoiture.accelerer();</code></pre>
-                <p class="text-sm text-gray-600 mt-2">Instance concrète</p>
-              </div>
-            </div>
-            
-            <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-r-lg">
-              <div class="flex items-center">
-                <div class="flex-shrink-0">
-                  <svg class="h-5 w-5 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
-                  </svg>
-                </div>
-                <div class="ml-3">
-                  <p class="text-sm text-yellow-700">
-                    <strong class="font-bold">Encapsulation :</strong> Les attributs doivent être <code>private</code> et accessibles via des getters/setters.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        `,
-        examples: `
-          <div class="space-y-6">
-            <div class="bg-gray-900 rounded-xl p-5 overflow-hidden">
-              <div class="flex items-center justify-between mb-4">
-                <div class="text-sm font-semibold text-gray-300">Exemple : Classe complète avec encapsulation</div>
-                <button class="text-xs text-blue-400 hover:text-blue-300 font-medium" @click="copyCode('exemple8')">
-                  Copier
-                </button>
-              </div>
-              <pre class="text-gray-200 text-sm overflow-x-auto"><code id="exemple8">public class Personne {
-    // Attributs privés (encapsulation)
-    private String nom;
-    private int age;
-    private String email;
-    
-    // Constructeur par défaut
-    public Personne() {
-        this.nom = "Inconnu";
-        this.age = 0;
-    }
-    
-    // Constructeur avec paramètres
-    public Personne(String nom, int age) {
-        this.nom = nom;
-        this.age = age;
-    }
-    
-    // Constructeur complet
-    public Personne(String nom, int age, String email) {
-        this.nom = nom;
-        this.age = age;
-        this.email = email;
-    }
-    
-    // Getters
-    public String getNom() {
-        return nom;
-    }
-    
-    public int getAge() {
-        return age;
-    }
-    
-    public String getEmail() {
-        return email;
-    }
-    
-    // Setters avec validation
-    public void setNom(String nom) {
-        if (nom != null && !nom.isEmpty()) {
-            this.nom = nom;
-        }
-    }
-    
-    public void setAge(int age) {
-        if (age >= 0 && age <= 150) {
-            this.age = age;
-        }
-    }
-    
-    public void setEmail(String email) {
-        this.email = email;
-    }
-    
-    // Méthodes métier
-    public void sePresenter() {
-        System.out.println("Bonjour, je m'appelle " + nom + 
-                          " et j'ai " + age + " ans.");
-    }
-    
-    public boolean estMajeur() {
-        return age >= 18;
-    }
-    
-    // Méthode toString (pour affichage)
-    @Override
-    public String toString() {
-        return "Personne{nom='" + nom + "', age=" + age + 
-               ", email='" + email + "'}";
-    }
-}
-
-// Utilisation
-public class Main {
-    public static void main(String[] args) {
-        // Création d'objets
-        Personne p1 = new Personne();
-        Personne p2 = new Personne("Alice", 25);
-        Personne p3 = new Personne("Bob", 30, "bob@email.com");
-        
-        // Utilisation des méthodes
-        p2.sePresenter();
-        System.out.println("Majeur? " + p2.estMajeur());
-        
-        // Utilisation des setters
-        p1.setNom("Charlie");
-        p1.setAge(20);
-        
-        // Utilisation des getters
-        System.out.println("Nom: " + p1.getNom());
-        System.out.println("Age: " + p1.getAge());
-        
-        // toString()
-        System.out.println(p3);
-    }
-}</code></pre>
-              <div class="mt-4 pt-4 border-t border-gray-800">
-                <p class="text-sm text-gray-400">Le mot-clé <code class="bg-gray-800 px-1 rounded">this</code> fait référence à l'instance courante</p>
-              </div>
-            </div>
-          </div>
-        `,
-        keyPoints: [
-          "Classe = modèle, Objet = instance",
-          "Encapsulation avec private/public",
-          "Constructeurs pour initialisation",
-          "Getters/Setters pour accès contrôlé"
-        ],
-        quiz: [
-          {
-            question: 'Quel est le rôle d\'un constructeur ?',
-            options: ['Détruire un objet', 'Initialiser un nouvel objet', 'Copier un objet', 'Afficher un objet'],
-            correct: 1,
-            explanation: 'Un constructeur initialise un nouvel objet lors de sa création avec le mot-clé new.'
-          },
-          {
-            question: 'Pourquoi déclarer les attributs en private ?',
-            options: ['Pour la performance', 'Pour l\'encapsulation et le contrôle d\'accès', 'C\'est obligatoire', 'Pour économiser de la mémoire'],
-            correct: 1,
-            ="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
-                  </svg>
-                </div>
-                <div class="ml-3">
-                  <p class="text-sm text-blue-700">
-                    <strong class="font-bold">💡 WORA :</strong> "Write Once, Run Anywhere" - Le bytecode Java s'exécute sur n'importe quelle plateforme possédant une JVM !
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        `,
-        examples: `
-          <div class="space-y-6">
-            <div class="bg-gray-900 rounded-xl p-5 overflow-hidden">
-              <div class="flex items-center justify-between mb-4">
-                <div class="text-sm font-semibold text-gray-300">Exemple 1 : Premier programme Java</div>
+                <div class="text-sm font-semibold text-gray-300">Exemple : Premier programme Java</div>
                 <button class="text-xs text-blue-400 hover:text-blue-300 font-medium" @click="copyCode('exemple1')">
                   Copier
                 </button>
@@ -1097,7 +470,7 @@ java HelloWorld</code></pre>
           }
         ]
       },
-            {
+      {
         id: "1.5",
         title: "Structures Conditionnelles",
         description: "if/else, switch et expressions conditionnelles",
@@ -2178,7 +1551,7 @@ public class Main {
               <div class="flex items-center">
                 <div class="flex-shrink-0">
                   <svg class="h-5 w-5 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1 a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
                   </svg>
                 </div>
                 <div class="ml-3">
@@ -2789,108 +2162,142 @@ public class ExceptionsDemo {
         while ((ligne = reader.readLine()) != null) {
             System.out.println(ligne);
         }
+        // Suite du code à partir de la ligne 1098
+
         reader.close();
     }
     
     public static void main(String[] args) {
-        // 1. Try-catch simple
+        // Exemple 1: try-catch simple
         try {
             int[] nombres = {1, 2, 3};
-            System.out.println(nombres[10]); // ArrayIndexOutOfBoundsException
+            System.out.println(nombres[5]); // Index hors limites
         } catch (ArrayIndexOutOfBoundsException e) {
-            System.out.println("Erreur: Indice hors limites");
-            System.out.println("Message: " + e.getMessage());
+            System.out.println("Erreur: Index hors limites!");
         }
         
-        // 2. Multiples catch
+        // Exemple 2: try-catch avec finally
+        Scanner scanner = null;
+        try {
+            scanner = new Scanner(System.in);
+            System.out.print("Entrez un nombre: ");
+            int nombre = scanner.nextInt();
+            System.out.println("Vous avez entré: " + nombre);
+        } catch (Exception e) {
+            System.out.println("Erreur de saisie!");
+        } finally {
+            // Toujours exécuté, même si exception
+            if (scanner != null) {
+                scanner.close();
+            }
+            System.out.println("Scanner fermé.");
+        }
+        
+        // Exemple 3: Multiples catch
         try {
             String str = null;
-            System.out.println(str.length()); // NullPointerException
+            System.out.println(str.length());
+            
+            int x = 10 / 0; // Division par zéro
         } catch (NullPointerException e) {
-            System.out.println("Erreur: Référence null");
+            System.out.println("Erreur: Objet null!");
+        } catch (ArithmeticException e) {
+            System.out.println("Erreur: Division par zéro!");
         } catch (Exception e) {
             System.out.println("Erreur générale: " + e.getMessage());
         }
         
-        // 3. Try-catch-finally
-        Scanner scanner = null;
+        // Exemple 4: Exception checked
         try {
-            scanner = new Scanner(new File("test.txt"));
-            while (scanner.hasNext()) {
-                System.out.println(scanner.nextLine());
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println("Fichier non trouvé");
-        } finally {
-            if (scanner != null) {
-                scanner.close();
-                System.out.println("Scanner fermé");
-            }
+            lireFichier("fichier_inexistant.txt");
+        } catch (IOException e) {
+            System.out.println("Erreur d'E/S: " + e.getMessage());
         }
         
-        // 4. Try-with-resources (Java 7+)
-        try (BufferedReader br = new BufferedReader(new FileReader("test.txt"))) {
-            String ligne;
-            while ((ligne = br.readLine()) != null) {
-                System.out.println(ligne);
-            }
-        } catch (IOException e) {
-            System.out.println("Erreur IO: " + e.getMessage());
-        } // Pas besoin de finally pour fermer
-        
-        // 5. Throw personnalisée
+        // Exemple 5: throw et throws
         try {
-            int age = -5;
-            if (age < 0) {
-                throw new IllegalArgumentException("Âge ne peut être négatif");
-            }
+            validerAge(-5);
         } catch (IllegalArgumentException e) {
-            System.out.println("Erreur: " + e.getMessage());
+            System.out.println("Validation échouée: " + e.getMessage());
         }
         
-        // 6. Exception checked
+        // Exemple 6: Exception personnalisée
         try {
-            lireFichier("fichier.txt");
+            retirerArgent(1000, 2000);
+        } catch (SoldeInsuffisantException e) {
+            System.out.println(e.getMessage());
+        }
+        
+        // Exemple 7: try-with-resources (Java 7+)
+        try (FileWriter writer = new FileWriter("test.txt")) {
+            writer.write("Hello Java!");
         } catch (IOException e) {
-            System.out.println("Erreur de lecture: " + e.getMessage());
-        }
+            System.out.println("Erreur: " + e.getMessage());
+        } // Le writer est fermé automatiquement
         
-        // 7. Stack trace
+        // Exemple 8: getStackTrace()
         try {
-            int resultat = diviser(10, 0);
-        } catch (ArithmeticException e) {
+            methodeA();
+        } catch (Exception e) {
             System.out.println("Stack trace:");
             e.printStackTrace();
         }
     }
     
-    public static int diviser(int a, int b) {
-        if (b == 0) {
-            throw new ArithmeticException("Division par zéro");
+    public static void validerAge(int age) {
+        if (age < 0) {
+            throw new IllegalArgumentException("Âge ne peut pas être négatif: " + age);
         }
-        return a / b;
+        if (age > 150) {
+            throw new IllegalArgumentException("Âge invraisemblable: " + age);
+        }
+        System.out.println("Âge valide: " + age);
     }
     
-    // 8. Exception personnalisée
-    static class SoldeInsuffisantException extends Exception {
-        public SoldeInsuffisantException(String message) {
-            super(message);
+    public static void retirerArgent(double solde, double montant) 
+            throws SoldeInsuffisantException {
+        if (montant > solde) {
+            throw new SoldeInsuffisantException(
+                "Solde insuffisant: " + solde + ", montant demandé: " + montant);
         }
+        System.out.println("Retrait réussi!");
     }
     
-    static class CompteBancaire {
-        private double solde;
-        
-        public void retirer(double montant) throws SoldeInsuffisantException {
-            if (montant > solde) {
-                throw new SoldeInsuffisantException("Solde insuffisant: " + solde);
-            }
-            solde -= montant;
-        }
+    public static void methodeA() {
+        methodeB();
     }
-}</code></pre>
+    
+    public static void methodeB() {
+        methodeC();
+    }
+    
+    public static void methodeC() {
+        throw new RuntimeException("Erreur dans méthode C!");
+    }
+}
+
+// Exception personnalisée
+class SoldeInsuffisantException extends Exception {
+    public SoldeInsuffisantException(String message) {
+        super(message);
+    }
+}
+
+class AgeInvalideException extends RuntimeException {
+    private int ageInvalide;
+    
+    public AgeInvalideException(String message, int age) {
+        super(message);
+        this.ageInvalide = age;
+    }
+    
+    public int getAgeInvalide() {
+        return ageInvalide;
+    }
+}
+</code></pre>
               <div class="mt-4 pt-4 border-t border-gray-800">
-                <p class="text-sm text-gray-400">Try-with-resources ferme automatiquement les ressources implémentant AutoCloseable</p>
+                <p class="text-sm text-gray-400">try-with-resources ferme automatiquement les ressources implémentant AutoCloseable</p>
               </div>
             </div>
           </div>
@@ -2898,32 +2305,682 @@ public class ExceptionsDemo {
         keyPoints: [
           "try-catch-finally pour gérer les exceptions",
           "Checked vs Unchecked exceptions",
-          "Try-with-resources (Java 7+)",
-          "Créer ses propres exceptions"
+          "throws pour déclarer des exceptions",
+          "throw pour lancer des exceptions",
+          "try-with-resources pour la gestion automatique"
         ],
         quiz: [
           {
-            question: 'Quelle est la différence entre une exception checked et unchecked ?',
-            options: ['Aucune différence', 'Les checked doivent être catchées ou déclarées, pas les unchecked', 'Les unchecked sont plus graves', 'Les checked viennent toujours de l\'utilisateur'],
-            correct: 1,
-            explanation: 'Les exceptions checked doivent être catchées avec try-catch ou déclarées avec throws, tandis que les unchecked (RuntimeException) non.'
+            question: "Quelle est la différence entre checked et unchecked exceptions ?",
+            options: [
+              "Les checked doivent être catchées ou déclarées",
+              "Les unchecked sont plus graves",
+              "Il n'y a pas de différence",
+              "Seules les checked peuvent être personnalisées"
+            ],
+            correct: 0,
+            explanation: "Les checked exceptions doivent être soit catchées avec try-catch, soit déclarées avec throws dans la signature de méthode."
           },
           {
-            question: 'Que fait le bloc finally ?',
-            options: ['S\'exécute seulement en cas d\'erreur', 'S\'exécute toujours, même après return', 'S\'exécute seulement si pas d\'erreur', 'N\'est plus utilisé en Java moderne'],
-            correct: 1,
-            explanation: 'Le bloc finally s\'exécute toujours, même s\'il y a un return dans le try ou catch.'
+            question: "Quand le bloc finally est-il exécuté ?",
+            options: [
+              "Seulement si aucune exception",
+              "Seulement si une exception est levée",
+              "Toujours, sauf si System.exit()",
+              "Jamais"
+            ],
+            correct: 2,
+            explanation: "Le bloc finally est toujours exécuté, même si une exception est levée, sauf si le programme s'arrête brutalement (System.exit())."
           },
           {
-            question: 'Depuis quelle version Java existe try-with-resources ?',
-            options: ['Java 5', 'Java 7', 'Java 8', 'Java 11'],
+            question: "Que fait try-with-resources ?",
+            options: [
+              "Crée des ressources",
+              "Ferme automatiquement les ressources",
+              "Attrape toutes les exceptions",
+              "Optimise la mémoire"
+            ],
             correct: 1,
-            explanation: 'Try-with-resources a été introduit en Java 7 pour la gestion automatique des ressources.'
+            explanation: "try-with-resources ferme automatiquement les ressources (implémentant AutoCloseable) à la fin du bloc try."
+          }
+        ]
+      },
+      {
+        id: "3.3",
+        title: "Génériques",
+        description: "Classes, méthodes génériques et wildcards",
+        readTime: "25 min",
+        unlocked: false,
+        completed: false,
+        difficulty: "avancé",
+        icon: "🔠",
+        examplesCount: 4,
+        content: `
+          <div class="space-y-6">
+            <h3 class="text-xl font-bold text-gray-900">🔠 Génériques en Java</h3>
+            <p class="text-gray-700 leading-relaxed">
+              Les génériques permettent d'écrire des classes et méthodes paramétrées par type, assurant la sécurité de type à la compilation.
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-4">
+              <div class="bg-blue-50 p-5 rounded-xl border border-blue-200">
+                <h4 class="font-bold text-blue-700 mb-3">Classe générique</h4>
+                <pre class="text-xs bg-white p-3 rounded"><code>class Boite&lt;T&gt; {
+    private T contenu;
+}</code></pre>
+              </div>
+              
+              <div class="bg-green-50 p-5 rounded-xl border border-green-200">
+                <h4 class="font-bold text-green-700 mb-3">Méthode générique</h4>
+                <pre class="text-xs bg-white p-3 rounded"><code>&lt;T&gt; T premier(List&lt;T&gt; liste) {
+    return liste.get(0);
+}</code></pre>
+              </div>
+              
+              <div class="bg-purple-50 p-5 rounded-xl border border-purple-200">
+                <h4 class="font-bold text-purple-700 mb-3">Wildcards</h4>
+                <pre class="text-xs bg-white p-3 rounded"><code>void traiter(List&lt;?&gt; liste) { }</code></pre>
+              </div>
+            </div>
+            
+            <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-r-lg">
+              <div class="flex items-center">
+                <div class="flex-shrink-0">
+                  <svg class="h-5 w-5 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                  </svg>
+                </div>
+                <div class="ml-3">
+                  <p class="text-sm text-yellow-700">
+                    <strong class="font-bold">💡 Astuce :</strong> L'effacement de type (type erasure) signifie que les informations génériques sont perdues à l'exécution.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        `,
+        examples: `
+          <div class="space-y-6">
+            <div class="bg-gray-900 rounded-xl p-5 overflow-hidden">
+              <div class="flex items-center justify-between mb-4">
+                <div class="text-sm font-semibold text-gray-300">Exemple : Génériques en détail</div>
+                <button class="text-xs text-blue-400 hover:text-blue-300 font-medium" @click="copyCode('exemple15')">
+                  Copier
+                </button>
+              </div>
+              <pre class="text-gray-200 text-sm overflow-x-auto"><code id="exemple15">import java.util.*;
+
+public class GeneriquesDemo {
+    
+    // Classe générique simple
+    static class Boite<T> {
+        private T contenu;
+        
+        public Boite(T contenu) {
+            this.contenu = contenu;
+        }
+        
+        public T getContenu() {
+            return contenu;
+        }
+        
+        public void setContenu(T contenu) {
+            this.contenu = contenu;
+        }
+        
+        public void afficherType() {
+            System.out.println("Type de T: " + contenu.getClass().getSimpleName());
+        }
+    }
+    
+    // Classe générique avec deux paramètres
+    static class Paire<K, V> {
+        private K cle;
+        private V valeur;
+        
+        public Paire(K cle, V valeur) {
+            this.cle = cle;
+            this.valeur = valeur;
+        }
+        
+        public K getCle() { return cle; }
+        public V getValeur() { return valeur; }
+    }
+    
+    // Classe générique avec contrainte (bounds)
+    static class BoiteNumerique<T extends Number> {
+        private T nombre;
+        
+        public BoiteNumerique(T nombre) {
+            this.nombre = nombre;
+        }
+        
+        public double auCarre() {
+            return nombre.doubleValue() * nombre.doubleValue();
+        }
+    }
+    
+    // Méthode générique
+    public static <T> T premierElement(List<T> liste) {
+        if (liste == null || liste.isEmpty()) {
+            return null;
+        }
+        return liste.get(0);
+    }
+    
+    // Méthode générique avec contrainte
+    public static <T extends Comparable<T>> T max(T a, T b) {
+        return a.compareTo(b) > 0 ? a : b;
+    }
+    
+    // Méthode avec wildcard
+    public static void afficherListe(List<?> liste) {
+        for (Object obj : liste) {
+            System.out.println(obj);
+        }
+    }
+    
+    // Méthode avec wildcard limité
+    public static double somme(List<? extends Number> nombres) {
+        double total = 0;
+        for (Number n : nombres) {
+            total += n.doubleValue();
+        }
+        return total;
+    }
+    
+    // Méthode avec wildcard super
+    public static void ajouterNombres(List<? super Integer> liste) {
+        for (int i = 1; i <= 5; i++) {
+            liste.add(i);
+        }
+    }
+    
+    public static void main(String[] args) {
+        // Utilisation de classe générique
+        Boite<String> boiteString = new Boite<>("Bonjour");
+        System.out.println(boiteString.getContenu());
+        boiteString.afficherType();
+        
+        Boite<Integer> boiteInt = new Boite<>(42);
+        System.out.println(boiteInt.getContenu());
+        boiteInt.afficherType();
+        
+        // Paire avec deux types
+        Paire<String, Integer> age = new Paire<>("Alice", 25);
+        System.out.println(age.getCle() + ": " + age.getValeur());
+        
+        // Contraintes
+        BoiteNumerique<Integer> boiteNumInt = new BoiteNumerique<>(5);
+        System.out.println("Carré: " + boiteNumInt.auCarre());
+        
+        BoiteNumerique<Double> boiteNumDouble = new BoiteNumerique<>(3.14);
+        System.out.println("Carré: " + boiteNumDouble.auCarre());
+        
+        // Erreur de compilation: String n'est pas un Number
+        // BoiteNumerique<String> boiteErreur = new BoiteNumerique<>("test");
+        
+        // Méthodes génériques
+        List<String> noms = Arrays.asList("Alice", "Bob", "Charlie");
+        String premier = premierElement(noms);
+        System.out.println("Premier: " + premier);
+        
+        List<Integer> nombresList = Arrays.asList(1, 2, 3);
+        Integer premierNombre = premierElement(nombresList);
+        System.out.println("Premier nombre: " + premierNombre);
+        
+        // Méthode avec Comparable
+        System.out.println("Max: " + max(10, 20));
+        System.out.println("Max: " + max("abc", "def"));
+        
+        // Wildcards
+        List<String> strings = Arrays.asList("A", "B", "C");
+        List<Integer> integers = Arrays.asList(1, 2, 3);
+        
+        afficherListe(strings);
+        afficherListe(integers);
+        
+        // Wildcard extends
+        List<Integer> ints = Arrays.asList(1, 2, 3);
+        List<Double> doubles = Arrays.asList(1.5, 2.5, 3.5);
+        
+        System.out.println("Somme ints: " + somme(ints));
+        System.out.println("Somme doubles: " + somme(doubles));
+        
+        // Wildcard super
+        List<Number> numberList = new ArrayList<>();
+        ajouterNombres(numberList);
+        System.out.println("Numbers: " + numberList);
+        
+        List<Object> objectList = new ArrayList<>();
+        ajouterNombres(objectList);
+        System.out.println("Objects: " + objectList);
+        
+        // Génériques et héritage
+        List<Number> numbers = new ArrayList<>();
+        numbers.add(10);
+        numbers.add(3.14);
+        
+        // Polymorphisme et génériques
+        Boite<Integer> integerBox = new Boite<>(10);
+        // Boite<Number> numberBox = integerBox; // Erreur de compilation!
+        
+        // Type erasure
+        Boite<String> stringBox = new Boite<>("test");
+        Boite<Integer> integerBox2 = new Boite<>(100);
+        
+        System.out.println("Même classe? " + 
+            (stringBox.getClass() == integerBox2.getClass())); // true
+    }
+    
+    // Méthode générique avec varargs
+    @SafeVarargs
+    public static final <T> List<T> combiner(List<T>... listes) {
+        List<T> resultat = new ArrayList<>();
+        for (List<T> liste : listes) {
+            resultat.addAll(liste);
+        }
+        return resultat;
+    }
+}</code></pre>
+              <div class="mt-4 pt-4 border-t border-gray-800">
+                <p class="text-sm text-gray-400">Les wildcards <? extends T> et <? super T> permettent plus de flexibilité dans l'utilisation des génériques</p>
+              </div>
+            </div>
+          </div>
+        `,
+        keyPoints: [
+          "Classes génériques (Boite<T>)",
+          "Méthodes génériques (<T> T methode())",
+          "Wildcards (?, ? extends, ? super)",
+          "Contraintes (T extends Comparable<T>)",
+          "Effacement de type (type erasure)"
+        ],
+        quiz: [
+          {
+            question: "Qu'est-ce que l'effacement de type en Java ?",
+            options: [
+              "Suppression des types à la compilation",
+              "Les informations génériques sont perdues à l'exécution",
+              "Conversion automatique de types",
+              "Optimisation de la mémoire"
+            ],
+            correct: 1,
+            explanation: "L'effacement de type signifie que les informations génériques sont supprimées à la compilation et non disponibles à l'exécution."
+          },
+          {
+            question: "Quand utiliser <? extends T> vs <? super T> ?",
+            options: [
+              "extends pour lecture, super pour écriture",
+              "super pour lecture, extends pour écriture",
+              "C'est la même chose",
+              "extends pour collections, super pour autres"
+            ],
+            correct: 0,
+            explanation: "PECS: Producer Extends, Consumer Super. Utilisez extends pour lire, super pour écrire."
+          },
+          {
+            question: "Que signifie <T extends Number & Comparable<T>> ?",
+            options: [
+              "T doit être Number OU Comparable",
+              "T doit être Number ET Comparable",
+              "T hérite de Number et Comparable",
+              "T est un sous-type de Number ou Comparable"
+            ],
+            correct: 1,
+            explanation: "T doit être un sous-type de Number ET implémenter Comparable<T>. Le & permet de combiner plusieurs contraintes."
+          }
+        ]
+      },
+      {
+        id: "3.4",
+        title: "Flux (Streams) et Lambda",
+        description: "Programmation fonctionnelle avec Streams API",
+        readTime: "28 min",
+        unlocked: false,
+        completed: false,
+        difficulty: "avancé",
+        icon: "🌊",
+        examplesCount: 5,
+        content: `
+          <div class="space-y-6">
+            <h3 class="text-xl font-bold text-gray-900">🌊 Streams API et Lambdas</h3>
+            <p class="text-gray-700 leading-relaxed">
+              Introduite en Java 8, l'API Stream permet un traitement déclaratif des collections avec des opérations fonctionnelles.
+            </p>
+            
+            <div class="grid md:grid-cols-3 gap-4">
+              <div class="bg-blue-50 p-5 rounded-xl border border-blue-200">
+                <h4 class="font-bold text-blue-700 mb-3">Stream</h4>
+                <pre class="text-xs bg-white p-3 rounded"><code>list.stream()
+    .filter(...)
+    .map(...)
+    .collect(...)</code></pre>
+              </div>
+              
+              <div class="bg-green-50 p-5 rounded-xl border border-green-200">
+                <h4 class="font-bold text-green-700 mb-3">Lambda</h4>
+                <pre class="text-xs bg-white p-3 rounded"><code>(a, b) -> a + b</code></pre>
+              </div>
+              
+              <div class="bg-purple-50 p-5 rounded-xl border border-purple-200">
+                <h4 class="font-bold text-purple-700 mb-3">Method Reference</h4>
+                <pre class="text-xs bg-white p-3 rounded"><code>String::toUpperCase</code></pre>
+              </div>
+            </div>
+            
+            <div class="bg-yellow-50 border-l-4 border-yellow-500 p-4 rounded-r-lg">
+              <div class="flex items-center">
+                <div class="flex-shrink-0">
+                  <svg class="h-5 w-5 text-yellow-500" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                  </svg>
+                </div>
+                <div class="ml-3">
+                  <p class="text-sm text-yellow-700">
+                    <strong class="font-bold">💡 Performance :</strong> Les Streams peuvent être parallélisés avec <code>parallelStream()</code> pour traiter de grandes collections.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        `,
+        examples: `
+          <div class="space-y-6">
+            <div class="bg-gray-900 rounded-xl p-5 overflow-hidden">
+              <div class="flex items-center justify-between mb-4">
+                <div class="text-sm font-semibold text-gray-300">Exemple : Streams et Lambdas</div>
+                <button class="text-xs text-blue-400 hover:text-blue-300 font-medium" @click="copyCode('exemple16')">
+                  Copier
+                </button>
+              </div>
+              <pre class="text-gray-200 text-sm overflow-x-auto"><code id="exemple16">import java.util.*;
+import java.util.stream.*;
+
+public class StreamsDemo {
+    
+    static class Personne {
+        String nom;
+        int age;
+        double salaire;
+        
+        Personne(String nom, int age, double salaire) {
+            this.nom = nom;
+            this.age = age;
+            this.salaire = salaire;
+        }
+        
+        public String getNom() { return nom; }
+        public int getAge() { return age; }
+        public double getSalaire() { return salaire; }
+        
+        @Override
+        public String toString() {
+            return nom + " (" + age + " ans, " + salaire + "€)";
+        }
+    }
+    
+    public static void main(String[] args) {
+        // Données de test
+        List<Personne> personnes = Arrays.asList(
+            new Personne("Alice", 25, 35000),
+            new Personne("Bob", 30, 42000),
+            new Personne("Charlie", 35, 50000),
+            new Personne("David", 28, 38000),
+            new Personne("Eve", 22, 32000),
+            new Personne("Frank", 40, 55000)
+        );
+        
+        // 1. Expressions lambda
+        System.out.println("=== Expressions Lambda ===");
+        
+        // Lambda simple
+        Runnable runnable = () -> System.out.println("Hello Lambda!");
+        runnable.run();
+        
+        // Lambda avec paramètres
+        Comparator<Personne> parAge = (p1, p2) -> Integer.compare(p1.getAge(), p2.getAge());
+        
+        // 2. Streams basiques
+        System.out.println("\\n=== Streams Basiques ===");
+        
+        // Filtrer
+        List<Personne> majeurs = personnes.stream()
+            .filter(p -> p.getAge() >= 18)
+            .collect(Collectors.toList());
+        System.out.println("Majeurs: " + majeurs.size());
+        
+        // Transformer (map)
+        List<String> noms = personnes.stream()
+            .map(Personne::getNom)  // Method reference
+            .collect(Collectors.toList());
+        System.out.println("Noms: " + noms);
+        
+        // Limiter
+        List<Personne> troisPremieres = personnes.stream()
+            .limit(3)
+            .collect(Collectors.toList());
+        System.out.println("3 premières: " + troisPremieres);
+        
+        // Sauter
+        List<Personne> sansDeuxPremieres = personnes.stream()
+            .skip(2)
+            .collect(Collectors.toList());
+        System.out.println("Sans 2 premières: " + sansDeuxPremieres.size());
+        
+        // 3. Opérations terminales
+        System.out.println("\\n=== Opérations Terminales ===");
+        
+        // ForEach
+        personnes.stream()
+            .filter(p -> p.getAge() > 30)
+            .forEach(p -> System.out.println("Senior: " + p.getNom()));
+        
+        // Collect
+        Set<String> nomsSet = personnes.stream()
+            .map(Personne::getNom)
+            .collect(Collectors.toSet());
+        
+        Map<String, Integer> ageParNom = personnes.stream()
+            .collect(Collectors.toMap(
+                Personne::getNom,
+                Personne::getAge
+            ));
+        
+        // Count
+        long nombreJeunes = personnes.stream()
+            .filter(p -> p.getAge() < 30)
+            .count();
+        System.out.println("Jeunes (<30): " + nombreJeunes);
+        
+        // Reduce
+        double totalSalaire = personnes.stream()
+            .mapToDouble(Personne::getSalaire)
+            .sum();
+        System.out.println("Total salaires: " + totalSalaire);
+        
+        double moyenneAge = personnes.stream()
+            .mapToInt(Personne::getAge)
+            .average()
+            .orElse(0);
+        System.out.println("Moyenne d'âge: " + moyenneAge);
+        
+        Optional<Personne> plusVieux = personnes.stream()
+            .max(Comparator.comparingInt(Personne::getAge));
+        plusVieux.ifPresent(p -> System.out.println("Plus vieux: " + p));
+        
+        // 4. Streams avancés
+        System.out.println("\\n=== Streams Avancés ===");
+        
+        // FlatMap
+        List<List<String>> listesDeNoms = Arrays.asList(
+            Arrays.asList("Alice", "Bob"),
+            Arrays.asList("Charlie", "David"),
+            Arrays.asList("Eve", "Frank")
+        );
+        
+        List<String> tousNoms = listesDeNoms.stream()
+            .flatMap(List::stream)
+            .collect(Collectors.toList());
+        System.out.println("Tous noms: " + tousNoms);
+        
+        // GroupBy
+        Map<Integer, List<Personne>> parAgeGroup = personnes.stream()
+            .collect(Collectors.groupingBy(Personne::getAge));
+        
+        Map<String, Double> salaireMoyenParLettre = personnes.stream()
+            .collect(Collectors.groupingBy(
+                p -> p.getNom().substring(0, 1),
+                Collectors.averagingDouble(Personne::getSalaire)
+            ));
+        System.out.println("Salaire moyen par lettre: " + salaireMoyenParLettre);
+        
+        // Partitioning
+        Map<Boolean, List<Personne>> partitionParAge = personnes.stream()
+            .collect(Collectors.partitioningBy(p -> p.getAge() >= 30));
+        System.out.println("Jeunes: " + partitionParAge.get(false).size());
+        System.out.println("Seniors: " + partitionParAge.get(true).size());
+        
+        // 5. Streams parallèles
+        System.out.println("\\n=== Streams Parallèles ===");
+        
+        long countParallele = personnes.parallelStream()
+            .filter(p -> p.getSalaire() > 40000)
+            .count();
+        System.out.println("Salaire > 40000 (parallèle): " + countParallele);
+        
+        // Attention: ordre non garanti en parallèle
+        List<String> nomsParallele = personnes.parallelStream()
+            .map(Personne::getNom)
+            .sorted()
+            .collect(Collectors.toList());
+        
+        // 6. Streams de primitives
+        System.out.println("\\n=== Streams de Primitives ===");
+        
+        IntStream ages = personnes.stream()
+            .mapToInt(Personne::getAge);
+        
+        DoubleStream salaires = personnes.stream()
+            .mapToDouble(Personne::getSalaire);
+        
+        int sommeAges = ages.sum();
+        System.out.println("Somme des âges: " + sommeAges);
+        
+        // 7. Création de Streams
+        System.out.println("\\n=== Création de Streams ===");
+        
+        // À partir d'une collection
+        Stream<String> streamFromList = Arrays.asList("A", "B", "C").stream();
+        
+        // Stream.of
+        Stream<Integer> streamOf = Stream.of(1, 2, 3, 4, 5);
+        
+        // Stream.iterate
+        Stream<Integer> streamIterate = Stream.iterate(0, n -> n + 2)
+            .limit(10);
+        
+        // Stream.generate
+        Stream<Double> streamGenerate = Stream.generate(Math::random)
+            .limit(5);
+        
+        // Stream depuis une String
+        IntStream charStream = "Hello".chars();
+        
+        // 8. Opérations court-circuit
+        System.out.println("\\n=== Opérations Court-Circuit ===");
+        
+        boolean aucunCentenaire = personnes.stream()
+            .noneMatch(p -> p.getAge() >= 100);
+        System.out.println("Aucun centenaire? " + aucunCentenaire);
+        
+        boolean tousMajeurs = personnes.stream()
+            .allMatch(p -> p.getAge() >= 18);
+        System.out.println("Tous majeurs? " + tousMajeurs);
+        
+        Optional<Personne> premierJeune = personnes.stream()
+            .filter(p -> p.getAge() < 25)
+            .findFirst();
+        premierJeune.ifPresent(p -> System.out.println("Premier jeune: " + p));
+        
+        Optional<Personne> unJeune = personnes.stream()
+            .filter(p -> p.getAge() < 25)
+            .findAny();
+        
+        // 9. Interfaces fonctionnelles
+        System.out.println("\\n=== Interfaces Fonctionnelles ===");
+        
+        // Predicate
+        Predicate<Personne> estRiche = p -> p.getSalaire() > 50000;
+        
+        // Function
+        Function<Personne, String> versNom = Personne::getNom;
+        
+        // Consumer
+        Consumer<Personne> afficher = p -> System.out.println(p);
+        
+        // Supplier
+        Supplier<Personne> createur = () -> new Personne("Nouveau", 0, 0);
+        
+        // Combinaison de fonctions
+        Function<Personne, String> nomEnMajuscule = 
+            p -> p.getNom().toUpperCase();
+        
+        personnes.stream()
+            .filter(estRiche)
+            .map(nomEnMajuscule)
+            .forEach(System.out::println);
+    }
+}</code></pre>
+              <div class="mt-4 pt-4 border-t border-gray-800">
+                <p class="text-sm text-gray-400">Les Streams sont lazy : les opérations intermédiaires ne sont exécutées qu'avec une opération terminale</p>
+              </div>
+            </div>
+          </div>
+        `,
+        keyPoints: [
+          "Stream API pour traitement déclaratif",
+          "Expressions lambda (->)",
+          "Method references (::)",
+          "Opérations intermédiaires (filter, map) et terminales (collect, forEach)",
+          "Interfaces fonctionnelles (Predicate, Function, Consumer, Supplier)"
+        ],
+        quiz: [
+          {
+            question: "Quelle est la principale caractéristique des Streams ?",
+            options: [
+              "Ils modifient la collection source",
+              "Ils sont lazy (paresseux)",
+              "Ils sont toujours parallèles",
+              "Ils ne peuvent être utilisés qu'une fois"
+            ],
+            correct: 1,
+            explanation: "Les Streams sont lazy : les opérations intermédiaires ne sont exécutées que lorsqu'une opération terminale est appelée."
+          },
+          {
+            question: "Que fait l'opération flatMap ?",
+            options: [
+              "Transforme chaque élément",
+              "Transforme et aplatit les Streams imbriqués",
+              "Filtre les éléments",
+              "Limite le nombre d'éléments"
+            ],
+            correct: 1,
+            explanation: "flatMap transforme chaque élément en un Stream, puis aplatit tous les Streams en un seul Stream."
+          },
+          {
+            question: "Quelle interface fonctionnelle représente une fonction qui prend un paramètre et retourne un booléen ?",
+            options: [
+              "Function<T, R>",
+              "Consumer<T>",
+              "Predicate<T>",
+              "Supplier<T>"
+            ],
+            correct: 2,
+            explanation: "Predicate<T> représente une fonction qui prend un paramètre T et retourne un booléen."
           }
         ]
       }
     ]
   }
 ];
-
-export default COURSE_LEVELS;
