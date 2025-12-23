@@ -253,7 +253,7 @@
             
             <div class="space-y-2">
               <router-link 
-                :to="{ name: 'technology', params: { tech: 'python' }}"
+                to="/python"
                 class="block w-full bg-blue-600 text-white py-2.5 px-4 rounded-lg text-center font-medium hover:bg-blue-700 transition-colors"
               >
                 Voir les ressources

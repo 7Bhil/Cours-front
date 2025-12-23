@@ -10,11 +10,12 @@ const TechnologyView = () => import('../views/TechnologyView.vue')
 const Js = () => import('../views/lANGUAGE/JS/JavaScript.vue')
 const Java = () => import('../views/lANGUAGE/Java/Java.vue')
 const Javatest = () => import('../views/lANGUAGE/Java/Javatest.vue')
-const Rubytest = () => import('../views/lANGUAGE/Ruby/Rubytest.vue')
 const JSCours = () => import('../views/lANGUAGE/JS/CoursJavaScript.vue')
-/*const Python = () => import('../views/Python.vue')
-const Cpp = () => import('../views/Cpp.vue')
-const Php = () => import('../views/Php.vue')*/
+const Rubytest = () => import('../views/lANGUAGE/Ruby/Rubytest.vue')
+const Python = () => import('../views/lANGUAGE/Python/Python.vue')
+const Pythoncours = () => import('../views/lANGUAGE/Python/CoursPython.vue')
+/*const Cpp = () => import('../views/lANGUAGE/Cpp/Cpp.vue')
+const Php = () => import('../views/lANGUAGE/Php/Php.vue')*/
 const Ruby = () => import('../views/lANGUAGE/Ruby/Ruby.vue')
 const routes = [
   {
@@ -51,12 +52,17 @@ const routes = [
     path: '/rubytest',
     name: 'rubytest',
     component: Rubytest
-  },/*
+  },
   {
     path: '/python',
     name: 'python',
     component: Python
   },
+  {
+    path: '/python/cours',
+    name: 'CoursPython',
+    component: Pythoncours
+  },/*
   {
     path: '/cpp',
     name: 'cpp',
