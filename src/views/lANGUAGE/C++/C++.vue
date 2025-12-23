@@ -20,9 +20,19 @@
         <div class="flex flex-col md:flex-row items-center gap-8">
           <!-- Logo C++ -->
           <div class="flex-shrink-0">
-            <div class="w-24 h-24 bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl flex items-center justify-center shadow-lg group hover:shadow-2xl hover:scale-105 transition-all duration-300">
-              <span class="text-white text-3xl font-bold font-mono">C++</span>
-            </div>
+            <svg class="w-24 h-24 text-black" viewBox="0 0 128 128" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <!-- Hexagon background -->
+<path fill="#00599C" d="M64 4L118 32V96L64 124L10 96V32L64 4Z"/>
+
+  <!-- Letter C -->
+  <path fill="#ffffff" d="M60 30c-18.2 0-33 14.8-33 33s14.8 33 33 33c7.6 0 14.6-2.6 20.1-7l-6.2-8.1c-3.7 2.7-8.4 4.3-13.9 4.3-12.4 0-22.4-10-22.4-22.4S47.6 40.4 60 40.4c5.5 0 10.2 1.6 13.9 4.3l6.2-8.1C74.6 32.6 67.6 30 60 30Z"/>
+
+  <!-- Plus 1 -->
+  <path fill="#ffffff" d="M82 58h6v-6h6v6h6v6h-6v6h-6v-6h-6z"/>
+
+  <!-- Plus 2 (horizontal alignment) -->
+  <path fill="#ffffff" d="M98 58h6v-6h6v6h6v6h-6v6h-6v-6h-6z"/>
+</svg>
           </div>
 
           <!-- Texte -->

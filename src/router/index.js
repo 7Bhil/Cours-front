@@ -19,6 +19,7 @@ const Python = () => import('../views/lANGUAGE/Python/Python.vue')
 const Pythoncours = () => import('../views/lANGUAGE/Python/CoursPython.vue')
 const C = () => import('../views/lANGUAGE/C/C.vue')
 const Cpp = () => import('../views/lANGUAGE/C++/C++.vue')
+const CppCours = () => import('../views/lANGUAGE/C++/CoursC++.vue')
 /*const Php = () => import('../views/lANGUAGE/Php/Php.vue')*/
 const Ruby = () => import('../views/lANGUAGE/Ruby/Ruby.vue')
 const routes = [
@@ -91,6 +92,11 @@ const routes = [
     path: '/cpp',
     name: 'cpp',
     component: Cpp
+  },
+  {
+    path: '/cpp/cours',
+    name: 'CoursCpp',
+    component: CppCours
   },
   {
     path: '/ruby',
