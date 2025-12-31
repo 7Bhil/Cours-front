@@ -86,6 +86,9 @@
             </button>
           </div>
           <p v-if="errors.password" class="text-red-500 text-xs mt-1">{{ errors.password }}</p>
+          
+          <!-- Message d'erreur général -->
+          <p v-if="loginError" class="text-red-500 text-xs mt-1">{{ loginError }}</p>
         </div>
 
         <div class="flex items-center">
@@ -102,9 +105,17 @@
 
         <button
           type="submit"
-          class="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition duration-200 shadow-md hover:shadow-lg"
+          :disabled="isLoading"
+          class="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition duration-200 shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          Se connecter
+          <span v-if="isLoading">
+            <svg class="animate-spin h-5 w-5 text-white inline-block mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            Connexion en cours...
+          </span>
+          <span v-else>Se connecter</span>
         </button>
       </form>
 
@@ -114,12 +125,31 @@
           <RouterLink to="/register" class="text-indigo-600 hover:text-indigo-700 font-medium">S'inscrire</RouterLink>
         </p>
       </div>
+      
+      <!-- Test API -->
+      <div class="mt-4 p-3 bg-gray-50 rounded-lg">
+        <p class="text-xs text-gray-500 mb-2">💡 Pour tester :</p>
+        <div class="text-xs text-gray-600 space-y-1">
+          <p>• Email: <span class="font-mono">7bhill@gmail.com</span></p>
+          <p>• Mot de passe: <span class="font-mono">Password123!</span></p>
+          <button 
+            @click="fillTestCredentials"
+            class="mt-1 text-xs text-indigo-600 hover:text-indigo-700"
+          >
+            Remplir avec des identifiants de test
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
 import { ref, reactive } from 'vue';
+import { useRouter } from 'vue-router';
+import { apiService } from '../../services/api'; // Ajuste le chemin
+
+const router = useRouter();
 
 const formData = reactive({
   email: '',
@@ -129,10 +159,20 @@ const formData = reactive({
 
 const errors = reactive({});
 const showPassword = ref(false);
+const isLoading = ref(false);
+const loginError = ref('');
+
+const fillTestCredentials = () => {
+  formData.email = '7bhill@gmail.com';
+  formData.password = 'Password123!';
+};
 
 const validateForm = () => {
+  // Nettoie les erreurs
   Object.keys(errors).forEach(key => delete errors[key]);
+  loginError.value = '';
   
+  // Validation
   if (!formData.email.trim()) {
     errors.email = "L'email est requis";
   } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
@@ -148,23 +188,73 @@ const validateForm = () => {
   return Object.keys(errors).length === 0;
 };
 
-const handleSubmit = () => {
-  if (validateForm()) {
-    console.log('Connexion:', formData);
-    // Ici, vous pouvez faire votre appel API pour la connexion
-    alert('Connexion réussie !');
+const handleSubmit = async () => {
+  if (!validateForm()) {
+    return;
+  }
+
+  isLoading.value = true;
+  loginError.value = '';
+  
+  try {
+    console.log("📤 Tentative de connexion:", formData);
+    
+    const response = await apiService.login(formData);
+    
+    console.log("📥 Réponse de Django:", response);
+    
+    if (response.success) {
+      console.log("✅ Connexion réussie!");
+      console.log("🔑 Token JWT stocké:", localStorage.getItem('token'));
+      
+      // Stocke "remember me" si coché
+      if (formData.rememberMe) {
+        localStorage.setItem('rememberMe', 'true');
+      }
+      
+      // Redirection vers dashboard ou page d'accueil
+      router.push('/');
+      
+    } else {
+      // Gestion des erreurs
+      if (response.error === 'Identifiants incorrects') {
+        loginError.value = 'Email ou mot de passe incorrect.';
+      } else if (response.errors) {
+        // Transforme les erreurs du serializer
+        Object.keys(response.errors).forEach(key => {
+          if (key === 'username' || key === 'password') {
+            loginError.value = 'Email ou mot de passe incorrect.';
+          } else {
+            errors[key] = response.errors[key].join(', ');
+          }
+        });
+      } else {
+        loginError.value = response.error || 'Erreur de connexion';
+      }
+    }
+  } catch (error) {
+    console.error('❌ Erreur de connexion:', error);
+    
+    // Erreurs réseau ou CORS
+    if (error.message && error.message.includes('Failed to fetch')) {
+      loginError.value = 'Impossible de joindre le serveur. Vérifiez que Django est lancé sur localhost:8000';
+    } else if (error.error) {
+      loginError.value = error.error;
+    } else {
+      loginError.value = 'Une erreur est survenue lors de la connexion.';
+    }
+  } finally {
+    isLoading.value = false;
   }
 };
 
 const handleGoogleLogin = () => {
-  // Logique de connexion avec Google OAuth
   console.log('Connexion avec Google');
-  // Exemple: window.location.href = '/auth/google';
+  // À implémenter plus tard
 };
 
 const handleGithubLogin = () => {
-  // Logique de connexion avec GitHub OAuth
   console.log('Connexion avec GitHub');
-  // Exemple: window.location.href = '/auth/github';
+  // À implémenter plus tard
 };
 </script>

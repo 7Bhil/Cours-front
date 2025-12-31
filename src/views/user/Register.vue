@@ -91,14 +91,22 @@
         <div>
           <label for="password" class="block text-sm font-medium text-gray-700 mb-1">
             Mot de passe
+            <span class="text-xs text-gray-500 font-normal">
+              (min. 8 caractères, majuscule, minuscule, chiffre)
+            </span>
           </label>
           <div class="relative">
             <input
               id="password"
               v-model="formData.password"
               :type="showPassword ? 'text' : 'password'"
+              @input="checkPasswordStrength"
               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition pr-10"
-              :class="{ 'border-red-500': errors.password }"
+              :class="{ 
+                'border-red-500': errors.password || passwordStrength.score < 2,
+                'border-yellow-500': passwordStrength.score === 2,
+                'border-green-500': passwordStrength.score >= 3
+              }"
             />
             <button
               type="button"
@@ -108,6 +116,48 @@
               {{ showPassword ? '👁️' : '👁️‍🗨️' }}
             </button>
           </div>
+          
+          <!-- Indicateur de force du mot de passe -->
+          <div v-if="formData.password" class="mt-2">
+            <div class="flex items-center justify-between mb-1">
+              <span class="text-xs font-medium" :class="passwordStrength.color">
+                {{ passwordStrength.text }}
+              </span>
+              <span class="text-xs text-gray-500">
+                {{ passwordStrength.score }}/4
+              </span>
+            </div>
+            <div class="h-2 bg-gray-200 rounded-full overflow-hidden">
+              <div 
+                class="h-full transition-all duration-300"
+                :class="passwordStrength.barColor"
+                :style="{ width: passwordStrength.percentage + '%' }"
+              ></div>
+            </div>
+            
+            <!-- Conseils -->
+            <div v-if="passwordStrength.score < 3" class="mt-2 text-xs text-gray-600">
+              <p class="font-medium mb-1">Pour renforcer votre mot de passe :</p>
+              <ul class="list-disc list-inside space-y-1">
+                <li :class="{ 'text-green-500': hasMinLength }">
+                  ✓ Au moins 8 caractères
+                </li>
+                <li :class="{ 'text-green-500': hasUpperCase }">
+                  ✓ Une lettre majuscule
+                </li>
+                <li :class="{ 'text-green-500': hasLowerCase }">
+                  ✓ Une lettre minuscule
+                </li>
+                <li :class="{ 'text-green-500': hasNumber }">
+                  ✓ Un chiffre
+                </li>
+                <li :class="{ 'text-green-500': hasSpecialChar }">
+                  ✓ Un caractère spécial (!@#$%^&*)
+                </li>
+              </ul>
+            </div>
+          </div>
+          
           <p v-if="errors.password" class="text-red-500 text-xs mt-1">{{ errors.password }}</p>
         </div>
 
@@ -121,7 +171,10 @@
               v-model="formData.confirmPassword"
               :type="showConfirmPassword ? 'text' : 'password'"
               class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition pr-10"
-              :class="{ 'border-red-500': errors.confirmPassword }"
+              :class="{ 
+                'border-red-500': errors.confirmPassword || (formData.confirmPassword && formData.password !== formData.confirmPassword),
+                'border-green-500': formData.confirmPassword && formData.password === formData.confirmPassword
+              }"
             />
             <button
               type="button"
@@ -132,6 +185,14 @@
             </button>
           </div>
           <p v-if="errors.confirmPassword" class="text-red-500 text-xs mt-1">{{ errors.confirmPassword }}</p>
+          <p v-if="formData.confirmPassword && formData.password !== formData.confirmPassword" 
+             class="text-red-500 text-xs mt-1">
+            ❌ Les mots de passe ne correspondent pas
+          </p>
+          <p v-if="formData.confirmPassword && formData.password === formData.confirmPassword" 
+             class="text-green-500 text-xs mt-1">
+            ✅ Les mots de passe correspondent
+          </p>
         </div>
 
         <div class="flex items-center">
@@ -149,9 +210,25 @@
 
         <button
           type="submit"
-          class="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition duration-200 shadow-md hover:shadow-lg"
+          :disabled="isLoading || passwordStrength.score < 2"
+          class="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition duration-200 shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+          :class="{ 'opacity-50 cursor-not-allowed': passwordStrength.score < 2 }"
         >
-          S'inscrire
+          <span v-if="isLoading">
+            <svg class="animate-spin h-5 w-5 text-white inline-block mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            Inscription en cours...
+          </span>
+          <span v-else>
+            <span v-if="passwordStrength.score < 2">
+              ❌ Mot de passe trop faible
+            </span>
+            <span v-else>
+              S'inscrire
+            </span>
+          </span>
         </button>
       </form>
 
@@ -166,7 +243,11 @@
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue';
+import { ref, reactive, computed } from 'vue';
+import { useRouter } from 'vue-router';
+import { apiService } from '../../services/api';
+
+const router = useRouter();
 
 const formData = reactive({
   firstName: '',
@@ -180,10 +261,96 @@ const formData = reactive({
 const errors = reactive({});
 const showPassword = ref(false);
 const showConfirmPassword = ref(false);
+const isLoading = ref(false);
+
+// Variables pour la force du mot de passe
+const hasMinLength = computed(() => formData.password.length >= 8);
+const hasUpperCase = computed(() => /[A-Z]/.test(formData.password));
+const hasLowerCase = computed(() => /[a-z]/.test(formData.password));
+const hasNumber = computed(() => /[0-9]/.test(formData.password));
+const hasSpecialChar = computed(() => /[!@#$%^&*]/.test(formData.password));
+
+// Calcul de la force du mot de passe
+const passwordStrength = computed(() => {
+  let score = 0;
+  const password = formData.password;
+  
+  if (!password) {
+    return {
+      score: 0,
+      text: 'Entrez un mot de passe',
+      color: 'text-gray-500',
+      barColor: 'bg-gray-300',
+      percentage: 0
+    };
+  }
+  
+  // Critères de score
+  if (hasMinLength.value) score++;
+  if (hasUpperCase.value) score++;
+  if (hasLowerCase.value) score++;
+  if (hasNumber.value) score++;
+  if (hasSpecialChar.value) score++;
+  
+  // Évite le score maximum pour les mots de passe courts
+  if (password.length < 8 && score > 3) score = 3;
+  
+  // Détermine le niveau
+  let text, color, barColor;
+  const percentage = (score / 5) * 100;
+  
+  switch (score) {
+    case 0:
+    case 1:
+      text = 'Très faible';
+      color = 'text-red-500';
+      barColor = 'bg-red-500';
+      break;
+    case 2:
+      text = 'Faible';
+      color = 'text-orange-500';
+      barColor = 'bg-orange-500';
+      break;
+    case 3:
+      text = 'Moyen';
+      color = 'text-yellow-500';
+      barColor = 'bg-yellow-500';
+      break;
+    case 4:
+      text = 'Fort';
+      color = 'text-green-500';
+      barColor = 'bg-green-500';
+      break;
+    case 5:
+      text = 'Très fort';
+      color = 'text-emerald-600';
+      barColor = 'bg-emerald-600';
+      break;
+    default:
+      text = 'Très faible';
+      color = 'text-red-500';
+      barColor = 'bg-red-500';
+  }
+  
+  return {
+    score,
+    text,
+    color,
+    barColor,
+    percentage
+  };
+});
+
+const checkPasswordStrength = () => {
+  // Cette fonction est appelée à chaque changement du mot de passe
+  // Les computed properties se mettent à jour automatiquement
+};
 
 const validateForm = () => {
+  // Nettoie les erreurs précédentes
   Object.keys(errors).forEach(key => delete errors[key]);
   
+  // Validation
   if (!formData.firstName.trim()) {
     errors.firstName = 'Le prénom est requis';
   }
@@ -202,6 +369,14 @@ const validateForm = () => {
     errors.password = 'Le mot de passe est requis';
   } else if (formData.password.length < 8) {
     errors.password = 'Le mot de passe doit contenir au moins 8 caractères';
+  } else if (passwordStrength.value.score < 2) {
+    errors.password = 'Le mot de passe est trop faible. Ajoutez des majuscules, minuscules et chiffres.';
+  } else if (/^[0-9]+$/.test(formData.password)) {
+    errors.password = 'Le mot de passe ne peut pas être uniquement numérique';
+  } else if (formData.password.toLowerCase() === 'password' || 
+             formData.password.toLowerCase() === '12345678' ||
+             formData.password.toLowerCase() === 'qwerty') {
+    errors.password = 'Ce mot de passe est trop commun';
   }
   
   if (!formData.confirmPassword) {
@@ -217,23 +392,50 @@ const validateForm = () => {
   return Object.keys(errors).length === 0;
 };
 
-const handleSubmit = () => {
-  if (validateForm()) {
-    console.log('Formulaire valide:', formData);
-    // Ici, vous pouvez faire votre appel API
-    alert('Inscription réussie !');
+const handleSubmit = async () => {
+  if (!validateForm()) {
+    // Si le mot de passe est faible, affiche un message plus clair
+    if (passwordStrength.value.score < 2) {
+      alert('Veuillez renforcer votre mot de passe avant de continuer.');
+    }
+    return;
+  }
+
+  isLoading.value = true;
+  
+  try {
+    console.log("📤 Envoi des données à Django:", formData);
+    
+    const response = await apiService.register(formData);
+    
+    console.log("📥 Réponse de Django:", response);
+    
+    if (response.success) {
+      router.push('/');
+    } else {
+      console.error("❌ Erreurs Django:", response.errors);
+      
+      if (response.errors) {
+        Object.keys(response.errors).forEach(key => {
+          errors[key] = response.errors[key].join(', ');
+        });
+      } else if (response.error) {
+        alert(`Erreur: ${response.error}`);
+      }
+    }
+  } catch (error) {
+    console.error('Erreur inscription:', error);
+    alert('Une erreur est survenue lors de l\'inscription. Veuillez réessayer.');
+  } finally {
+    isLoading.value = false;
   }
 };
 
 const handleGoogleSignup = () => {
-  // Logique d'inscription avec Google OAuth
   console.log('Inscription avec Google');
-  // Exemple: window.location.href = '/auth/google';
 };
 
 const handleGithubSignup = () => {
-  // Logique d'inscription avec GitHub OAuth
   console.log('Inscription avec GitHub');
-  // Exemple: window.location.href = '/auth/github';
 };
 </script>

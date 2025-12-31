@@ -20,6 +20,7 @@ const Pythoncours = () => import('../views/lANGUAGE/Python/CoursPython.vue')
 const C = () => import('../views/lANGUAGE/C/C.vue')
 const Cpp = () => import('../views/lANGUAGE/C++/C++.vue')
 const CppCours = () => import('../views/lANGUAGE/C++/CoursC++.vue')
+import Profile from '../views/Profile.vue'
 /*const Php = () => import('../views/lANGUAGE/Php/Php.vue')*/
 const Ruby = () => import('../views/lANGUAGE/Ruby/Ruby.vue')
 const routes = [
@@ -83,6 +84,12 @@ const routes = [
     name: 'CoursPython',
     component: Pythoncours
   },
+  {
+  path: '/profile',
+  name: 'Profile',
+  component: Profile,
+  //meta: { requiresAuth: true }
+},
   {
     path: '/c',
     name: 'c',

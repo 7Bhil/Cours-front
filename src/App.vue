@@ -13,7 +13,7 @@
             </div>
             <div class="flex flex-col">
               <span class="text-xl font-bold text-gray-900">Bhil<span class="text-blue-600 text-xl">$</span></span>
-              <span class="text-3xs text-gray-500">Bhil$ && Jjboy</span>
+              <span class="text-xs text-gray-500">Bhil$ && Jjboy</span>
             </div>
           </router-link>
 
@@ -47,9 +47,99 @@
             >
               Cybersécurité
             </router-link>
+            
+            <!-- Section Authentification -->
+            <div v-if="isAuthenticated" class="relative group">
+              <!-- Bouton Profil -->
+              <router-link 
+                to="/profile" 
+                class="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-blue-50 transition-colors"
+              >
+                <!-- Avatar -->
+                <div class="relative">
+                  <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-semibold text-sm">
+                    {{ userInitials }}
+                  </div>
+                  <!-- Badge connecté -->
+                  <div class="absolute -top-1 -right-1 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></div>
+                </div>
+                <span class="text-sm font-medium text-gray-700">Mon Profil</span>
+              </router-link>
+              
+              <!-- Menu déroulant -->
+              <div class="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-gray-100">
+                <div class="py-2">
+                  <!-- En-tête utilisateur -->
+                  <div class="px-4 py-3 border-b border-gray-100 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-t-xl">
+                    <p class="text-sm font-semibold text-gray-900 truncate">{{ userName }}</p>
+                    <p class="text-xs text-gray-500 truncate">{{ userEmail }}</p>
+                  </div>
+                  
+                  <!-- Liens -->
+                  <router-link 
+                    to="/profile" 
+                    class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 transition-colors"
+                  >
+                    <svg class="w-4 h-4 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                    </svg>
+                    Mon profil
+                  </router-link>
+                  
+                  <router-link 
+                    to="/dashboard" 
+                    class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 transition-colors"
+                  >
+                    <svg class="w-4 h-4 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                    </svg>
+                    Tableau de bord
+                  </router-link>
+                  
+                  <router-link 
+                    to="/mes-cours" 
+                    class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 transition-colors"
+                  >
+                    <svg class="w-4 h-4 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                    </svg>
+                    Mes cours
+                  </router-link>
+                  
+                  <div class="border-t border-gray-100 my-1"></div>
+                  
+                  <button 
+                    @click="logout"
+                    class="flex items-center w-full px-4 py-3 text-sm text-red-600 hover:bg-red-50 transition-colors rounded-b-xl"
+                  >
+                    <svg class="w-4 h-4 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+                    </svg>
+                    Se déconnecter
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Si non connecté -->
+            <div v-else class="flex items-center space-x-4">
+              <router-link 
+                to="/login" 
+                class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
+              >
+                Connexion
+              </router-link>
+              <router-link 
+                to="/register" 
+                class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors shadow-sm"
+              >
+                Inscription
+              </router-link>
+            </div>
+            
             <router-link 
               to="/contact" 
-              class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+              class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 hover:bg-gray-50 transition-colors"
             >
               Contact
             </router-link>
@@ -79,11 +169,21 @@
         leave-from-class="transform translate-x-0 opacity-100"
         leave-to-class="transform translate-x-full opacity-0"
       >
-        <div v-if="mobileMenuOpen" class="md:hidden fixed inset-y-0 right-0 w-64 bg-white shadow-2xl z-50">
+        <div v-if="mobileMenuOpen" class="md:hidden fixed inset-y-0 right-0 w-72 bg-white shadow-2xl z-50">
           <div class="flex flex-col h-full">
             <!-- En-tête du menu mobile -->
-            <div class="flex items-center justify-between p-4 border-b border-gray-200">
-              <span class="text-lg font-bold text-gray-900">Menu</span>
+            <div class="flex items-center justify-between p-4 border-b border-gray-200 bg-gradient-to-r from-blue-50 to-indigo-50">
+              <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
+                  <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                  </svg>
+                </div>
+                <div>
+                  <span class="text-lg font-bold text-gray-900">Bhil$</span>
+                  <p class="text-xs text-gray-500">Menu</p>
+                </div>
+              </div>
               <button 
                 @click="mobileMenuOpen = false"
                 class="p-2 rounded-md text-gray-700 hover:bg-gray-100"
@@ -95,47 +195,148 @@
             </div>
 
             <!-- Navigation mobile -->
-            <nav class="flex-1 overflow-y-auto p-4">
-              <div class="space-y-2">
+            <nav class="flex-1 overflow-y-auto">
+              <div class="p-4 space-y-1">
+                <!-- Navigation principale -->
                 <router-link 
                   to="/" 
                   @click="mobileMenuOpen = false"
-                  class="block px-4 py-3 rounded-lg text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                  class="flex items-center px-4 py-3 rounded-lg text-sm font-medium text-gray-700 hover:bg-blue-50 transition-colors"
                   active-class="bg-blue-50 text-blue-600"
                 >
+                  <svg class="w-5 h-5 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/>
+                  </svg>
                   Accueil
                 </router-link>
+                
                 <router-link 
                   to="/langages" 
                   @click="mobileMenuOpen = false"
-                  class="block px-4 py-3 rounded-lg text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                  class="flex items-center px-4 py-3 rounded-lg text-sm font-medium text-gray-700 hover:bg-blue-50 transition-colors"
                   active-class="bg-blue-50 text-blue-600"
                 >
+                  <svg class="w-5 h-5 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                  </svg>
                   Langages
                 </router-link>
+                
                 <router-link 
                   to="/web" 
                   @click="mobileMenuOpen = false"
-                  class="block px-4 py-3 rounded-lg text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                  class="flex items-center px-4 py-3 rounded-lg text-sm font-medium text-gray-700 hover:bg-blue-50 transition-colors"
                   active-class="bg-blue-50 text-blue-600"
                 >
+                  <svg class="w-5 h-5 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+                  </svg>
                   Développement Web
                 </router-link>
+                
                 <router-link 
                   to="/cybersecurite" 
                   @click="mobileMenuOpen = false"
-                  class="block px-4 py-3 rounded-lg text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                  class="flex items-center px-4 py-3 rounded-lg text-sm font-medium text-gray-700 hover:bg-blue-50 transition-colors"
                   active-class="bg-blue-50 text-blue-600"
                 >
+                  <svg class="w-5 h-5 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                  </svg>
                   Cybersécurité
                 </router-link>
+                
                 <router-link 
                   to="/contact" 
                   @click="mobileMenuOpen = false"
-                  class="block px-4 py-3 rounded-lg text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 transition-colors text-center"
+                  class="flex items-center px-4 py-3 rounded-lg text-sm font-medium text-gray-700 hover:bg-blue-50 transition-colors"
+                  active-class="bg-blue-50 text-blue-600"
                 >
+                  <svg class="w-5 h-5 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                  </svg>
                   Contact
                 </router-link>
+              </div>
+              
+              <!-- Section Authentification Mobile -->
+              <div v-if="isAuthenticated" class="p-4 border-t border-gray-200">
+                <div class="mb-4">
+                  <div class="flex items-center space-x-3 p-3 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg">
+                    <div class="relative">
+                      <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center text-white font-semibold text-lg">
+                        {{ userInitials }}
+                      </div>
+                      <div class="absolute bottom-0 right-0 w-4 h-4 bg-green-500 border-2 border-white rounded-full"></div>
+                    </div>
+                    <div class="flex-1 min-w-0">
+                      <p class="text-sm font-semibold text-gray-900 truncate">{{ userName }}</p>
+                      <p class="text-xs text-gray-500 truncate">{{ userEmail }}</p>
+                      <p class="text-xs text-green-600 font-medium">● Connecté</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="space-y-1">
+                  <router-link 
+                    to="/profile" 
+                    @click="mobileMenuOpen = false"
+                    class="flex items-center px-4 py-3 rounded-lg text-sm font-medium text-gray-700 hover:bg-blue-50 transition-colors"
+                  >
+                    <svg class="w-5 h-5 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                    </svg>
+                    Mon profil
+                  </router-link>
+                  
+                  <router-link 
+                    to="/dashboard" 
+                    @click="mobileMenuOpen = false"
+                    class="flex items-center px-4 py-3 rounded-lg text-sm font-medium text-gray-700 hover:bg-blue-50 transition-colors"
+                  >
+                    <svg class="w-5 h-5 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                    </svg>
+                    Tableau de bord
+                  </router-link>
+                  
+                  <button 
+                    @click="logout(); mobileMenuOpen = false"
+                    class="flex items-center w-full px-4 py-3 rounded-lg text-sm font-medium text-red-600 hover:bg-red-50 transition-colors"
+                  >
+                    <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"/>
+                    </svg>
+                    Se déconnecter
+                  </button>
+                </div>
+              </div>
+              
+              <!-- Si non connecté sur mobile -->
+              <div v-else class="p-4 border-t border-gray-200">
+                <div class="space-y-3">
+                  <router-link 
+                    to="/login" 
+                    @click="mobileMenuOpen = false"
+                    class="flex items-center justify-center px-4 py-3 rounded-lg text-sm font-medium text-gray-700 hover:bg-blue-50 transition-colors border border-gray-300"
+                  >
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"/>
+                    </svg>
+                    Connexion
+                  </router-link>
+                  
+                  <router-link 
+                    to="/register" 
+                    @click="mobileMenuOpen = false"
+                    class="flex items-center justify-center px-4 py-3 rounded-lg text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 transition-colors"
+                  >
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"/>
+                    </svg>
+                    Inscription
+                  </router-link>
+                </div>
               </div>
             </nav>
 
@@ -303,22 +504,107 @@ export default {
   name: 'App',
   data() {
     return {
-      mobileMenuOpen: false
+      mobileMenuOpen: false,
+      isAuthenticated: false,
+      user: null
     }
   },
-  watch: {
-    mobileMenuOpen(isOpen) {
-      // Empêcher le scroll du body quand le menu est ouvert
-      if (isOpen) {
-        document.body.style.overflow = 'hidden'
-      } else {
-        document.body.style.overflow = ''
-      }
+  computed: {
+    userInitials() {
+      if (!this.user) return '?'
+      
+      const first = this.user.first_name?.[0] || ''
+      const last = this.user.last_name?.[0] || ''
+      const email = this.user.email?.[0] || ''
+      
+      return (first + last).toUpperCase() || email.toUpperCase() || 'U'
+    },
+    userName() {
+      if (!this.user) return 'Utilisateur'
+      return this.user.first_name || this.user.email?.split('@')[0] || 'Utilisateur'
+    },
+    userEmail() {
+      return this.user?.email || ''
     }
+  },
+  created() {
+    this.checkAuth()
+    // Écouter les événements de connexion/déconnexion
+    window.addEventListener('auth-changed', this.checkAuth)
   },
   beforeUnmount() {
-    // Nettoyer le style au démontage du composant
-    document.body.style.overflow = ''
+    window.removeEventListener('auth-changed', this.checkAuth)
+  },
+  watch: {
+    // Fermer le menu mobile lors du changement de route
+    $route() {
+      this.mobileMenuOpen = false
+    }
+  },
+  methods: {
+    async checkAuth() {
+      try {
+        const token = localStorage.getItem('token')
+        
+        if (!token) {
+          this.isAuthenticated = false
+          this.user = null
+          return
+        }
+
+        // Vérifier si le token est valide en appelant l'API
+        const response = await fetch('http://localhost:8000/api/user', {
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Accept': 'application/json'
+          }
+        })
+
+        if (response.ok) {
+          this.user = await response.json()
+          this.isAuthenticated = true
+        } else {
+          // Token invalide ou expiré
+          localStorage.removeItem('token')
+          this.isAuthenticated = false
+          this.user = null
+        }
+      } catch (error) {
+        console.error('Erreur lors de la vérification de l\'authentification:', error)
+        this.isAuthenticated = false
+        this.user = null
+      }
+    },
+    
+    async logout() {
+      try {
+        const token = localStorage.getItem('token')
+        
+        if (token) {
+          // Appeler l'API de déconnexion
+          await fetch('http://localhost:8000/api/logout', {
+            method: 'POST',
+            headers: {
+              'Authorization': `Bearer ${token}`,
+              'Accept': 'application/json'
+            }
+          })
+        }
+      } catch (error) {
+        console.error('Erreur lors de la déconnexion:', error)
+      } finally {
+        // Nettoyer le localStorage et l'état
+        localStorage.removeItem('token')
+        this.isAuthenticated = false
+        this.user = null
+        
+        // Rediriger vers la page d'accueil
+        this.$router.push('/')
+        
+        // Émettre un événement pour informer les autres composants
+        window.dispatchEvent(new Event('auth-changed'))
+      }
+    }
   }
 }
 </script>
