@@ -10,7 +10,7 @@
         </div>
         <div class="flex gap-3">
           <RouterLink 
-            to="/dashboard" 
+            to="/" 
             class="px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition"
           >
             ← Dashboard
@@ -185,7 +185,7 @@
             
             <div class="space-y-3">
               <RouterLink 
-                to="/dashboard" 
+                to="/" 
                 class="flex items-center gap-3 p-3 bg-gray-50 hover:bg-gray-100 rounded-lg transition"
               >
                 <span class="text-2xl">📊</span>

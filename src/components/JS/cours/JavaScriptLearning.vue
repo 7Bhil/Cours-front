@@ -770,8 +770,8 @@ function showToast(message, type = 'info') {
   }, 3000)
 }
 
-function saveProgress() {
-  const progress = {
+async function saveProgress() {
+  const progressData = {
     levels: levels.value.map(level => ({
       chapters: level.chapters.map(chapter => ({
         completed: chapter.completed,
@@ -785,7 +785,32 @@ function saveProgress() {
     timestamp: new Date().toISOString()
   }
   
-  localStorage.setItem('js-learning-progress', JSON.stringify(progress))
+  // 1. Sauvegarder localement (existant)
+  localStorage.setItem('js-learning-progress', JSON.stringify(progressData))
+  
+  // 2. Envoyer à l'API Django (NOUVEAU)
+  try {
+    const response = await fetch('http://localhost:8000/api/progress/save/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        language: 'javascript',
+        percentage: progressPercentage.value,  // ← TON POURCENTAGE
+        data: progressData  // Toutes les données
+      })
+    })
+    
+    if (response.ok) {
+      const result = await response.json()
+      console.log('✅ Progression sauvegardée sur le serveur:', result)
+    } else {
+      console.warn('⚠️ Serveur non disponible, progression gardée localement')
+    }
+  } catch (error) {
+    console.log('ℹ️ Erreur connexion API, progression gardée localement:', error)
+  }
 }
 
 function loadProgress() {

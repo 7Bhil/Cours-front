@@ -87,7 +87,7 @@
                   </router-link>
                   
                   <router-link 
-                    to="/dashboard" 
+                    to="/" 
                     class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 transition-colors"
                   >
                     <svg class="w-4 h-4 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -290,7 +290,7 @@
                   </router-link>
                   
                   <router-link 
-                    to="/dashboard" 
+                    to="/" 
                     @click="mobileMenuOpen = false"
                     class="flex items-center px-4 py-3 rounded-lg text-sm font-medium text-gray-700 hover:bg-blue-50 transition-colors"
                   >
@@ -542,9 +542,26 @@ export default {
     }
   },
   methods: {
+    decodeJWT(token) {
+      try {
+        const base64Url = token.split('.')[1]
+        const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/')
+        const jsonPayload = decodeURIComponent(
+          atob(base64)
+            .split('')
+            .map(c => '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2))
+            .join('')
+        )
+        return JSON.parse(jsonPayload)
+      } catch (error) {
+        console.error('Erreur de décodage JWT:', error)
+        return null
+      }
+    },
+    
     async checkAuth() {
       try {
-        const token = localStorage.getItem('token')
+        const token = localStorage.getItem('access_token')
         
         if (!token) {
           this.isAuthenticated = false
@@ -552,59 +569,83 @@ export default {
           return
         }
 
-        // Vérifier si le token est valide en appelant l'API
-        const response = await fetch('http://localhost:8000/api/user', {
+        // D'abord essayer de décoder le token JWT pour avoir des infos basiques
+        const decoded = this.decodeJWT(token)
+        if (decoded) {
+          this.user = {
+            email: decoded.email || decoded.username,
+            first_name: decoded.first_name || decoded.username?.split('@')[0],
+            last_name: decoded.last_name || ''
+          }
+          this.isAuthenticated = true
+        }
+
+        // Ensuite vérifier avec l'API pour les données complètes
+        const response = await fetch('http://localhost:8000/api/auth/profile/', {
           headers: {
             'Authorization': `Bearer ${token}`,
-            'Accept': 'application/json'
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
           }
         })
 
         if (response.ok) {
-          this.user = await response.json()
+          const data = await response.json()
+          this.user = data.user || data  // Mettre à jour avec les données complètes
           this.isAuthenticated = true
-        } else {
-          // Token invalide ou expiré
-          localStorage.removeItem('token')
+        } else if (!decoded) {
+          // Si le token JWT est invalide ET l'API échoue
+          localStorage.removeItem('access_token')
+          localStorage.removeItem('refresh_token')
           this.isAuthenticated = false
           this.user = null
         }
+        // Si decoded est bon mais API échoue, on garde les infos basiques
       } catch (error) {
         console.error('Erreur lors de la vérification de l\'authentification:', error)
-        this.isAuthenticated = false
-        this.user = null
+        // On ne change pas l'état si on a déjà des infos du token JWT
+        if (!this.user) {
+          this.isAuthenticated = false
+          this.user = null
+        }
       }
     },
     
     async logout() {
       try {
-        const token = localStorage.getItem('token')
+        const token = localStorage.getItem('access_token')
+        const refreshToken = localStorage.getItem('refresh_token')
         
-        if (token) {
-          // Appeler l'API de déconnexion
-          await fetch('http://localhost:8000/api/logout', {
+        if (token && refreshToken) {
+          // Appeler l'API de déconnexion de Django REST Framework JWT
+          await fetch('http://localhost:8000/api/auth/logout/', {
             method: 'POST',
             headers: {
               'Authorization': `Bearer ${token}`,
-              'Accept': 'application/json'
-            }
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ refresh: refreshToken })
           })
         }
       } catch (error) {
         console.error('Erreur lors de la déconnexion:', error)
       } finally {
-        // Nettoyer le localStorage et l'état
-        localStorage.removeItem('token')
+        // Nettoyer complètement le localStorage
+        localStorage.removeItem('access_token')
+        localStorage.removeItem('refresh_token')
         this.isAuthenticated = false
         this.user = null
         
-        // Rediriger vers la page d'accueil
-        this.$router.push('/')
+        // Rediriger vers la page de connexion
+        if (this.$route.path !== '/login') {
+          this.$router.push('/login')
+        }
         
         // Émettre un événement pour informer les autres composants
         window.dispatchEvent(new Event('auth-changed'))
       }
-    }
+    },
   }
 }
 </script>

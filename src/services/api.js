@@ -1,170 +1,150 @@
-// frontend/src/services/api.js
+// services/api.js
+import axios from 'axios';
+
 const API_BASE_URL = 'http://localhost:8000/api';
 
-class ApiService {
-    constructor() {
-        this.baseURL = API_BASE_URL;
-        this.token = localStorage.getItem('token');
-        this.refreshToken = localStorage.getItem('refreshToken');
+const apiClient = axios.create({
+  baseURL: API_BASE_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+// Intercepteur pour ajouter le token
+apiClient.interceptors.request.use((config) => {
+  const token = localStorage.getItem('access_token');
+  if (token) {
+    config.headers.Authorization = `Bearer ${token}`;
+  }
+  return config;
+});
+
+// Gestion des erreurs
+const handleApiError = (error, defaultMessage = 'Une erreur est survenue') => {
+  console.error('API Error:', error);
+  
+  let message = defaultMessage;
+  let errors = {};
+  
+  if (error.response) {
+    if (error.response.data) {
+      if (error.response.data.detail) {
+        message = error.response.data.detail;
+      } else if (error.response.data.message) {
+        message = error.response.data.message;
+      }
+      errors = error.response.data;
     }
+  }
+  
+  return {
+    success: false,
+    error: message,
+    errors: errors
+  };
+};
 
-    // Méthodes pour gérer les tokens
-    setTokens(tokens) {
-        this.token = tokens.access;
-        this.refreshToken = tokens.refresh;
-        localStorage.setItem('token', tokens.access);
-        localStorage.setItem('refreshToken', tokens.refresh);
+// Fonctions API
+export const apiService = {
+  // AUTH
+  async register(userData) {
+    try {
+      const response = await apiClient.post('/auth/register/', userData);
+      
+      if (response.data.access) {
+        localStorage.setItem('access_token', response.data.access);
+        localStorage.setItem('refresh_token', response.data.refresh);
+        localStorage.setItem('user', JSON.stringify(response.data.user));
+      }
+      
+      return {
+        success: true,
+        data: response.data,
+        message: response.data.message || 'Inscription réussie !'
+      };
+    } catch (error) {
+      return handleApiError(error, 'Erreur lors de l\'inscription');
     }
+  },
 
-    clearTokens() {
-        this.token = null;
-        this.refreshToken = null;
-        localStorage.removeItem('token');
-        localStorage.removeItem('refreshToken');
+  async login(credentials) {
+    try {
+      const response = await apiClient.post('/auth/login/', credentials);
+      
+      localStorage.setItem('access_token', response.data.access);
+      localStorage.setItem('refresh_token', response.data.refresh);
+      localStorage.setItem('user', JSON.stringify(response.data.user));
+      
+      return {
+        success: true,
+        data: response.data,
+        message: response.data.message || 'Connexion réussie !'
+      };
+    } catch (error) {
+      return handleApiError(error, 'Identifiants incorrects');
     }
+  },
 
-    // Headers communs
-    getHeaders(includeAuth = true) {
-        const headers = {
-            'Content-Type': 'application/json',
-        };
-
-        if (includeAuth && this.token) {
-            headers['Authorization'] = `Bearer ${this.token}`;
-        }
-
-        return headers;
+  async logout() {
+    try {
+      const refreshToken = localStorage.getItem('refresh_token');
+      if (refreshToken) {
+        await apiClient.post('/auth/logout/', { refresh: refreshToken });
+      }
+    } catch (error) {
+      // Ignorer les erreurs de déconnexion
+    } finally {
+      localStorage.removeItem('access_token');
+      localStorage.removeItem('refresh_token');
+      localStorage.removeItem('user');
     }
+    
+    return { success: true, message: 'Déconnecté' };
+  },
 
-    // Méthode fetch générique
-    async fetch(endpoint, options = {}) {
-        const url = `${this.baseURL}${endpoint}`;
-        const response = await fetch(url, {
-            ...options,
-            headers: this.getHeaders(!options.noAuth),
-        });
-
-        // Si token expiré, essaie de le rafraîchir
-        if (response.status === 401 && this.refreshToken && !options.noAuth) {
-            const refreshed = await this.refreshTokens();
-            if (refreshed) {
-                // Réessaie la requête avec le nouveau token
-                return this.fetch(endpoint, options);
-            }
-        }
-
-        if (!response.ok) {
-            const error = await response.json().catch(() => ({
-                error: `HTTP ${response.status}: ${response.statusText}`
-            }));
-            throw error;
-        }
-
-        return response.json();
+  async getProfile() {
+    try {
+      const response = await apiClient.get('/auth/profile/');
+      localStorage.setItem('user', JSON.stringify(response.data));
+      return { success: true, data: response.data };
+    } catch (error) {
+      return handleApiError(error, 'Impossible de récupérer le profil');
     }
+  },
 
-    // Rafraîchir les tokens
-    async refreshTokens() {
-        try {
-            const data = await this.fetch('/auth/refresh/', {
-                method: 'POST',
-                noAuth: true,
-                body: JSON.stringify({ refresh: this.refreshToken })
-            });
-
-            if (data.success) {
-                this.setTokens({ access: data.access, refresh: this.refreshToken });
-                return true;
-            }
-        } catch (error) {
-            console.error('Erreur rafraîchissement token:', error);
-            this.clearTokens();
-        }
-        return false;
+  // TASKS
+  async getTasks() {
+    try {
+      const response = await apiClient.get('/tasks/');
+      return { success: true, data: response.data };
+    } catch (error) {
+      return handleApiError(error, 'Erreur lors de la récupération des tâches');
     }
+  },
 
-    // ============ API METHODS ============
-
-    // Inscription
-    // Dans la méthode register, modifie :
-async register(userData) {
-    // Transforme les données pour correspondre au serializer Django
-    const data = {
-        username: userData.email,      // Django attend "username" (avec l'email)
-        email: userData.email,         // Django attend "email"
-        first_name: userData.firstName, // Django attend "first_name" (avec underscore)
-        last_name: userData.lastName,   // Django attend "last_name" (avec underscore)
-        password: userData.password,
-        password2: userData.confirmPassword  // Django attend "password2"
-    };
-
-    console.log("📤 Données transformées pour Django:", data);
-
-    const response = await this.fetch('/auth/register/', {
-        method: 'POST',
-        noAuth: true,
-        body: JSON.stringify(data)
-    });
-
-    if (response.success) {
-        this.setTokens(response.tokens);
+  async createTask(taskData) {
+    try {
+      const response = await apiClient.post('/tasks/', taskData);
+      return {
+        success: true,
+        data: response.data,
+        message: 'Tâche créée avec succès'
+      };
+    } catch (error) {
+      return handleApiError(error, 'Erreur lors de la création de la tâche');
     }
+  },
 
-    return response;
-}
+  // UTILS
+  isAuthenticated() {
+    return !!localStorage.getItem('access_token');
+  },
 
-    // Connexion
-    async login(credentials) {
-        const data = {
-            username: credentials.email,
-            password: credentials.password
-        };
+  getCurrentUser() {
+    const userStr = localStorage.getItem('user');
+    return userStr ? JSON.parse(userStr) : null;
+  }
+};
 
-        const response = await this.fetch('/auth/login/', {
-            method: 'POST',
-            noAuth: true,
-            body: JSON.stringify(data)
-        });
-
-        if (response.success) {
-            this.setTokens(response.tokens);
-        }
-
-        return response;
-    }
-
-    // Déconnexion
-    async logout() {
-        try {
-            await this.fetch('/auth/logout/', {
-                method: 'POST'
-            });
-        } finally {
-            this.clearTokens();
-        }
-    }
-
-    // Profil utilisateur
-    async getProfile() {
-        return this.fetch('/auth/profile/');
-    }
-
-    // Test API
-    async testConnection() {
-        return this.fetch('/hello/', { noAuth: true });
-    }
-
-    // Prédiction ML
-    async makePrediction(features, modelName = 'default') {
-        return this.fetch('/predict/', {
-            method: 'POST',
-            body: JSON.stringify({
-                features,
-                model: modelName
-            })
-        });
-    }
-}
-
-// Instance unique
-export const apiService = new ApiService();
+// Export par défaut (optionnel)
+export default apiService;
