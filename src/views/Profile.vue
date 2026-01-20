@@ -118,6 +118,75 @@
           </div>
         </div>
 
+        <!-- Section Progression (Nouvelle) -->
+        <div class="lg:col-span-3">
+          <div class="bg-white rounded-2xl shadow p-6">
+            <h3 class="text-xl font-semibold text-gray-800 mb-6">🏆 Mes Compétences</h3>
+            
+            <div v-if="userProgress.length > 0" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div v-for="(item, index) in userProgress" :key="index" 
+                   class="bg-gray-50 rounded-xl p-6 border border-gray-100 flex flex-col items-center relative overflow-hidden group hover:shadow-lg transition">
+                
+                <!-- Badge de complétion -->
+                <div v-if="item.progress_data.score >= 100" class="absolute top-0 right-0 bg-yellow-400 text-yellow-900 text-xs font-bold px-3 py-1 rounded-bl-xl shadow-sm z-10">
+                  MAÎTRISÉ
+                </div>
+
+                <!-- Cercle de progression -->
+                <div class="relative w-32 h-32 mb-4">
+                  <!-- SVG Circle -->
+                  <svg class="w-full h-full transform -rotate-90">
+                    <circle
+                      cx="64" cy="64" r="56"
+                      stroke="currentColor" stroke-width="8"
+                      fill="transparent"
+                      class="text-gray-200"
+                    />
+                    <circle
+                      cx="64" cy="64" r="56"
+                      stroke="currentColor" stroke-width="8"
+                      fill="transparent"
+                      :class="item.progress_data.score >= 100 ? 'text-yellow-500' : 'text-blue-600'"
+                      :stroke-dasharray="2 * Math.PI * 56"
+                      :stroke-dashoffset="2 * Math.PI * 56 * (1 - item.progress_data.score / 100)"
+                      class="transition-all duration-1000 ease-out"
+                    />
+                  </svg>
+                  
+                  <!-- Icone centrée -->
+                  <div class="absolute inset-0 flex items-center justify-center flex-col">
+                    <span class="text-3xl mb-1 filter drop-shadow-sm">
+                      {{ getLanguageIcon(item.language) }}
+                    </span>
+                    <span class="text-sm font-bold text-gray-700">
+                      {{ item.progress_data.percentage || item.progress_data.score || 0 }}%
+                    </span>
+                  </div>
+                </div>
+
+                <h4 class="font-bold text-gray-800 text-lg mb-1">{{ item.language }}</h4>
+                <p class="text-sm text-gray-500 mb-4 text-center">
+                  {{ item.progress_data.chapter }}
+                </p>
+
+                <div v-if="item.progress_data.score >= 100" class="mt-auto flex items-center gap-2 text-yellow-600 font-bold text-sm bg-yellow-50 px-3 py-1 rounded-full">
+                  <span>🏅 Badge obtenu</span>
+                </div>
+                <router-link v-else :to="'/langages/' + item.language.toLowerCase()" class="mt-auto text-blue-600 hover:text-blue-800 font-medium text-sm">
+                  Continuer →
+                </router-link>
+              </div>
+            </div>
+            <div v-else class="text-center py-10 bg-gray-50 rounded-xl border border-dashed border-gray-300">
+               <span class="text-4xl block mb-2">🎓</span>
+               <p class="text-gray-500">Aucune progression enregistrée pour le moment.</p>
+               <router-link to="/langages" class="inline-block mt-4 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition lg:text-sm">
+                 Commencer un cours
+               </router-link>
+            </div>
+          </div>
+        </div>
+
         <!-- Carte Token & Sécurité -->
         <div class="space-y-6">
           <!-- Token Info -->
@@ -231,6 +300,7 @@ const router = useRouter();
 
 // Données
 const user = ref(null);
+const userProgress = ref([]);
 const editMode = ref(false);
 const debugInfo = ref(null);
 const editForm = reactive({
@@ -268,20 +338,46 @@ const tokenPreview = computed(() => {
   return `${token.substring(0, 25)}...${token.substring(token.length - 25)}`;
 });
 
-// Méthodes
+
+
+const getLanguageIcon = (lang) => {
+  const map = {
+    'JavaScript': '⚡',
+    'Python': '🐍',
+    'Java': '☕',
+    'C': '🇨',
+    'C++': '➕',
+    'Ruby': '💎',
+    'HTML/CSS': '🎨'
+  };
+  return map[lang] || '📘';
+};
 const loadUserProfile = async () => {
   try {
     const response = await apiService.getProfile();
     if (response.success) {
-      user.value = response.user;
+      user.value = response.data;
       // Pré-remplir le formulaire d'édition
-      editForm.first_name = response.user.first_name || '';
-      editForm.last_name = response.user.last_name || '';
-      editForm.email = response.user.email || '';
+      editForm.first_name = response.data.first_name || '';
+      editForm.last_name = response.data.last_name || '';
+      editForm.email = response.data.email || '';
     } else {
       console.error('Erreur chargement profil:', response);
       router.push('/login');
     }
+
+    // Charger la progression
+    const progressResponse = await apiService.getAllProgress();
+    
+    if (progressResponse.success) {
+      // Filter to only show valid languages
+      const validLanguages = ['JavaScript', 'Python', 'Java', 'C++', 'C', 'Ruby'];
+      userProgress.value = progressResponse.data.filter(item => {
+        const lang = item.language;
+        return validLanguages.includes(lang) || validLanguages.some(vl => vl.toLowerCase() === lang.toLowerCase());
+      });
+    }
+
   } catch (error) {
     console.error('Erreur API:', error);
     router.push('/login');

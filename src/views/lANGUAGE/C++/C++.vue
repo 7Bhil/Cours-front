@@ -47,7 +47,7 @@
             <!-- Bouton d'accès au cours -->
             <div class="flex flex-col sm:flex-row items-center gap-4 mb-6">
               <router-link 
-                to="/cpp/cours"
+                to="/langages/cpp/cours"
                 class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 text-white font-bold rounded-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 group cpp-button"
               >
                 <svg class="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" 
@@ -493,7 +493,7 @@ shared_ptr&lt;int&gt; ptr2 = make_shared&lt;int&gt;(100);
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
               <router-link 
-                to="/cpp/cours"
+                to="/langages/cpp/cours"
                 class="inline-flex items-center justify-center px-8 py-3.5 bg-gradient-to-r from-blue-400 to-blue-500 text-white font-bold rounded-xl hover:from-blue-500 hover:to-blue-600 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 group"
               >
                 <svg class="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -535,7 +535,7 @@ shared_ptr&lt;int&gt; ptr2 = make_shared&lt;int&gt;(100);
               <h3 class="text-lg font-bold text-gray-900 mb-4">📌 Explorer plus</h3>
               <div class="space-y-3">
                 <router-link 
-                  to="/cpp/cours"
+                  to="/langages/cpp/cours"
                   class="flex items-center justify-between bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-200 text-blue-700 py-3 px-4 rounded-lg font-medium hover:from-blue-100 hover:to-blue-200 transition-all group"
                 >
                   <div class="flex items-center">

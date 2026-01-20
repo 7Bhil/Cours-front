@@ -138,6 +138,7 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { progressService } from '../services/progress'
 
 const props = defineProps({
   quiz: {
@@ -147,6 +148,10 @@ const props = defineProps({
   chapterTitle: {
     type: String,
     default: ''
+  },
+  language: {
+    type: String,
+    required: true
   }
 })
 
@@ -208,6 +213,21 @@ function nextQuestion() {
     selectedAnswer.value = null
   } else {
     showResults.value = true
+    saveQuizResult()
+  }
+}
+
+async function saveQuizResult() {
+  try {
+    // Sauvegarder la progression pour ce chapitre (peu importe le score)
+    await progressService.saveProgress({
+      chapter: props.chapterTitle,
+      score: finalScore.value,
+      completed: finalScore.value >= 70, // Marquer comme complété seulement si réussi
+      date: new Date().toISOString()
+    }, props.language)
+  } catch (e) {
+    console.error('Erreur sauvegarde quiz:', e)
   }
 }
 </script>

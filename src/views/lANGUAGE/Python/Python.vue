@@ -43,7 +43,7 @@
         <!-- Bouton d'accès au cours -->
         <div class="flex flex-col sm:flex-row items-center gap-4 mb-6">
           <router-link 
-            to="/python/cours"
+            to="/langages/python/cours"
             class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-green-300 to-green-500 text-white font-bold rounded-xl hover:bg-green-800 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 group"
           >
             <svg class="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" 
@@ -493,7 +493,7 @@ for file in os.listdir('.'):
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
               <router-link 
-                to="/python/cours"
+                to="/langages/python/cours"
                 class="inline-flex items-center justify-center px-8 py-3.5 bg-gradient-to-r from-blue-400 to-green-400 text-white font-bold rounded-xl hover:from-blue-500 hover:to-green-500 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 group"
               >
                 <svg class="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -535,7 +535,7 @@ for file in os.listdir('.'):
               <h3 class="text-lg font-bold text-gray-900 mb-4">📌 Explorer plus</h3>
               <div class="space-y-3">
                 <router-link 
-                  to="/python/cours"
+                  to="/langages/python/cours"
                   class="flex items-center justify-between bg-gradient-to-r from-blue-50 to-green-100 border border-blue-200 text-blue-700 py-3 px-4 rounded-lg font-medium hover:from-blue-100 hover:to-green-200 transition-all group"
                 >
                   <div class="flex items-center">

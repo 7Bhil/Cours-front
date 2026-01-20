@@ -9,7 +9,7 @@
             <div class="flex items-center space-x-3">
               <!-- Bouton Retour -->
               <Router-Link 
-                to="/javascript"
+                to="/langages/javascript"
                 class="w-8 h-8 sm:w-10 sm:h-10 bg-yellow-900/20 backdrop-blur-sm rounded-lg sm:rounded-xl flex items-center justify-center hover:bg-yellow-900/30 transition-all group mr-2"
                 title="Retour à l'accueil"
               >
@@ -454,6 +454,7 @@
               v-if="showQuiz"
               :quiz="currentChapter.quiz"
               :chapter-title="currentChapter.title"
+              language="JavaScript"
               @complete="handleQuizComplete"
               @retry="retryQuiz"
               class="p-4 sm:p-6"
@@ -577,6 +578,7 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import QuizInterface from '../../QuizInterface.vue'
+import { progressService } from '@/services/progress'
 import { COURSE_LEVELS, getProgress } from '@/data/javascript-courses'
 
 // État
@@ -789,28 +791,20 @@ async function saveProgress() {
   localStorage.setItem('js-learning-progress', JSON.stringify(progressData))
   
   // 2. Envoyer à l'API Django (NOUVEAU)
-  try {
-    const response = await fetch('http://localhost:8000/api/progress/save/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        language: 'javascript',
-        percentage: progressPercentage.value,  // ← TON POURCENTAGE
-        data: progressData  // Toutes les données
-      })
-    })
-    
-    if (response.ok) {
-      const result = await response.json()
-      console.log('✅ Progression sauvegardée sur le serveur:', result)
-    } else {
-      console.warn('⚠️ Serveur non disponible, progression gardée localement')
-    }
-  } catch (error) {
-    console.log('ℹ️ Erreur connexion API, progression gardée localement:', error)
+  // 2. Envoyer à l'API Django via le service
+  const dataToSend = {
+    percentage: progressPercentage.value,
+    ...progressData
   }
+  
+  progressService.saveProgress(dataToSend, 'JavaScript')
+    .then(result => {
+      if (result.success) {
+        console.log('✅ Progression sauvegardée sur le serveur')
+      } else {
+        console.warn('⚠️ Erreur sauvegarde serveur:', result.error)
+      }
+    })
 }
 
 function loadProgress() {

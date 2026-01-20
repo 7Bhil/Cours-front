@@ -9,7 +9,7 @@
             <div class="flex items-center space-x-2">
               <!-- Bouton Retour -->
               <Router-Link 
-                to="/java"
+                to="/langages/java"
                 class="w-8 h-8 sm:w-10 sm:h-10 bg-red-900/30 backdrop-blur-sm rounded-lg sm:rounded-xl flex items-center justify-center hover:bg-red-900/40 transition-all group mr-1"
                 title="Retour aux langages"
               >
@@ -458,6 +458,7 @@
               v-if="showQuiz"
               :quiz="currentChapter.quiz"
               :chapter-title="currentChapter.title"
+              language="Java"
               @complete="handleQuizComplete"
               @retry="retryQuiz"
               class="p-4 sm:p-6"
@@ -585,6 +586,7 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import QuizInterface from '@/components/QuizInterface.vue'
+import { progressService } from '@/services/progress'
 import { COURSE_LEVELS } from '@/data/java-courses'
 import C from '@/views/lANGUAGE/C/C.vue'
 
@@ -813,6 +815,18 @@ function saveProgress() {
   }
   
   localStorage.setItem('java-courses-progress', JSON.stringify(progress))
+  
+  // Save to backend
+  const dataToSend = {
+    percentage: progressPercentage.value,
+    ...progress
+  }
+  
+  progressService.saveProgress(dataToSend, 'Java')
+    .then(result => {
+      if (result.success) console.log('✅ Progression Java sauvegardée')
+      else console.warn('⚠️ Erreur sauvegarde Java:', result.error)
+    })
 }
 
 function loadProgress() {

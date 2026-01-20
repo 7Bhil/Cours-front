@@ -74,7 +74,7 @@
             
             <div class="space-y-2">
               <RouterLink
-                to="/javascript"
+                to="/langages/javascript"
                 class="block w-full bg-blue-600 text-white py-2.5 px-4 rounded-lg text-center font-medium hover:bg-blue-700 transition-colors"
               >
                 Voir les ressources
@@ -121,7 +121,7 @@
             
             <div class="space-y-2">
               <RouterLink
-                to="/java"
+                to="/langages/java"
                 class="block w-full bg-blue-600 text-white py-2.5 px-4 rounded-lg text-center font-medium hover:bg-blue-700 transition-colors"
               >
                 Voir les ressources
@@ -179,7 +179,7 @@
   
   <div class="space-y-2">
     <RouterLink
-      to="/cpp"
+      to="/langages/cpp"
       class="block w-full bg-blue-600 text-white py-2.5 px-4 rounded-lg text-center font-medium hover:bg-blue-700 transition-colors"
     >
       Voir les ressources
@@ -224,7 +224,7 @@
   
   <div class="space-y-2">
     <router-link 
-      to="/C"
+      to="/langages/c"
       class="block w-full bg-blue-600 text-white py-2.5 px-4 rounded-lg text-center font-medium hover:bg-blue-700 transition-colors"
     >
       Voir les ressources
@@ -271,7 +271,7 @@
             
             <div class="space-y-2">
               <router-link 
-                to="/python"
+                to="/langages/python"
                 class="block w-full bg-blue-600 text-white py-2.5 px-4 rounded-lg text-center font-medium hover:bg-blue-700 transition-colors"
               >
                 Voir les ressources

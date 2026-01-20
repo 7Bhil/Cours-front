@@ -10,7 +10,7 @@
         <div class="flex items-center space-x-2">
           <!-- Bouton Retour -->
           <Router-Link 
-            to="/python"
+            to="/langages/python"
             class="w-8 h-8 sm:w-10 sm:h-10 bg-emerald-900/30 backdrop-blur-sm rounded-lg sm:rounded-xl flex items-center justify-center hover:bg-emerald-900/40 transition-all group mr-1"
             title="Retour à l'accueil"
           >
@@ -461,6 +461,7 @@
               v-if="showQuiz"
               :quiz="currentChapter.quiz"
               :chapter-title="currentChapter.title"
+              language="Python"
               @complete="handleQuizComplete"
               @retry="retryQuiz"
               class="p-4 sm:p-6"
@@ -588,6 +589,7 @@
 <script setup>
 import { ref, computed, onMounted } from 'vue'
 import QuizInterface from '../../../components/QuizInterface.vue'
+import { progressService } from '@/services/progress'
 
 // Importation de TES données depuis ton fichier
 import { COURSE_LEVELS, getProgress } from '@/data/python-courses'
@@ -806,6 +808,18 @@ function saveProgress() {
   }
   
   localStorage.setItem('python-courses-progress', JSON.stringify(progress))
+  
+  // Save to backend
+  const dataToSend = {
+    percentage: progressPercentage.value,
+    ...progress
+  }
+  
+  progressService.saveProgress(dataToSend, 'Python')
+    .then(result => {
+      if (result.success) console.log('✅ Progression Python sauvegardée')
+      else console.warn('⚠️ Erreur sauvegarde Python:', result.error)
+    })
 }
 
 function loadProgress() {

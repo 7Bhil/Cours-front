@@ -112,6 +112,16 @@ export const apiService = {
     }
   },
 
+  async getAllProgress() {
+    try {
+      // Endpoint that returns list of all progress items
+      const response = await apiClient.get('/progress/save/'); 
+      return { success: true, data: response.data };
+    } catch (error) {
+      return handleApiError(error, 'Erreur lors de la récupération de la progression');
+    }
+  },
+
   // TASKS
   async getTasks() {
     try {

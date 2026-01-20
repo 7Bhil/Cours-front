@@ -41,7 +41,7 @@
             <!-- Bouton d'accès au cours -->
             <div class="flex flex-col sm:flex-row items-center gap-4 mb-6">
               <router-link 
-                to="/c/cours"
+                to="/langages/c/cours"
                 class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-indigo-500 to-purple-500 text-white font-bold rounded-xl hover:from-indigo-600 hover:to-purple-600 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 group"
               >
                 <svg class="w-5 h-5 mr-2 group-hover:translate-x-1 transition-transform" 
@@ -600,7 +600,7 @@ int main(void) {
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
               <router-link 
-                to="/c/cours"
+                to="/langages/c/cours"
                 class="inline-flex items-center justify-center px-8 py-3.5 bg-gradient-to-r from-indigo-400 to-purple-400 text-white font-bold rounded-xl hover:from-indigo-500 hover:to-purple-500 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 group"
               >
                 <svg class="w-5 h-5 mr-2 group-hover:rotate-12 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -642,7 +642,7 @@ int main(void) {
               <h3 class="text-lg font-bold text-gray-900 mb-4">📌 Explorer plus</h3>
               <div class="space-y-3">
                 <router-link 
-                  to="/c/cours"
+                  to="/langages/c/cours"
                   class="flex items-center justify-between bg-gradient-to-r from-indigo-50 to-purple-100 border border-indigo-200 text-indigo-700 py-3 px-4 rounded-lg font-medium hover:from-indigo-100 hover:to-purple-200 transition-all group"
                 >
                   <div class="flex items-center">

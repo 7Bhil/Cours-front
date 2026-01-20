@@ -23,12 +23,17 @@
           </p>
           
           <!-- CTA buttons -->
-          <div class="flex flex-col sm:flex-row gap-4 justify-center mb-20">
-            <router-link to="/langages" class="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 inline-flex items-center justify-center">
-              <span class="mr-2">🚀</span> Commencer maintenant
+          <div v-if="!isAuthenticated" class="flex flex-col sm:flex-row gap-4 justify-center mb-20">
+            <router-link to="/register" class="bg-gradient-to-r from-blue-500 to-cyan-500 hover:from-blue-600 hover:to-cyan-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 inline-flex items-center justify-center">
+              <span class="mr-2">🚀</span> S'inscrire gratuitement
             </router-link>
-            <router-link to="/web" class="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border-2 border-white/30 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 inline-flex items-center justify-center">
-              <span class="mr-2">🎯</span> Explorer les parcours
+            <router-link to="/login" class="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border-2 border-white/30 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 inline-flex items-center justify-center">
+              <span class="mr-2">🔑</span> Se connecter
+            </router-link>
+          </div>
+          <div v-else class="flex flex-col sm:flex-row gap-4 justify-center mb-20">
+             <router-link to="/langages" class="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 inline-flex items-center justify-center">
+              <span class="mr-2">📚</span> Reprendre les cours
             </router-link>
           </div>
           
