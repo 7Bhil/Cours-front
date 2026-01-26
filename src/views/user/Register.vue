@@ -189,13 +189,21 @@ const handleSubmit = async () => {
     console.log('Réponse inscription:', response);
     
     if (response.success === false) {
-      registerError.value = response.error || 'Erreur lors de l\'inscription';
+      // Ensure registerError is always a string
+      if (typeof response.error === 'string') {
+        registerError.value = response.error;
+      } else if (response.error && typeof response.error === 'object') {
+        registerError.value = JSON.stringify(response.error);
+      } else {
+        registerError.value = 'Erreur lors de l\'inscription';
+      }
       
       if (response.errors) {
         if (response.errors.username) errors.username = response.errors.username[0];
         if (response.errors.email) errors.email = response.errors.email[0];
         if (response.errors.password) errors.password = response.errors.password[0];
         if (response.errors.password_confirm) errors.password_confirm = response.errors.password_confirm[0];
+        if (response.errors.detail) registerError.value = response.errors.detail;
       }
     } else {
       registerError.value = '✅ Inscription réussie ! Redirection...';

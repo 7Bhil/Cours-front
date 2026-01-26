@@ -206,7 +206,14 @@ const handleSubmit = async () => {
     const response = await apiService.login(credentials);
     
     if (response.success === false) {
-      loginError.value = response.error || 'Identifiants incorrects';
+      // Ensure loginError is always a string
+      if (typeof response.error === 'string') {
+        loginError.value = response.error;
+      } else if (response.error && typeof response.error === 'object') {
+        loginError.value = JSON.stringify(response.error);
+      } else {
+        loginError.value = 'Identifiants incorrects';
+      }
       
       if (response.errors) {
         if (response.errors.email) {
@@ -218,6 +225,9 @@ const handleSubmit = async () => {
           errors.password = Array.isArray(response.errors.password) 
             ? response.errors.password.join(', ') 
             : response.errors.password;
+        }
+        if (response.errors.detail) {
+          loginError.value = response.errors.detail;
         }
       }
     } else {

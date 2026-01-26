@@ -28,13 +28,18 @@ const handleApiError = (error, defaultMessage = 'Une erreur est survenue') => {
   
   if (error.response) {
     if (error.response.data) {
+      // Extract detail message if present
       if (error.response.data.detail) {
         message = error.response.data.detail;
       } else if (error.response.data.message) {
         message = error.response.data.message;
+      } else if (typeof error.response.data === 'string') {
+        message = error.response.data;
       }
       errors = error.response.data;
     }
+  } else if (error.message) {
+    message = error.message;
   }
   
   return {
