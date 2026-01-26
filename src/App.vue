@@ -581,7 +581,8 @@ export default {
         }
 
         // Ensuite vérifier avec l'API pour les données complètes
-        const response = await fetch('http://localhost:8000/api/auth/profile/', {
+        const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
+        const response = await fetch(`${API_URL}/auth/profile/`, {
           headers: {
             'Authorization': `Bearer ${token}`,
             'Accept': 'application/json',
@@ -618,7 +619,8 @@ export default {
         
         if (token && refreshToken) {
           // Appeler l'API de déconnexion de Django REST Framework JWT
-          await fetch('http://localhost:8000/api/auth/logout/', {
+          const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api';
+          await fetch(`${API_URL}/auth/logout/`, {
             method: 'POST',
             headers: {
               'Authorization': `Bearer ${token}`,

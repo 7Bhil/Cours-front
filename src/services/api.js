@@ -55,6 +55,9 @@ export const apiService = {
         localStorage.setItem('access_token', response.data.access);
         localStorage.setItem('refresh_token', response.data.refresh);
         localStorage.setItem('user', JSON.stringify(response.data.user));
+        
+        // Émettre l'événement pour mettre à jour l'état d'authentification
+        window.dispatchEvent(new Event('auth-changed'));
       }
       
       return {
@@ -74,6 +77,9 @@ export const apiService = {
       localStorage.setItem('access_token', response.data.access);
       localStorage.setItem('refresh_token', response.data.refresh);
       localStorage.setItem('user', JSON.stringify(response.data.user));
+      
+      // Émettre l'événement pour mettre à jour l'état d'authentification
+      window.dispatchEvent(new Event('auth-changed'));
       
       return {
         success: true,
