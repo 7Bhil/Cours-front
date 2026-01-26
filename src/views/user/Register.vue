@@ -84,8 +84,8 @@
         </div>
 
         <!-- Message d'erreur/succès -->
-        <div v-if="registerError" class="p-3 rounded-lg" :class="registerError.startsWith('✅') ? 'bg-green-50 border border-green-200' : 'bg-red-50 border border-red-200'">
-          <p class="text-sm font-medium" :class="registerError.startsWith('✅') ? 'text-green-600' : 'text-red-600'">
+        <div v-if="registerError" class="p-3 rounded-lg" :class="(typeof registerError === 'string' && registerError.startsWith('✅')) ? 'bg-green-50 border border-green-200' : 'bg-red-50 border border-red-200'">
+          <p class="text-sm font-medium" :class="(typeof registerError === 'string' && registerError.startsWith('✅')) ? 'text-green-600' : 'text-red-600'">
             {{ registerError }}
           </p>
         </div>

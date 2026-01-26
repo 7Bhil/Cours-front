@@ -311,8 +311,9 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'HomeView'
-}
+<script setup>
+import { computed } from 'vue';
+import { apiService } from '../services/api';
+
+const isAuthenticated = computed(() => apiService.isAuthenticated());
 </script>

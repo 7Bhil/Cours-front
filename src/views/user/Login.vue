@@ -99,8 +99,8 @@
         </div>
 
         <!-- Message d'erreur/succès -->
-        <div v-if="loginError" class="p-3 rounded-lg" :class="loginError.startsWith('✅') ? 'bg-green-50 border border-green-200' : 'bg-red-50 border border-red-200'">
-          <p class="text-sm font-medium" :class="loginError.startsWith('✅') ? 'text-green-600' : 'text-red-600'">
+        <div v-if="loginError" class="p-3 rounded-lg" :class="(typeof loginError === 'string' && loginError.startsWith('✅')) ? 'bg-green-50 border border-green-200' : 'bg-red-50 border border-red-200'">
+          <p class="text-sm font-medium" :class="(typeof loginError === 'string' && loginError.startsWith('✅')) ? 'text-green-600' : 'text-red-600'">
             {{ loginError }}
           </p>
         </div>
