@@ -178,106 +178,98 @@
       </div>
     </section>
 
-    <!-- Ressources populaires -->
+    <!-- Section Remerciements à l'équipe -->
     <section class="py-20 md:py-28 bg-gradient-to-br from-gray-50 to-blue-50">
       <div class="container mx-auto px-4">
         <div class="text-center mb-16">
           <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Ressources les plus téléchargées
+              L'équipe derrière cette aventure
           </h2>
           <p class="text-xl text-gray-600 max-w-2xl mx-auto">
-            Découvrez les contenus préférés de notre communauté d'apprenants
+            Cette plateforme n'existerait pas sans le soutien et l'expertise de cette incroyable équipe
           </p>
         </div>
+
         
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          <!-- Python avancé -->
-          <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100">
-            <div class="flex items-start mb-6">
-              <div class="w-14 h-14 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-xl flex items-center justify-center mr-4 shadow-lg flex-shrink-0">
-                <span class="text-3xl">🐍</span>
+
+        <!-- Section "L'Équipe" pour les potes -->
+        <div class="mb-16 text-center">
+          <h3 class="text-3xl font-bold text-gray-800 mb-4">L'Équipe Incroyable</h3>
+          <p class="text-gray-600 max-w-2xl mx-auto">
+            Mes collaborateurs et amis qui contribuent à rendre cette plateforme exceptionnelle
+          </p>
+        </div>
+
+        <!-- Grille des potes - 5 par ligne sur grand écran -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 max-w-7xl mx-auto">
+          <div 
+            v-for="friend in teamData.friends" 
+            :key="friend.id"
+            class="bg-white rounded-xl p-5 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-blue-200 group"
+          >
+            <div class="flex flex-col items-center text-center">
+              <!-- Image en noir et blanc -->
+              <div class="w-28 h-28 rounded-full overflow-hidden mb-5 border-3 border-gray-50 shadow-md group-hover:border-blue-100 transition-colors duration-300">
+                <img 
+                  :src="friend.image" 
+                  :alt="friend.name" 
+                  class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500"
+                  :style="{ objectPosition: friend.objectPosition || 'center' }"
+                />
               </div>
-              <div>
-                <h4 class="font-bold text-gray-900 text-lg mb-1">Python avancé</h4>
-                <p class="text-gray-500 text-sm">POO, design patterns, async</p>
+              
+              <h4 class="font-bold text-gray-900 text-lg mb-1">{{ friend.name }}</h4>
+              <p class="text-gray-500 text-xs mb-2">{{ friend.username }}</p>
+              
+              <div class="bg-gradient-to-r from-blue-50 to-blue-100 text-blue-700 px-3 py-1 rounded-full text-xs font-semibold mb-3">
+                {{ friend.role }}
               </div>
-            </div>
-            
-            <p class="text-gray-600 mb-6 leading-relaxed">
-              Guide complet sur la programmation orientée objet en Python avec exemples concrets et exercices avancés.
-            </p>
-            
-            <div class="flex items-center justify-between pt-4 border-t border-gray-100">
-              <div class="flex items-center gap-3">
-                <span class="text-blue-600 font-semibold text-sm">PDF • 3.2MB</span>
-                <span class="text-gray-400 text-sm flex items-center">
-                  <span class="mr-1">👥</span> 458
-                </span>
-              </div>
-              <button class="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-5 py-2 rounded-lg text-sm font-bold transition-all shadow hover:shadow-lg hover:scale-105">
-                Télécharger
-              </button>
-            </div>
-          </div>
-          
-          <!-- React moderne -->
-          <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100">
-            <div class="flex items-start mb-6">
-              <div class="w-14 h-14 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center mr-4 shadow-lg flex-shrink-0">
-                <span class="text-3xl">⚛️</span>
-              </div>
-              <div>
-                <h4 class="font-bold text-gray-900 text-lg mb-1">React moderne</h4>
-                <p class="text-gray-500 text-sm">Hooks, Context, Redux</p>
-              </div>
-            </div>
-            
-            <p class="text-gray-600 mb-6 leading-relaxed">
-              Maîtrisez React avec les hooks, Context API et Redux pour créer des applications performantes.
-            </p>
-            
-            <div class="flex items-center justify-between pt-4 border-t border-gray-100">
-              <div class="flex items-center gap-3">
-                <span class="text-blue-600 font-semibold text-sm">ZIP • 4.1MB</span>
-                <span class="text-gray-400 text-sm flex items-center">
-                  <span class="mr-1">👥</span> 392
-                </span>
-              </div>
-              <button class="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-5 py-2 rounded-lg text-sm font-bold transition-all shadow hover:shadow-lg hover:scale-105">
-                Télécharger
-              </button>
-            </div>
-          </div>
-          
-          <!-- Sécurité Web -->
-          <div class="bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100">
-            <div class="flex items-start mb-6">
-              <div class="w-14 h-14 bg-gradient-to-br from-red-400 to-red-600 rounded-xl flex items-center justify-center mr-4 shadow-lg flex-shrink-0">
-                <span class="text-3xl">🔐</span>
-              </div>
-              <div>
-                <h4 class="font-bold text-gray-900 text-lg mb-1">Sécurité Web</h4>
-                <p class="text-gray-500 text-sm">OWASP Top 10 2023</p>
-              </div>
-            </div>
-            
-            <p class="text-gray-600 mb-6 leading-relaxed">
-              Comprenez et protégez-vous contre les 10 vulnérabilités web les plus critiques selon l'OWASP.
-            </p>
-            
-            <div class="flex items-center justify-between pt-4 border-t border-gray-100">
-              <div class="flex items-center gap-3">
-                <span class="text-blue-600 font-semibold text-sm">PDF • 2.8MB</span>
-                <span class="text-gray-400 text-sm flex items-center">
-                  <span class="mr-1">👥</span> 521
-                </span>
-              </div>
-              <button class="bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white px-5 py-2 rounded-lg text-sm font-bold transition-all shadow hover:shadow-lg hover:scale-105">
-                Télécharger
-              </button>
+              
+              <p class="text-gray-600 text-xs mb-3">
+                <span class="font-medium">Skills:</span> {{ friend.skill }}
+              </p>
             </div>
           </div>
         </div>
+        
+        <!-- Message de remerciement -->
+        <div class="text-center mt-20 pt-10 border-t border-gray-200">
+        <!-- Créateur (Bhil$ - Vous) - Centré et mis en avant -->
+        <div class="max-w-3xl mx-auto mb-20">
+          <div class="bg-white rounded-2xl p-8 shadow-xl border border-gray-100">
+            <div class="flex flex-col items-center text-center">
+              <div class="relative mb-6">
+                <div class="w-40 h-40 rounded-full overflow-hidden border-4 border-white shadow-xl">
+                  <img 
+                    :src="teamData.creator.image" 
+                    :alt="teamData.creator.name" 
+                    class="w-full h-full object-cover"
+                  />
+                </div>
+                <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-2 rounded-full text-sm font-bold shadow-lg">
+                  Créateur & Fondateur
+                </div>
+              </div>
+              
+              <h3 class="text-3xl font-bold text-gray-900 mb-2">{{ teamData.creator.name }}</h3>
+              <p class="text-blue-600 font-semibold mb-3">{{ teamData.creator.role }}</p>
+              <p class="text-gray-600 mb-6 text-lg leading-relaxed max-w-2xl">
+                {{ teamData.creator.bio }}
+              </p>
+              <div class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-50 to-purple-50 px-6 py-3 rounded-full border border-blue-100">
+                <span class="font-medium text-gray-800">{{ teamData.creator.username }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+          <p class="text-2xl text-gray-700 italic max-w-3xl mx-auto">
+            "Merci à toute l'équipe pour votre travail acharné, votre créativité et votre engagement. 
+            Ensemble, nous construisons quelque chose d'extraordinaire !"
+          </p>
+          <p class="mt-6 text-gray-500">- {{ teamData.creator.name }}</p>
+          <p class="mt-2 text-gray-500">Créateur & Fondateur</p>
+        </div>
+        
       </div>
     </section>
 
@@ -314,6 +306,7 @@
 <script setup>
 import { computed } from 'vue';
 import { apiService } from '../services/api';
+import { teamData } from '../data/team';
 
 const isAuthenticated = computed(() => apiService.isAuthenticated());
 </script>

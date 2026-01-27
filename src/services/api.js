@@ -19,6 +19,33 @@ apiClient.interceptors.request.use((config) => {
   return config;
 });
 
+// Intercepteur pour gérer les erreurs 401 (Token expiré/invalide)
+apiClient.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  async (error) => {
+    if (error.response && error.response.status === 401) {
+      // Si on est déjà sur la page de login, ne rien faire pour éviter une boucle
+      if (window.location.pathname === '/login') {
+        return Promise.reject(error);
+      }
+
+      // Nettoyer le localStorage
+      localStorage.removeItem('access_token');
+      localStorage.removeItem('refresh_token');
+      localStorage.removeItem('user');
+      
+      // Notifier l'application du changement d'état
+      window.dispatchEvent(new Event('auth-changed'));
+      
+      // Rediriger vers la page de connexion
+      window.location.href = '/login';
+    }
+    return Promise.reject(error);
+  }
+);
+
 // Gestion des erreurs
 const handleApiError = (error, defaultMessage = 'Une erreur est survenue') => {
   console.error('API Error:', error);

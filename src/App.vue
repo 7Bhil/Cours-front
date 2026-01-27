@@ -480,7 +480,7 @@
         <!-- Bas de page -->
         <div class="pt-8 flex flex-col md:flex-row justify-between items-center">
           <p class="text-sm text-gray-400">
-            © 2024 Bhil$. Tous droits réservés.
+            © 2026 Bhil$. Tous droits réservés.
           </p>
           <div class="flex space-x-6 mt-4 md:mt-0">
             <a href="#" class="text-sm text-gray-400 hover:text-white transition-colors">
