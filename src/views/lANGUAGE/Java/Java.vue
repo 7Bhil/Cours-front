@@ -1,15 +1,15 @@
 <template>
-  <div class="java-page bg-white">
+  <div class="java-page bg-white dark:bg-gray-900 transition-colors duration-300">
     <!-- Hero Section -->
-    <section class="relative bg-gradient-to-b from-red-50 to-white py-16">
+    <section class="relative bg-gradient-to-b from-red-50 to-white dark:from-red-900/10 dark:to-gray-900 py-16 transition-colors duration-300">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Bouton de retour en haut à gauche -->
         <div class="mb-8 md:mb-12">
           <router-link 
             to="/langages"
-            class="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm border border-red-200 text-gray-700 font-medium rounded-lg hover:bg-red-50 hover:border-red-300 hover:shadow-md transition-all duration-200 group"
+            class="inline-flex items-center gap-2 px-4 py-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-red-200 dark:border-red-900/30 text-gray-700 dark:text-gray-300 font-medium rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 hover:border-red-300 dark:hover:border-red-700 hover:shadow-md transition-all duration-200 group"
           >
-            <svg class="w-4 h-4 text-gray-600 group-hover:text-red-600 transition-colors" 
+            <svg class="w-4 h-4 text-gray-600 dark:text-gray-400 group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors" 
                  fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
             </svg>
@@ -32,10 +32,10 @@
 
           <!-- Texte amélioré -->
           <div class="flex-1 text-center md:text-left">
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
               Java Masterclass
             </h1>
-            <p class="text-xl text-gray-600 mb-6">
+            <p class="text-xl text-gray-600 dark:text-gray-300 mb-6">
               Maîtrisez Java de A à Z avec un parcours complet. Du développement d'applications d'entreprise aux microservices modernes.
             </p>
             
@@ -55,7 +55,7 @@
               <!-- Bouton retour secondaire (mobile seulement) -->
               <router-link 
                 to="/"
-                class="sm:hidden inline-flex items-center gap-2 px-6 py-3 border border-red-300 text-gray-700 font-medium rounded-lg hover:bg-red-50 transition-all"
+                class="sm:hidden inline-flex items-center gap-2 px-6 py-3 border border-red-300 dark:border-red-700 text-gray-700 dark:text-gray-300 font-medium rounded-lg hover:bg-red-50 dark:hover:bg-red-900/20 transition-all"
               >
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
@@ -66,16 +66,16 @@
 
             <!-- Badges améliorés -->
             <div class="flex flex-wrap gap-3 justify-center md:justify-start">
-              <span class="px-4 py-2 bg-white border border-red-100 rounded-lg text-sm font-medium text-gray-700 hover:border-red-300 transition-colors hover:shadow-sm">
+              <span class="px-4 py-2 bg-white dark:bg-gray-800 border border-red-100 dark:border-red-900/30 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:border-red-300 dark:hover:border-red-700 transition-colors hover:shadow-sm">
                 <span class="text-red-500 mr-1">🏢</span> Applications Entreprise
               </span>
-              <span class="px-4 py-2 bg-white border border-orange-100 rounded-lg text-sm font-medium text-gray-700 hover:border-orange-300 transition-colors hover:shadow-sm">
+              <span class="px-4 py-2 bg-white dark:bg-gray-800 border border-orange-100 dark:border-orange-900/30 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:border-orange-300 dark:hover:border-orange-700 transition-colors hover:shadow-sm">
                 <span class="text-orange-500 mr-1">🌐</span> Spring Boot
               </span>
-              <span class="px-4 py-2 bg-white border border-red-100 rounded-lg text-sm font-medium text-gray-700 hover:border-red-300 transition-colors hover:shadow-sm">
+              <span class="px-4 py-2 bg-white dark:bg-gray-800 border border-red-100 dark:border-red-900/30 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:border-red-300 dark:hover:border-red-700 transition-colors hover:shadow-sm">
                 <span class="text-red-500 mr-1">📱</span> Android
               </span>
-              <span class="px-4 py-2 bg-white border border-orange-100 rounded-lg text-sm font-medium text-gray-700 hover:border-orange-300 transition-colors hover:shadow-sm">
+              <span class="px-4 py-2 bg-white dark:bg-gray-800 border border-orange-100 dark:border-orange-900/30 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:border-orange-300 dark:hover:border-orange-700 transition-colors hover:shadow-sm">
                 <span class="text-orange-500 mr-1">⚡</span> Microservices
               </span>
             </div>
@@ -83,23 +83,23 @@
         </div>
 
         <!-- Statistiques -->
-        <div class="mt-12 pt-8 border-t border-red-100">
+        <div class="mt-12 pt-8 border-t border-red-100 dark:border-red-900/30">
           <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div class="text-center p-4 bg-red-50/50 rounded-xl border border-red-100 hover:border-red-200 transition-colors">
-              <div class="text-2xl font-bold text-gray-900">40+</div>
-              <div class="text-sm text-red-600 font-medium">Chapitres</div>
+            <div class="text-center p-4 bg-red-50/50 dark:bg-red-900/10 rounded-xl border border-red-100 dark:border-red-900/30 hover:border-red-200 dark:hover:border-red-800 transition-colors">
+              <div class="text-2xl font-bold text-gray-900 dark:text-white">40+</div>
+              <div class="text-sm text-red-600 dark:text-red-400 font-medium">Chapitres</div>
             </div>
-            <div class="text-center p-4 bg-orange-50/50 rounded-xl border border-orange-100 hover:border-orange-200 transition-colors">
-              <div class="text-2xl font-bold text-gray-900">50+</div>
-              <div class="text-sm text-orange-600 font-medium">Exercices pratiques</div>
+            <div class="text-center p-4 bg-orange-50/50 dark:bg-orange-900/10 rounded-xl border border-orange-100 dark:border-orange-900/30 hover:border-orange-200 dark:hover:border-orange-800 transition-colors">
+              <div class="text-2xl font-bold text-gray-900 dark:text-white">50+</div>
+              <div class="text-sm text-orange-600 dark:text-orange-400 font-medium">Exercices pratiques</div>
             </div>
-            <div class="text-center p-4 bg-red-50/50 rounded-xl border border-red-100 hover:border-red-200 transition-colors">
-              <div class="text-2xl font-bold text-gray-900">30+</div>
-              <div class="text-sm text-red-600 font-medium">Heures de contenu</div>
+            <div class="text-center p-4 bg-red-50/50 dark:bg-red-900/10 rounded-xl border border-red-100 dark:border-red-900/30 hover:border-red-200 dark:hover:border-red-800 transition-colors">
+              <div class="text-2xl font-bold text-gray-900 dark:text-white">30+</div>
+              <div class="text-sm text-red-600 dark:text-red-400 font-medium">Heures de contenu</div>
             </div>
-            <div class="text-center p-4 bg-orange-50/50 rounded-xl border border-orange-100 hover:border-orange-200 transition-colors">
-              <div class="text-2xl font-bold text-gray-900">100%</div>
-              <div class="text-sm text-orange-600 font-medium">Orienté Projet</div>
+            <div class="text-center p-4 bg-orange-50/50 dark:bg-orange-900/10 rounded-xl border border-orange-100 dark:border-orange-900/30 hover:border-orange-200 dark:hover:border-orange-800 transition-colors">
+              <div class="text-2xl font-bold text-gray-900 dark:text-white">100%</div>
+              <div class="text-sm text-orange-600 dark:text-orange-400 font-medium">Orienté Projet</div>
             </div>
           </div>
         </div>
@@ -107,22 +107,22 @@
     </section>
 
     <!-- Navigation rapide -->
-    <section class="sticky top-16 z-40 bg-white border-b border-gray-200 shadow-sm">
+    <section class="sticky top-16 z-40 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 shadow-sm transition-colors duration-300">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav class="flex space-x-8 overflow-x-auto py-4">
-          <button @click="scrollTo('installation')" class="text-sm font-medium text-gray-600 hover:text-red-600 whitespace-nowrap transition-colors focus:outline-none">
+          <button @click="scrollTo('installation')" class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400 whitespace-nowrap transition-colors focus:outline-none">
             Installation
           </button>
-          <button @click="scrollTo('bases')" class="text-sm font-medium text-gray-600 hover:text-red-600 whitespace-nowrap transition-colors focus:outline-none">
+          <button @click="scrollTo('bases')" class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400 whitespace-nowrap transition-colors focus:outline-none">
             POO Java
           </button>
-          <button @click="scrollTo('domaines')" class="text-sm font-medium text-gray-600 hover:text-red-600 whitespace-nowrap transition-colors focus:outline-none">
+          <button @click="scrollTo('domaines')" class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400 whitespace-nowrap transition-colors focus:outline-none">
             Écosystème Java
           </button>
-          <button @click="scrollTo('ressources')" class="text-sm font-medium text-gray-600 hover:text-red-600 whitespace-nowrap transition-colors focus:outline-none">
+          <button @click="scrollTo('ressources')" class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400 whitespace-nowrap transition-colors focus:outline-none">
             Ressources
           </button>
-          <button @click="scrollTo('quiz')" class="text-sm font-medium text-gray-600 hover:text-red-600 whitespace-nowrap transition-colors focus:outline-none">
+          <button @click="scrollTo('quiz')" class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-red-400 whitespace-nowrap transition-colors focus:outline-none">
             Quiz rapide
           </button>
         </nav>
@@ -135,14 +135,14 @@
         <div class="lg:col-span-2 space-y-12">
           <!-- Installation - Version simplifiée -->
           <section id="installation" class="scroll-mt-32">
-            <h2 class="text-3xl font-bold text-gray-900 mb-6">🏗️ Installation de Java</h2>
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">🏗️ Installation de Java</h2>
             
-            <div class="bg-gradient-to-r from-red-50 to-orange-100 border border-red-200 rounded-lg p-6 mb-6">
-              <h3 class="text-xl font-semibold text-gray-900 mb-4">JDK (Java Development Kit)</h3>
-              <p class="text-gray-700 mb-4">
+            <div class="bg-gradient-to-r from-red-50 to-orange-100 dark:from-red-900/20 dark:to-orange-900/20 border border-red-200 dark:border-red-800 rounded-lg p-6 mb-6">
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">JDK (Java Development Kit)</h3>
+              <p class="text-gray-700 dark:text-gray-300 mb-4">
                 Installez le JDK pour développer en Java :
               </p>
-              <div class="bg-gray-900 text-gray-100 rounded-lg p-4 font-mono text-sm overflow-x-auto mb-4">
+              <div class="bg-gray-900 dark:bg-black text-gray-100 rounded-lg p-4 font-mono text-sm overflow-x-auto mb-4">
                 <pre># Téléchargez depuis https://jdk.java.net
 # JDK 17+ recommandé (LTS)
 
@@ -154,14 +154,14 @@ javac --version
 # Doit afficher : javac 17.x.x</pre>
               </div>
               
-              <div class="bg-gradient-to-r from-amber-100 to-amber-50 border border-amber-300 rounded-lg p-4">
+              <div class="bg-gradient-to-r from-amber-100 to-amber-50 dark:from-amber-900/30 dark:to-amber-800/30 border border-amber-300 dark:border-amber-700 rounded-lg p-4">
                 <div class="flex items-start">
-                  <svg class="w-5 h-5 text-amber-600 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-5 h-5 text-amber-600 dark:text-amber-400 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
                   </svg>
                   <div>
-                    <p class="text-sm font-medium text-amber-800 mb-1">Conseil Pro</p>
-                    <p class="text-sm text-amber-700">
+                    <p class="text-sm font-medium text-amber-800 dark:text-amber-200 mb-1">Conseil Pro</p>
+                    <p class="text-sm text-amber-700 dark:text-amber-300">
                       Choisissez JDK 17 (LTS) pour la stabilité et le support à long terme. Configurez JAVA_HOME dans les variables d'environnement.
                     </p>
                   </div>
@@ -169,29 +169,29 @@ javac --version
               </div>
             </div>
 
-            <div class="bg-gradient-to-r from-orange-50 to-red-100 border border-orange-200 rounded-lg p-6">
-              <h3 class="text-xl font-semibold text-gray-900 mb-4">IDE Recommandés</h3>
-              <p class="text-gray-700 mb-4">
+            <div class="bg-gradient-to-r from-orange-50 to-red-100 dark:from-orange-900/20 dark:to-red-900/20 border border-orange-200 dark:border-orange-800 rounded-lg p-6">
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">IDE Recommandés</h3>
+              <p class="text-gray-700 dark:text-gray-300 mb-4">
                 Pour un développement Java efficace :
               </p>
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                <div class="bg-white dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
                   <div class="flex items-center mb-2">
                     <div class="w-8 h-8 bg-gradient-to-br from-purple-500 to-pink-500 rounded-md flex items-center justify-center mr-3">
                       <span class="text-white font-bold text-xs">I</span>
                     </div>
-                    <h4 class="font-bold text-gray-900">IntelliJ IDEA</h4>
+                    <h4 class="font-bold text-gray-900 dark:text-white">IntelliJ IDEA</h4>
                   </div>
-                  <p class="text-sm text-gray-600">IDE le plus populaire pour Java</p>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">IDE le plus populaire pour Java</p>
                 </div>
-                <div class="bg-white p-4 rounded-lg border border-gray-200">
+                <div class="bg-white dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
                   <div class="flex items-center mb-2">
                     <div class="w-8 h-8 bg-gradient-to-br from-blue-500 to-blue-700 rounded-md flex items-center justify-center mr-3">
                       <span class="text-white font-bold text-xs">V</span>
                     </div>
-                    <h4 class="font-bold text-gray-900">VS Code</h4>
+                    <h4 class="font-bold text-gray-900 dark:text-white">VS Code</h4>
                   </div>
-                  <p class="text-sm text-gray-600">Avec extensions Java</p>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">Avec extensions Java</p>
                 </div>
               </div>
             </div>
@@ -199,13 +199,13 @@ javac --version
 
           <!-- POO Java - Version concise -->
           <section id="bases" class="scroll-mt-32">
-            <h2 class="text-3xl font-bold text-gray-900 mb-6">📚 Programmation Orientée Objet</h2>
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">📚 Programmation Orientée Objet</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <!-- Classes & Objets -->
-              <div class="bg-gradient-to-br from-red-50 to-white border border-red-200 rounded-xl p-6">
-                <h3 class="text-lg font-bold text-gray-900 mb-3">Classes & Objets</h3>
-                <div class="bg-gray-900 text-gray-100 rounded-lg p-3 font-mono text-sm overflow-x-auto mb-3">
+              <div class="bg-gradient-to-br from-red-50 to-white dark:from-red-900/20 dark:to-gray-800 border border-red-200 dark:border-red-800 rounded-xl p-6">
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Classes & Objets</h3>
+                <div class="bg-gray-900 dark:bg-black text-gray-100 rounded-lg p-3 font-mono text-sm overflow-x-auto mb-3">
                   <pre>public class Personne {
     private String nom;
     private int age;
@@ -222,15 +222,15 @@ javac --version
     }
 }</pre>
                 </div>
-                <p class="text-sm text-gray-600">
-                  Encapsulation avec <code class="bg-red-100 px-1.5 py-0.5 rounded">private</code> et constructeurs.
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                  Encapsulation avec <code class="bg-red-100 dark:bg-red-900/50 dark:text-red-200 px-1.5 py-0.5 rounded">private</code> et constructeurs.
                 </p>
               </div>
 
               <!-- Héritage -->
-              <div class="bg-gradient-to-br from-orange-50 to-white border border-orange-200 rounded-xl p-6">
-                <h3 class="text-lg font-bold text-gray-900 mb-3">Héritage</h3>
-                <div class="bg-gray-900 text-gray-100 rounded-lg p-3 font-mono text-sm overflow-x-auto mb-3">
+              <div class="bg-gradient-to-br from-orange-50 to-white dark:from-orange-900/20 dark:to-gray-800 border border-orange-200 dark:border-orange-800 rounded-xl p-6">
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Héritage</h3>
+                <div class="bg-gray-900 dark:bg-black text-gray-100 rounded-lg p-3 font-mono text-sm overflow-x-auto mb-3">
                   <pre>public class Etudiant 
        extends Personne {
     
@@ -244,15 +244,15 @@ javac --version
     }
 }</pre>
                 </div>
-                <p class="text-sm text-gray-600">
-                  Mot-clé <code class="bg-orange-100 px-1.5 py-0.5 rounded">extends</code> pour l'héritage, <code>super()</code> pour le constructeur parent.
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                  Mot-clé <code class="bg-orange-100 dark:bg-orange-900/50 dark:text-orange-200 px-1.5 py-0.5 rounded">extends</code> pour l'héritage, <code>super()</code> pour le constructeur parent.
                 </p>
               </div>
 
               <!-- Interfaces -->
-              <div class="bg-gradient-to-br from-amber-50 to-white border border-amber-200 rounded-xl p-6">
-                <h3 class="text-lg font-bold text-gray-900 mb-3">Interfaces</h3>
-                <div class="bg-gray-900 text-gray-100 rounded-lg p-3 font-mono text-sm overflow-x-auto mb-3">
+              <div class="bg-gradient-to-br from-amber-50 to-white dark:from-amber-900/20 dark:to-gray-800 border border-amber-200 dark:border-amber-800 rounded-xl p-6">
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Interfaces</h3>
+                <div class="bg-gray-900 dark:bg-black text-gray-100 rounded-lg p-3 font-mono text-sm overflow-x-auto mb-3">
                   <pre>public interface Vehicule {
     void demarrer();
     void arreter();
@@ -270,15 +270,15 @@ public class Voiture
     }
 }</pre>
                 </div>
-                <p class="text-sm text-gray-600">
-                  <code class="bg-amber-100 px-1.5 py-0.5 rounded">interface</code> définit un contrat, <code>implements</code> pour l'implémenter.
+                <p class="text-sm text-gray-600 dark:text-gray-400">
+                  <code class="bg-amber-100 dark:bg-amber-900/50 dark:text-amber-200 px-1.5 py-0.5 rounded">interface</code> définit un contrat, <code>implements</code> pour l'implémenter.
                 </p>
               </div>
 
               <!-- Collections -->
-              <div class="bg-gradient-to-br from-red-100 to-white border border-red-300 rounded-xl p-6">
-                <h3 class="text-lg font-bold text-gray-900 mb-3">Collections</h3>
-                  <div class="bg-gray-900 text-gray-100 rounded-lg p-3 font-mono text-sm overflow-x-auto mb-3">
+              <div class="bg-gradient-to-br from-red-100 to-white dark:from-red-900/30 dark:to-gray-800 border border-red-300 dark:border-red-700 rounded-xl p-6">
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Collections</h3>
+                  <div class="bg-gray-900 dark:bg-black text-gray-100 rounded-lg p-3 font-mono text-sm overflow-x-auto mb-3">
                     <pre>// Liste (ArrayList)
 List&lt;String&gt; noms = new ArrayList&lt;&gt;();
 noms.add("Alice");
@@ -288,7 +288,7 @@ Map&lt;String, Integer&gt; ages =
     new HashMap&lt;&gt;();
 ages.put("Alice", 25);</pre>
                 </div>
-                <p class="text-sm text-gray-600">
+                <p class="text-sm text-gray-600 dark:text-gray-400">
                   Collections typées avec génériques <code>&lt;Type&gt;</code>.
                 </p>
               </div>
@@ -297,13 +297,13 @@ ages.put("Alice", 25);</pre>
 
           <!-- Écosystème Java -->
           <section id="domaines" class="scroll-mt-32">
-            <h2 class="text-3xl font-bold text-gray-900 mb-6">🎯 Écosystème Java</h2>
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">🎯 Écosystème Java</h2>
             
             <div class="space-y-4">
-              <div class="bg-gradient-to-r from-red-50 to-pink-50 border-l-4 border-red-500 pl-6 pr-4 py-4">
-                <h3 class="text-lg font-bold text-gray-900 mb-2">Spring Boot</h3>
-                <p class="text-gray-700 mb-2">Framework pour applications d'entreprise</p>
-                <div class="bg-gray-800 text-gray-100 rounded-lg p-3 font-mono text-sm overflow-x-auto">
+              <div class="bg-gradient-to-r from-red-50 to-pink-50 dark:from-red-900/20 dark:to-pink-900/20 border-l-4 border-red-500 pl-6 pr-4 py-4 rounded-r-lg">
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Spring Boot</h3>
+                <p class="text-gray-700 dark:text-gray-300 mb-2">Framework pour applications d'entreprise</p>
+                <div class="bg-gray-800 dark:bg-black text-gray-100 rounded-lg p-3 font-mono text-sm overflow-x-auto">
                   <pre>@SpringBootApplication
 public class MonApplication {
     public static void main(String[] args) {
@@ -322,10 +322,10 @@ public class MonController {
                 </div>
               </div>
 
-              <div class="bg-gradient-to-r from-orange-50 to-amber-50 border-l-4 border-orange-500 pl-6 pr-4 py-4">
-                <h3 class="text-lg font-bold text-gray-900 mb-2">Android</h3>
-                <p class="text-gray-700 mb-2">Développement d'applications mobiles</p>
-                <div class="bg-gray-800 text-gray-100 rounded-lg p-3 font-mono text-sm overflow-x-auto">
+              <div class="bg-gradient-to-r from-orange-50 to-amber-50 dark:from-orange-900/20 dark:to-amber-900/20 border-l-4 border-orange-500 pl-6 pr-4 py-4 rounded-r-lg">
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Android</h3>
+                <p class="text-gray-700 dark:text-gray-300 mb-2">Développement d'applications mobiles</p>
+                <div class="bg-gray-800 dark:bg-black text-gray-100 rounded-lg p-3 font-mono text-sm overflow-x-auto">
                   <pre>public class MainActivity 
        extends AppCompatActivity {
     
@@ -343,10 +343,10 @@ public class MonController {
                 </div>
               </div>
 
-              <div class="bg-gradient-to-r from-red-50 to-red-100 border-l-4 border-red-600 pl-6 pr-4 py-4">
-                <h3 class="text-lg font-bold text-gray-900 mb-2">Microservices</h3>
-                <p class="text-gray-700 mb-2">Architecture moderne avec Spring Cloud</p>
-                <div class="bg-gray-800 text-gray-100 rounded-lg p-3 font-mono text-sm overflow-x-auto">
+              <div class="bg-gradient-to-r from-red-50 to-red-100 dark:from-red-900/20 dark:to-red-800/20 border-l-4 border-red-600 pl-6 pr-4 py-4 rounded-r-lg">
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Microservices</h3>
+                <p class="text-gray-700 dark:text-gray-300 mb-2">Architecture moderne avec Spring Cloud</p>
+                <div class="bg-gray-800 dark:bg-black text-gray-100 rounded-lg p-3 font-mono text-sm overflow-x-auto">
                   <pre>@SpringBootApplication
 @EnableEurekaClient
 public class UserService {
@@ -370,13 +370,13 @@ public class UserService {
           <!-- Ressources -->
           <section id="ressources" class="scroll-mt-32">
             <div class="flex items-center justify-between mb-6">
-              <h2 class="text-3xl font-bold text-gray-900">📁 Ressources de formation</h2>
-              <span class="text-sm font-medium text-gray-500 bg-gray-100 px-3 py-1 rounded-full">PDF • Gratuit</span>
+              <h2 class="text-3xl font-bold text-gray-900 dark:text-white">📁 Ressources de formation</h2>
+              <span class="text-sm font-medium text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full">PDF • Gratuit</span>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <!-- Guide -->
-              <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                 <div class="flex items-start mb-4">
                   <div class="w-12 h-12 bg-gradient-to-br from-red-500 to-orange-600 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 shadow-md">
                     <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -384,11 +384,11 @@ public class UserService {
                     </svg>
                   </div>
                   <div>
-                    <h3 class="font-bold text-gray-900 text-lg mb-1">Guide Complet Java</h3>
-                    <p class="text-sm text-gray-600 mb-2">De la syntaxe à Spring Boot</p>
+                    <h3 class="font-bold text-gray-900 dark:text-white text-lg mb-1">Guide Complet Java</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">De la syntaxe à Spring Boot</p>
                     <div class="flex items-center text-xs">
-                      <span class="text-gray-500 mr-3">📄 55 pages</span>
-                      <span class="text-gray-500">⚡ 4.2 MB</span>
+                      <span class="text-gray-500 dark:text-gray-400 mr-3">📄 55 pages</span>
+                      <span class="text-gray-500 dark:text-gray-400">⚡ 4.2 MB</span>
                     </div>
                   </div>
                 </div>
@@ -406,7 +406,7 @@ public class UserService {
               </div>
 
               <!-- Spring Boot -->
-              <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                 <div class="flex items-start mb-4">
                   <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 shadow-md">
                     <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -414,11 +414,11 @@ public class UserService {
                     </svg>
                   </div>
                   <div>
-                    <h3 class="font-bold text-gray-900 text-lg mb-1">Spring Boot Masterclass</h3>
-                    <p class="text-sm text-gray-600 mb-2">API REST, sécurité, bases de données</p>
+                    <h3 class="font-bold text-gray-900 dark:text-white text-lg mb-1">Spring Boot Masterclass</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">API REST, sécurité, bases de données</p>
                     <div class="flex items-center text-xs">
-                      <span class="text-gray-500 mr-3">📄 70 pages</span>
-                      <span class="text-gray-500">⚡ 5.1 MB</span>
+                      <span class="text-gray-500 dark:text-gray-400 mr-3">📄 70 pages</span>
+                      <span class="text-gray-500 dark:text-gray-400">⚡ 5.1 MB</span>
                     </div>
                   </div>
                 </div>
@@ -436,7 +436,7 @@ public class UserService {
               </div>
 
               <!-- Design Patterns -->
-              <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                 <div class="flex items-start mb-4">
                   <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 shadow-md">
                     <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -444,11 +444,11 @@ public class UserService {
                     </svg>
                   </div>
                   <div>
-                    <h3 class="font-bold text-gray-900 text-lg mb-1">Design Patterns Java</h3>
-                    <p class="text-sm text-gray-600 mb-2">Singleton, Factory, Observer, etc.</p>
+                    <h3 class="font-bold text-gray-900 dark:text-white text-lg mb-1">Design Patterns Java</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Singleton, Factory, Observer, etc.</p>
                     <div class="flex items-center text-xs">
-                      <span class="text-gray-500 mr-3">📄 60 pages</span>
-                      <span class="text-gray-500">⚡ 4.5 MB</span>
+                      <span class="text-gray-500 dark:text-gray-400 mr-3">📄 60 pages</span>
+                      <span class="text-gray-500 dark:text-gray-400">⚡ 4.5 MB</span>
                     </div>
                   </div>
                 </div>
@@ -466,7 +466,7 @@ public class UserService {
               </div>
 
               <!-- Android -->
-              <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                 <div class="flex items-start mb-4">
                   <div class="w-12 h-12 bg-gradient-to-br from-green-500 to-cyan-600 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 shadow-md">
                     <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -474,11 +474,11 @@ public class UserService {
                     </svg>
                   </div>
                   <div>
-                    <h3 class="font-bold text-gray-900 text-lg mb-1">Android avec Java</h3>
-                    <p class="text-sm text-gray-600 mb-2">UI, activités, fragments, API REST</p>
+                    <h3 class="font-bold text-gray-900 dark:text-white text-lg mb-1">Android avec Java</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">UI, activités, fragments, API REST</p>
                     <div class="flex items-center text-xs">
-                      <span class="text-gray-500 mr-3">📄 80 pages</span>
-                      <span class="text-gray-500">⚡ 6.2 MB</span>
+                      <span class="text-gray-500 dark:text-gray-400 mr-3">📄 80 pages</span>
+                      <span class="text-gray-500 dark:text-gray-400">⚡ 6.2 MB</span>
                     </div>
                   </div>
                 </div>
@@ -499,31 +499,31 @@ public class UserService {
 
           <!-- Quiz rapide -->
           <section id="quiz" class="scroll-mt-32">
-            <h2 class="text-3xl font-bold text-gray-900 mb-6">🧠 Quiz rapide</h2>
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">🧠 Quiz rapide</h2>
             
-            <div class="bg-gradient-to-r from-red-50 to-orange-50 border border-red-200 rounded-xl p-6">
+            <div class="bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 border border-red-200 dark:border-red-800 rounded-xl p-6">
               <div class="mb-4">
-                <span class="inline-block px-3 py-1 bg-red-100 text-red-700 rounded-full text-sm font-medium">
+                <span class="inline-block px-3 py-1 bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300 rounded-full text-sm font-medium">
                   Question 1/3
                 </span>
               </div>
               
-              <h3 class="text-lg font-bold text-gray-900 mb-4">
-                Quelle est la différence entre <code class="bg-red-100 px-2 py-1 rounded">abstract class</code> et <code class="bg-red-100 px-2 py-1 rounded">interface</code> en Java ?
+              <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">
+                Quelle est la différence entre <code class="bg-red-100 dark:bg-red-900/50 dark:text-red-200 px-2 py-1 rounded">abstract class</code> et <code class="bg-red-100 dark:bg-red-900/50 dark:text-red-200 px-2 py-1 rounded">interface</code> en Java ?
               </h3>
               
               <div class="space-y-3 mb-6">
-                <label class="flex items-center p-3 bg-white border border-gray-300 rounded-lg hover:border-red-400 cursor-pointer transition-colors">
+                <label class="flex items-center p-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg hover:border-red-400 dark:hover:border-red-500 cursor-pointer transition-colors">
                   <input type="radio" name="quiz1" value="1" class="mr-3" v-model="quizAnswer">
-                  <span class="text-gray-700">Les deux sont identiques, juste des noms différents</span>
+                  <span class="text-gray-700 dark:text-gray-300">Les deux sont identiques, juste des noms différents</span>
                 </label>
-                <label class="flex items-center p-3 bg-white border border-gray-300 rounded-lg hover:border-red-400 cursor-pointer transition-colors">
+                <label class="flex items-center p-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg hover:border-red-400 dark:hover:border-red-500 cursor-pointer transition-colors">
                   <input type="radio" name="quiz1" value="2" class="mr-3" v-model="quizAnswer">
-                  <span class="text-gray-700">Les interfaces peuvent avoir des attributs, pas les classes abstraites</span>
+                  <span class="text-gray-700 dark:text-gray-300">Les interfaces peuvent avoir des attributs, pas les classes abstraites</span>
                 </label>
-                <label class="flex items-center p-3 bg-white border border-gray-300 rounded-lg hover:border-red-400 cursor-pointer transition-colors">
+                <label class="flex items-center p-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg hover:border-red-400 dark:hover:border-red-500 cursor-pointer transition-colors">
                   <input type="radio" name="quiz1" value="3" class="mr-3" v-model="quizAnswer">
-                  <span class="text-gray-700">Les classes abstraites peuvent avoir des implémentations, les interfaces non (avant Java 8)</span>
+                  <span class="text-gray-700 dark:text-gray-300">Les classes abstraites peuvent avoir des implémentations, les interfaces non (avant Java 8)</span>
                 </label>
               </div>
               
@@ -537,7 +537,7 @@ public class UserService {
           </section>
 
           <!-- CTA Final -->
-          <section class="bg-gradient-to-r from-red-600 to-orange-600 rounded-2xl p-8 text-white text-center">
+          <section class="bg-gradient-to-r from-red-600 to-orange-600 dark:from-red-800 dark:to-orange-800 rounded-2xl p-8 text-white text-center shadow-lg">
             <h3 class="text-2xl md:text-3xl font-bold mb-4">🚀 Prêt à maîtriser Java ?</h3>
             <p class="text-red-100 mb-6 text-lg">
               Rejoignez notre cours interactif avec progression, projets réels et apprentissage personnalisé !
@@ -583,12 +583,12 @@ public class UserService {
         <div class="lg:col-span-1">
           <div class="sticky top-32 space-y-6">
             <!-- Explorer plus -->
-            <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
-              <h3 class="text-lg font-bold text-gray-900 mb-4">📌 Explorer plus</h3>
+            <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6 shadow-sm">
+              <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">📌 Explorer plus</h3>
               <div class="space-y-3">
                 <router-link 
                   to="/langages/java/cours"
-                  class="flex items-center justify-between bg-gradient-to-r from-red-50 to-orange-100 border border-red-200 text-red-700 py-3 px-4 rounded-lg font-medium hover:from-red-100 hover:to-orange-200 transition-all group"
+                  class="flex items-center justify-between bg-gradient-to-r from-red-50 to-orange-100 dark:from-red-900/20 dark:to-orange-900/20 border border-red-200 dark:border-red-700 text-red-700 dark:text-red-300 py-3 px-4 rounded-lg font-medium hover:from-red-100 dark:hover:from-red-900/40 hover:to-orange-200 dark:hover:to-orange-800/40 transition-all group"
                 >
                   <div class="flex items-center">
                     <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -602,40 +602,40 @@ public class UserService {
                 </router-link>
               </div>
               
-              <div class="mt-4 pt-4 border-t border-gray-200">
-                <p class="text-xs text-gray-500 text-center">
+              <div class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+                <p class="text-xs text-gray-500 dark:text-gray-400 text-center">
                   Cliquez pour découvrir le cours interactif
                 </p>
               </div>
             </div>
 
             <!-- Pourquoi Java ? -->
-            <div class="bg-gradient-to-r from-orange-50 to-amber-50 border border-orange-200 rounded-xl p-6">
-              <h3 class="text-lg font-bold text-gray-900 mb-3">☕ Pourquoi Java ?</h3>
+            <div class="bg-gradient-to-r from-orange-50 to-amber-50 dark:from-orange-900/20 dark:to-amber-900/20 border border-orange-200 dark:border-orange-700 rounded-xl p-6">
+              <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-3">☕ Pourquoi Java ?</h3>
               <ul class="space-y-2">
                 <li class="flex items-start">
                   <svg class="w-4 h-4 text-orange-500 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                   </svg>
-                  <span class="text-sm text-gray-700">Portabilité "Write Once, Run Anywhere"</span>
+                  <span class="text-sm text-gray-700 dark:text-gray-300">Portabilité "Write Once, Run Anywhere"</span>
                 </li>
                 <li class="flex items-start">
                   <svg class="w-4 h-4 text-orange-500 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                   </svg>
-                  <span class="text-sm text-gray-700">Performances élevées (JVM)</span>
+                  <span class="text-sm text-gray-700 dark:text-gray-300">Performances élevées (JVM)</span>
                 </li>
                 <li class="flex items-start">
                   <svg class="w-4 h-4 text-orange-500 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                   </svg>
-                  <span class="text-sm text-gray-700">Écosystème immense (Spring, Android...)</span>
+                  <span class="text-sm text-gray-700 dark:text-gray-300">Écosystème immense (Spring, Android...)</span>
                 </li>
               </ul>
             </div>
 
             <!-- Conseils -->
-            <div class="bg-gradient-to-r from-red-50 to-pink-50 border border-red-200 rounded-xl p-6">
+            <div class="bg-gradient-to-r from-red-50 to-pink-50 dark:from-red-900/20 dark:to-pink-900/20 border border-red-200 dark:border-red-700 rounded-xl p-6">
               <div class="flex items-start">
                 <div class="w-10 h-10 bg-gradient-to-br from-red-500 to-pink-600 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
                   <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -643,8 +643,8 @@ public class UserService {
                   </svg>
                 </div>
                 <div>
-                  <p class="text-sm font-bold text-gray-900 mb-1">Astuce Pro</p>
-                  <p class="text-xs text-gray-700">
+                  <p class="text-sm font-bold text-gray-900 dark:text-white mb-1">Astuce Pro</p>
+                  <p class="text-xs text-gray-700 dark:text-gray-300">
                     Maîtrisez les concepts POO avant d'aborder Spring Boot ou Android.
                   </p>
                 </div>
@@ -652,24 +652,24 @@ public class UserService {
             </div>
 
             <!-- Frameworks populaires -->
-            <div class="bg-white border border-gray-200 rounded-xl p-6">
-              <h3 class="text-lg font-bold text-gray-900 mb-3">⚡ Frameworks populaires</h3>
+            <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6">
+              <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-3">⚡ Frameworks populaires</h3>
               <div class="space-y-2">
                 <div class="flex items-center text-sm">
                   <div class="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                  <span class="text-gray-700">Spring Boot - Applications web</span>
+                  <span class="text-gray-700 dark:text-gray-300">Spring Boot - Applications web</span>
                 </div>
                 <div class="flex items-center text-sm">
                   <div class="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
-                  <span class="text-gray-700">Hibernate - ORM</span>
+                  <span class="text-gray-700 dark:text-gray-300">Hibernate - ORM</span>
                 </div>
                 <div class="flex items-center text-sm">
                   <div class="w-2 h-2 bg-red-500 rounded-full mr-2"></div>
-                  <span class="text-gray-700">Android SDK - Mobile</span>
+                  <span class="text-gray-700 dark:text-gray-300">Android SDK - Mobile</span>
                 </div>
                 <div class="flex items-center text-sm">
                   <div class="w-2 h-2 bg-purple-500 rounded-full mr-2"></div>
-                  <span class="text-gray-700">Apache Kafka - Streaming</span>
+                  <span class="text-gray-700 dark:text-gray-300">Apache Kafka - Streaming</span>
                 </div>
               </div>
             </div>

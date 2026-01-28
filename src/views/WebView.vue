@@ -1,11 +1,11 @@
 <template>
-  <div class="web-technologies">
+  <div class="web-technologies bg-gray-50 dark:bg-gray-900 transition-colors duration-300 min-h-screen">
     <!-- En-tête -->
     <div class="text-center mb-12">
-      <h1 class="text-4xl font-bold text-gray-900 mb-4">
+      <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-4">
         🌐 Écosystème Web
       </h1>
-      <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+      <p class="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
         Découvrez les principaux langages, frameworks et outils du développement web moderne.
       </p>
     </div>
@@ -21,7 +21,7 @@
             'px-6 py-2 rounded-full font-medium transition-all',
             activeCategory === category.id 
               ? 'bg-blue-500 text-white' 
-              : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+              : 'bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700'
           ]"
         >
           {{ category.name }}
@@ -34,13 +34,13 @@
       <!-- Frontend -->
       <section v-if="activeCategory === 'frontend' || activeCategory === 'all'" class="fade-in">
         <div class="flex items-center mb-8">
-          <div class="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-3">
-            <span class="text-blue-600">🎨</span>
+          <div class="w-8 h-8 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mr-3">
+            <span class="text-blue-600 dark:text-blue-400">🎨</span>
           </div>
-          <h2 class="text-3xl font-bold text-gray-900">Frontend</h2>
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Frontend</h2>
         </div>
         
-        <p class="text-gray-600 mb-8 max-w-3xl">
+        <p class="text-gray-600 dark:text-gray-400 mb-8 max-w-3xl">
           Le frontend est la partie visible d'un site web, celle que l'utilisateur voit et avec laquelle il interagit.
           Il combine design, interactivité et expérience utilisateur.
         </p>
@@ -57,13 +57,13 @@
       <!-- Backend -->
       <section v-if="activeCategory === 'backend' || activeCategory === 'all'" class="fade-in">
         <div class="flex items-center mb-8">
-          <div class="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-3">
-            <span class="text-green-600">⚙️</span>
+          <div class="w-8 h-8 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center mr-3">
+            <span class="text-green-600 dark:text-green-400">⚙️</span>
           </div>
-          <h2 class="text-3xl font-bold text-gray-900">Backend</h2>
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Backend</h2>
         </div>
         
-        <p class="text-gray-600 mb-8 max-w-3xl">
+        <p class="text-gray-600 dark:text-gray-400 mb-8 max-w-3xl">
           Le backend gère la logique métier, les bases de données et l'authentification.
           C'est le moteur invisible qui fait fonctionner les applications web.
         </p>
@@ -80,13 +80,13 @@
       <!-- Full-Stack & Frameworks -->
       <section v-if="activeCategory === 'fullstack' || activeCategory === 'all'" class="fade-in">
         <div class="flex items-center mb-8">
-          <div class="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mr-3">
-            <span class="text-purple-600">🔄</span>
+          <div class="w-8 h-8 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mr-3">
+            <span class="text-purple-600 dark:text-purple-400">🔄</span>
           </div>
-          <h2 class="text-3xl font-bold text-gray-900">Frameworks Full-Stack</h2>
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Frameworks Full-Stack</h2>
         </div>
         
-        <p class="text-gray-600 mb-8 max-w-3xl">
+        <p class="text-gray-600 dark:text-gray-400 mb-8 max-w-3xl">
           Ces frameworks permettent de développer à la fois le frontend et le backend avec une seule technologie,
           offrant une meilleure cohérence et productivité.
         </p>
@@ -103,13 +103,13 @@
       <!-- Bases de données -->
       <section v-if="activeCategory === 'database' || activeCategory === 'all'" class="fade-in">
         <div class="flex items-center mb-8">
-          <div class="w-8 h-8 bg-yellow-100 rounded-lg flex items-center justify-center mr-3">
-            <span class="text-yellow-600">🗄️</span>
+          <div class="w-8 h-8 bg-yellow-100 dark:bg-yellow-900/30 rounded-lg flex items-center justify-center mr-3">
+            <span class="text-yellow-600 dark:text-yellow-400">🗄️</span>
           </div>
-          <h2 class="text-3xl font-bold text-gray-900">Bases de données</h2>
+          <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Bases de données</h2>
         </div>
         
-        <p class="text-gray-600 mb-8 max-w-3xl">
+        <p class="text-gray-600 dark:text-gray-400 mb-8 max-w-3xl">
           Le stockage et la gestion des données sont essentiels pour toute application web.
           Chaque type de base de données a ses avantages spécifiques.
         </p>
@@ -125,48 +125,49 @@
     </div>
 
     <!-- Comparaison -->
-    <div class="mt-16 bg-gray-50 rounded-2xl p-8">
-      <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">📊 Guide de choix</h3>
+    <div class="mt-16 bg-gray-50 dark:bg-gray-800 rounded-2xl p-8 border border-gray-100 dark:border-gray-700">
+      <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">📊 Guide de choix</h3>
       
       <div class="overflow-x-auto">
-        <table class="min-w-full bg-white rounded-lg overflow-hidden">
-          <thead class="bg-gray-100">
+        <table class="min-w-full bg-white dark:bg-gray-900 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+          <thead class="bg-gray-100 dark:bg-gray-800">
             <tr>
-              <th class="py-3 px-4 text-left font-semibold text-gray-700">Technologie</th>
-              <th class="py-3 px-4 text-left font-semibold text-gray-700">Type</th>
-              <th class="py-3 px-4 text-left font-semibold text-gray-700">Cas d'usage</th>
-              <th class="py-3 px-4 text-left font-semibold text-gray-700">Courbe d'apprentissage</th>
+              <th class="py-3 px-4 text-left font-semibold text-gray-700 dark:text-gray-300">Technologie</th>
+              <th class="py-3 px-4 text-left font-semibold text-gray-700 dark:text-gray-300">Type</th>
+              <th class="py-3 px-4 text-left font-semibold text-gray-700 dark:text-gray-300">Cas d'usage</th>
+              <th class="py-3 px-4 text-left font-semibold text-gray-700 dark:text-gray-300">Courbe d'apprentissage</th>
             </tr>
           </thead>
-          <tbody>
-            <tr v-for="item in comparisonTable" :key="item.name" class="border-t">
+          <tbody class="divide-y divide-gray-200 dark:divide-gray-700">
+            <tr v-for="item in comparisonTable" :key="item.name" class="border-t border-gray-200 dark:border-gray-700">
               <td class="py-3 px-4">
-                <div class="font-medium text-gray-900">{{ item.name }}</div>
+                <div class="font-medium text-gray-900 dark:text-white">{{ item.name }}</div>
               </td>
               <td class="py-3 px-4">
                 <span :class="[
                   'px-3 py-1 rounded-full text-xs font-medium',
-                  item.type === 'Frontend' ? 'bg-blue-100 text-blue-800' :
-                  item.type === 'Backend' ? 'bg-green-100 text-green-800' :
-                  'bg-purple-100 text-purple-800'
+                  item.type === 'Frontend' ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300' :
+                  item.type === 'Backend' ? 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300' :
+                  'bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300'
                 ]">
                   {{ item.type }}
                 </span>
               </td>
-              <td class="py-3 px-4 text-gray-600 text-sm">{{ item.useCase }}</td>
+              <td class="py-3 px-4 text-gray-600 dark:text-gray-400 text-sm">{{ item.useCase }}</td>
               <td class="py-3 px-4">
                 <div class="flex items-center">
-                  <div class="w-24 h-2 bg-gray-200 rounded-full overflow-hidden">
+                  <div class="w-24 h-2 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
                     <div 
                       :class="[
                         'h-full',
-                        item.difficulty === 'Facile' ? 'bg-green-500 w-1/4' :
-                        item.difficulty === 'Moyenne' ? 'bg-yellow-500 w-1/2' :
-                        'bg-red-500 w-3/4'
+                        item.difficulty === 'Facile' ? 'bg-green-500' :
+                        item.difficulty === 'Moyenne' ? 'bg-yellow-500' :
+                        'bg-red-500'
                       ]"
+                      :style="{ width: item.difficulty === 'Facile' ? '25%' : item.difficulty === 'Moyenne' ? '50%' : '75%' }"
                     ></div>
                   </div>
-                  <span class="ml-2 text-sm text-gray-600">{{ item.difficulty }}</span>
+                  <span class="ml-2 text-sm text-gray-600 dark:text-gray-400">{{ item.difficulty }}</span>
                 </div>
               </td>
             </tr>
@@ -177,26 +178,26 @@
 
     <!-- Conseils -->
     <div class="mt-16 grid grid-cols-1 md:grid-cols-3 gap-8">
-      <div class="bg-white p-6 rounded-xl shadow border-l-4 border-blue-500">
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow border-l-4 border-blue-500 dark:border-blue-500">
         <div class="text-blue-500 text-2xl mb-4">🎯</div>
-        <h4 class="font-bold text-gray-900 mb-2">Pour débuter</h4>
-        <p class="text-gray-600 text-sm">
+        <h4 class="font-bold text-gray-900 dark:text-white mb-2">Pour débuter</h4>
+        <p class="text-gray-600 dark:text-gray-400 text-sm">
           Commencez par HTML/CSS puis JavaScript. Une fois les bases maîtrisées, explorez un framework frontend comme Vue.js ou React.
         </p>
       </div>
       
-      <div class="bg-white p-6 rounded-xl shadow border-l-4 border-green-500">
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow border-l-4 border-green-500 dark:border-green-500">
         <div class="text-green-500 text-2xl mb-4">🚀</div>
-        <h4 class="font-bold text-gray-900 mb-2">Pour un projet professionnel</h4>
-        <p class="text-gray-600 text-sm">
+        <h4 class="font-bold text-gray-900 dark:text-white mb-2">Pour un projet professionnel</h4>
+        <p class="text-gray-600 dark:text-gray-400 text-sm">
           Considérez l'écosystème complet : React/Next.js pour le front, Node.js/Python pour le back, PostgreSQL/MySQL pour la base.
         </p>
       </div>
       
-      <div class="bg-white p-6 rounded-xl shadow border-l-4 border-purple-500">
+      <div class="bg-white dark:bg-gray-800 p-6 rounded-xl shadow border-l-4 border-purple-500 dark:border-purple-500">
         <div class="text-purple-500 text-2xl mb-4">⚡</div>
-        <h4 class="font-bold text-gray-900 mb-2">Pour les performances</h4>
-        <p class="text-gray-600 text-sm">
+        <h4 class="font-bold text-gray-900 dark:text-white mb-2">Pour les performances</h4>
+        <p class="text-gray-600 dark:text-gray-400 text-sm">
           Next.js/Nuxt.js pour le SSR, Go/Rust pour les APIs haute performance, Redis pour le cache, PostgreSQL pour les données relationnelles.
         </p>
       </div>

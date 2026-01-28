@@ -1,7 +1,7 @@
 <template>
-  <div id="app" class="min-h-screen flex flex-col bg-gray-50">
+  <div id="app" class="min-h-screen flex flex-col bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
     <!-- En-tête Navigation -->
-    <header class="bg-white shadow-sm sticky top-0 z-50">
+    <header class="bg-white dark:bg-gray-800 shadow-sm sticky top-0 z-50 transition-colors duration-300">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center h-16">
           <!-- Logo -->
@@ -12,8 +12,8 @@
               </svg>
             </div>
             <div class="flex flex-col">
-              <span class="text-xl font-bold text-gray-900">Bhil<span class="text-blue-600 text-xl">$</span></span>
-              <span class="text-xs text-gray-500">Bhil$ && Jjboy</span>
+              <span class="text-xl font-bold text-gray-900 dark:text-white">Bhil<span class="text-blue-600 dark:text-blue-400 text-xl">$</span></span>
+              <span class="text-xs text-gray-500 dark:text-gray-400">Bhil$ && Jjboy</span>
             </div>
           </router-link>
 
@@ -21,39 +21,55 @@
           <nav class="hidden md:flex items-center space-x-8">
             <router-link 
               to="/" 
-              class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
+              class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               active-class="text-blue-600"
             >
               Accueil
             </router-link>
             <router-link 
               to="/langages" 
-              class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
+              class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               active-class="text-blue-600"
             >
               Langages
             </router-link>
             <router-link 
               to="/web" 
-              class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
+              class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               active-class="text-blue-600"
             >
               Développement Web
             </router-link>
             <router-link 
               to="/cybersecurite" 
-              class="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
+              class="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               active-class="text-blue-600"
             >
               Cybersécurité
             </router-link>
+
+             <!-- Theme Toggle Button -->
+            <button 
+              @click="toggleTheme" 
+              class="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none transition-colors"
+              aria-label="Toggle Dark Mode"
+            >
+              <!-- Sun icon -->
+              <svg v-if="isDark" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+              </svg>
+              <!-- Moon icon -->
+              <svg v-else class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+              </svg>
+            </button>
             
             <!-- Section Authentification -->
             <div v-if="isAuthenticated" class="relative group">
               <!-- Bouton Profil -->
               <router-link 
                 to="/profile" 
-                class="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-blue-50 transition-colors"
+                class="flex items-center space-x-2 px-3 py-2 rounded-lg hover:bg-blue-50 dark:hover:bg-gray-700 transition-colors"
               >
                 <!-- Avatar -->
                 <div class="relative">
@@ -61,24 +77,23 @@
                     {{ userInitials }}
                   </div>
                   <!-- Badge connecté -->
-                  <div class="absolute -top-1 -right-1 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></div>
+                  <div class="absolute -top-1 -right-1 w-3 h-3 bg-green-500 border-2 border-white dark:border-gray-800 rounded-full"></div>
                 </div>
-                <span class="text-sm font-medium text-gray-700">Mon Profil</span>
+                <span class="text-sm font-medium text-gray-700 dark:text-gray-200">Mon Profil</span>
               </router-link>
               
-              <!-- Menu déroulant -->
-              <div class="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-gray-100">
+              <div class="absolute right-0 mt-2 w-56 bg-white dark:bg-gray-800 rounded-xl shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 border border-gray-100 dark:border-gray-700">
                 <div class="py-2">
                   <!-- En-tête utilisateur -->
-                  <div class="px-4 py-3 border-b border-gray-100 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-t-xl">
-                    <p class="text-sm font-semibold text-gray-900 truncate">{{ userName }}</p>
-                    <p class="text-xs text-gray-500 truncate">{{ userEmail }}</p>
+                  <div class="px-4 py-3 border-b border-gray-100 dark:border-gray-700 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-700 dark:to-gray-800 rounded-t-xl">
+                    <p class="text-sm font-semibold text-gray-900 dark:text-white truncate">{{ userName }}</p>
+                    <p class="text-xs text-gray-500 dark:text-gray-400 truncate">{{ userEmail }}</p>
                   </div>
                   
                   <!-- Liens -->
                   <router-link 
                     to="/profile" 
-                    class="flex items-center px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 transition-colors"
+                    class="flex items-center px-4 py-3 text-sm text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 transition-colors"
                   >
                     <svg class="w-4 h-4 mr-3 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
@@ -139,7 +154,7 @@
             
             <router-link 
               to="/contact" 
-              class="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-md text-gray-700 hover:bg-gray-50 transition-colors"
+              class="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-sm font-medium rounded-md text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
             >
               Contact
             </router-link>
@@ -148,7 +163,7 @@
           <!-- Mobile Menu Button -->
           <button 
             @click="mobileMenuOpen = !mobileMenuOpen"
-            class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100 transition-colors"
+            class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
           >
             <svg v-if="!mobileMenuOpen" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
@@ -169,10 +184,10 @@
         leave-from-class="transform translate-x-0 opacity-100"
         leave-to-class="transform translate-x-full opacity-0"
       >
-        <div v-if="mobileMenuOpen" class="md:hidden fixed inset-y-0 right-0 w-72 bg-white shadow-2xl z-50">
+        <div v-if="mobileMenuOpen" class="md:hidden fixed inset-y-0 right-0 w-72 bg-white dark:bg-gray-800 shadow-2xl z-50">
           <div class="flex flex-col h-full">
             <!-- En-tête du menu mobile -->
-            <div class="flex items-center justify-between p-4 border-b border-gray-200 bg-gradient-to-r from-blue-50 to-indigo-50">
+            <div class="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-700 dark:to-gray-800">
               <div class="flex items-center space-x-3">
                 <div class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center">
                   <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -180,17 +195,37 @@
                   </svg>
                 </div>
                 <div>
-                  <span class="text-lg font-bold text-gray-900">Bhil$</span>
-                  <p class="text-xs text-gray-500">Menu</p>
+                  <span class="text-lg font-bold text-gray-900 dark:text-white">Bhil$</span>
+                  <p class="text-xs text-gray-500 dark:text-gray-400">Menu</p>
                 </div>
               </div>
               <button 
                 @click="mobileMenuOpen = false"
-                class="p-2 rounded-md text-gray-700 hover:bg-gray-100"
+                class="p-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
               >
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                 </svg>
+              </button>
+            </div>
+
+
+
+            <!-- Ajout Bouton Theme Mobile -->
+            <div class="p-4 border-b border-gray-200 dark:border-gray-700">
+              <button 
+                @click="toggleTheme" 
+                class="flex items-center w-full px-4 py-3 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+              >
+                <div class="w-6 h-6 mr-3 flex items-center justify-center">
+                   <svg v-if="isDark" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+                  </svg>
+                  <svg v-else class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+                  </svg>
+                </div>
+                {{ isDark ? 'Mode clair' : 'Mode sombre' }}
               </button>
             </div>
 
@@ -341,7 +376,7 @@
             </nav>
 
             <!-- Footer du menu mobile -->
-            <div class="p-4 border-t border-gray-200">
+            <div class="p-4 border-t border-gray-200 dark:border-gray-700">
               <a 
                 href="https://wa.me/2290198874019" 
                 target="_blank"
@@ -380,7 +415,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-900">
+    <footer class="bg-gray-900 border-t border-gray-800">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <!-- Grille principale -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-8 border-b border-gray-800">
@@ -500,8 +535,14 @@
 </template>
 
 <script>
+import { useTheme } from '@/composables/useTheme';
+
 export default {
   name: 'App',
+  setup() {
+    const { isDark, toggleTheme } = useTheme();
+    return { isDark, toggleTheme };
+  },
   data() {
     return {
       mobileMenuOpen: false,

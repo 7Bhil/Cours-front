@@ -53,66 +53,56 @@ const routes = [
     component: ContactView
   },
 
-  // Routes protégées
+  // Routes partiellement publiques (Courses accessibles sans compte)
   {
     path: '/langages',
     name: 'langages',
-    component: LanguagesView,
-    meta: { requiresAuth: true }
+    component: LanguagesView
   },
   {
     path: '/langages/javascript',
     name: 'javascript',
-    component: Js,
-    meta: { requiresAuth: true }
+    component: Js
   },
   {
     path: '/langages/java',
     name: 'java',
-    component: Java,
-    meta: { requiresAuth: true }
+    component: Java
   },
   {
     path: '/langages/javascript/cours',
     name: 'CoursJavaScript',
-    component: JSCours,
-    meta: { requiresAuth: true }
+    component: JSCours
   },
   {
     path: '/langages/python/cours',
     name: 'CoursPython',
-    component: Pythoncours,
-    meta: { requiresAuth: true }
+    component: Pythoncours
   },
   {
     path: '/langages/java/cours',
     name: 'CoursJava',
-    component: JavaCours,
-    meta: { requiresAuth: true }
+    component: JavaCours
   },
   {
     path: '/langages/cpp/cours',
     name: 'CoursCpp',
-    component: CppCours,
-    meta: { requiresAuth: true }
+    component: CppCours
   },
   {
     path: '/langages/javatest',
     name: 'javatest',
-    component: Javatest,
-    meta: { requiresAuth: true }
+    component: Javatest
   },
   {
     path: '/langages/rubytest',
     name: 'rubytest',
-    component: Rubytest,
-    meta: { requiresAuth: true }
+    component: Rubytest
   },
   {
     path: '/langages/python',
     name: 'python',
-    component: Python,
-    meta: { requiresAuth: true }
+    component: Python
   },
   {
     path: '/profile',
@@ -123,38 +113,32 @@ const routes = [
   {
     path: '/langages/c',
     name: 'c',
-    component: C,
-    meta: { requiresAuth: true }
+    component: C
   },
   {
     path: '/langages/cpp',
     name: 'cpp',
-    component: Cpp,
-    meta: { requiresAuth: true }
+    component: Cpp
   },
   {
     path: '/langages/ruby',
     name: 'ruby',
-    component: Ruby,
-    meta: { requiresAuth: true }
+    component: Ruby
   },
   {
     path: '/web',
     name: 'web',
-    component: WebView,
-    meta: { requiresAuth: true }
+    component: WebView
   },
   {
     path: '/cybersecurity',
     name: 'cybersecurity',
-    component: CybersecurityView,
-    meta: { requiresAuth: true }
+    component: CybersecurityView
   },
   {
     path: '/technology',
     name: 'technology',
-    component: TechnologyView,
-    meta: { requiresAuth: true }
+    component: TechnologyView
   },
 
   // Route 404 (catch-all) - DOIT ÊTRE LA DERNIÈRE

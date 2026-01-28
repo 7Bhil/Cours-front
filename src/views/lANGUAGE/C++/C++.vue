@@ -1,15 +1,15 @@
 <template>
-  <div class="cpp-page bg-white">
+  <div class="cpp-page bg-white dark:bg-gray-900 transition-colors duration-300">
     <!-- Hero Section -->
-    <section class="relative bg-gradient-to-b from-blue-50 to-white py-16">
+    <section class="relative bg-gradient-to-b from-blue-50 to-white dark:from-blue-900/10 dark:to-gray-900 py-16 transition-colors duration-300">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Bouton de retour en haut à gauche -->
         <div class="mb-8 md:mb-12">
           <router-link 
             to="/langages"
-            class="inline-flex items-center gap-2 px-4 py-2 bg-white/80 backdrop-blur-sm border border-blue-200 text-gray-700 font-medium rounded-lg hover:bg-blue-50 hover:border-blue-300 hover:shadow-md transition-all duration-200 group"
+            class="inline-flex items-center gap-2 px-4 py-2 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-blue-200 dark:border-blue-900/30 text-gray-700 dark:text-gray-300 font-medium rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20 hover:border-blue-300 dark:hover:border-blue-700 hover:shadow-md transition-all duration-200 group"
           >
-            <svg class="w-4 h-4 text-gray-600 group-hover:text-blue-600 transition-colors" 
+            <svg class="w-4 h-4 text-gray-600 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" 
                  fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
             </svg>
@@ -20,27 +20,24 @@
         <div class="flex flex-col md:flex-row items-center gap-8">
           <!-- Logo C++ -->
           <div class="flex-shrink-0">
-            <svg class="w-24 h-24 text-black" viewBox="0 0 128 128" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-  <!-- Hexagon background -->
-<path fill="#00599C" d="M64 4L118 32V96L64 124L10 96V32L64 4Z"/>
-
-  <!-- Letter C -->
-  <path fill="#ffffff" d="M60 30c-18.2 0-33 14.8-33 33s14.8 33 33 33c7.6 0 14.6-2.6 20.1-7l-6.2-8.1c-3.7 2.7-8.4 4.3-13.9 4.3-12.4 0-22.4-10-22.4-22.4S47.6 40.4 60 40.4c5.5 0 10.2 1.6 13.9 4.3l6.2-8.1C74.6 32.6 67.6 30 60 30Z"/>
-
-  <!-- Plus 1 -->
-  <path fill="#ffffff" d="M82 58h6v-6h6v6h6v6h-6v6h-6v-6h-6z"/>
-
-  <!-- Plus 2 (horizontal alignment) -->
-  <path fill="#ffffff" d="M98 58h6v-6h6v6h6v6h-6v6h-6v-6h-6z"/>
-</svg>
+            <svg class="w-24 h-24 text-black dark:text-white" viewBox="0 0 128 128" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <!-- Hexagon background -->
+              <path fill="#00599C" d="M64 4L118 32V96L64 124L10 96V32L64 4Z"/>
+              <!-- Letter C -->
+              <path fill="#ffffff" d="M60 30c-18.2 0-33 14.8-33 33s14.8 33 33 33c7.6 0 14.6-2.6 20.1-7l-6.2-8.1c-3.7 2.7-8.4 4.3-13.9 4.3-12.4 0-22.4-10-22.4-22.4S47.6 40.4 60 40.4c5.5 0 10.2 1.6 13.9 4.3l6.2-8.1C74.6 32.6 67.6 30 60 30Z"/>
+              <!-- Plus 1 -->
+              <path fill="#ffffff" d="M82 58h6v-6h6v6h6v6h-6v6h-6v-6h-6z"/>
+              <!-- Plus 2 (horizontal alignment) -->
+              <path fill="#ffffff" d="M98 58h6v-6h6v6h6v6h-6v6h-6v-6h-6z"/>
+            </svg>
           </div>
 
           <!-- Texte -->
           <div class="flex-1 text-center md:text-left">
-            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
               C++ Masterclass
             </h1>
-            <p class="text-xl text-gray-600 mb-6">
+            <p class="text-xl text-gray-600 dark:text-gray-300 mb-6">
               Maîtrisez le langage C++ de A à Z. Performance, contrôle mémoire et programmation système.
             </p>
             
@@ -60,16 +57,16 @@
 
             <!-- Badges -->
             <div class="flex flex-wrap gap-3 justify-center md:justify-start">
-              <span class="px-4 py-2 bg-white border border-blue-100 rounded-lg text-sm font-medium text-gray-700 hover:border-blue-300 transition-colors">
+              <span class="px-4 py-2 bg-white dark:bg-gray-800 border border-blue-100 dark:border-blue-900/30 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:border-blue-300 dark:hover:border-blue-700 transition-colors">
                 Performance
               </span>
-              <span class="px-4 py-2 bg-white border border-blue-100 rounded-lg text-sm font-medium text-gray-700 hover:border-blue-300 transition-colors">
+              <span class="px-4 py-2 bg-white dark:bg-gray-800 border border-blue-100 dark:border-blue-900/30 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:border-blue-300 dark:hover:border-blue-700 transition-colors">
                 Système
               </span>
-              <span class="px-4 py-2 bg-white border border-blue-100 rounded-lg text-sm font-medium text-gray-700 hover:border-blue-300 transition-colors">
+              <span class="px-4 py-2 bg-white dark:bg-gray-800 border border-blue-100 dark:border-blue-900/30 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:border-blue-300 dark:hover:border-blue-700 transition-colors">
                 Jeux vidéo
               </span>
-              <span class="px-4 py-2 bg-white border border-blue-100 rounded-lg text-sm font-medium text-gray-700 hover:border-blue-300 transition-colors">
+              <span class="px-4 py-2 bg-white dark:bg-gray-800 border border-blue-100 dark:border-blue-900/30 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 hover:border-blue-300 dark:hover:border-blue-700 transition-colors">
                 Embedded
               </span>
             </div>
@@ -77,23 +74,23 @@
         </div>
 
         <!-- Statistiques -->
-        <div class="mt-12 pt-8 border-t border-blue-100">
+        <div class="mt-12 pt-8 border-t border-blue-100 dark:border-blue-900/30">
           <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-            <div class="text-center p-4 bg-blue-50/50 rounded-xl border border-blue-100">
-              <div class="text-2xl font-bold text-gray-900">25</div>
-              <div class="text-sm text-blue-700">Chapitres</div>
+            <div class="text-center p-4 bg-blue-50/50 dark:bg-blue-900/10 rounded-xl border border-blue-100 dark:border-blue-900/30">
+              <div class="text-2xl font-bold text-gray-900 dark:text-white">25</div>
+              <div class="text-sm text-blue-700 dark:text-blue-300">Chapitres</div>
             </div>
-            <div class="text-center p-4 bg-blue-50/50 rounded-xl border border-blue-100">
-              <div class="text-2xl font-bold text-gray-900">40+</div>
-              <div class="text-sm text-blue-700">Exercices pratiques</div>
+            <div class="text-center p-4 bg-blue-50/50 dark:bg-blue-900/10 rounded-xl border border-blue-100 dark:border-blue-900/30">
+              <div class="text-2xl font-bold text-gray-900 dark:text-white">40+</div>
+              <div class="text-sm text-blue-700 dark:text-blue-300">Exercices pratiques</div>
             </div>
-            <div class="text-center p-4 bg-blue-50/50 rounded-xl border border-blue-100">
-              <div class="text-2xl font-bold text-gray-900">18+</div>
-              <div class="text-sm text-blue-700">Heures de contenu</div>
+            <div class="text-center p-4 bg-blue-50/50 dark:bg-blue-900/10 rounded-xl border border-blue-100 dark:border-blue-900/30">
+              <div class="text-2xl font-bold text-gray-900 dark:text-white">18+</div>
+              <div class="text-sm text-blue-700 dark:text-blue-300">Heures de contenu</div>
             </div>
-            <div class="text-center p-4 bg-blue-50/50 rounded-xl border border-blue-100">
-              <div class="text-2xl font-bold text-gray-900">4</div>
-              <div class="text-sm text-blue-700">Niveaux</div>
+            <div class="text-center p-4 bg-blue-50/50 dark:bg-blue-900/10 rounded-xl border border-blue-100 dark:border-blue-900/30">
+              <div class="text-2xl font-bold text-gray-900 dark:text-white">4</div>
+              <div class="text-sm text-blue-700 dark:text-blue-300">Niveaux</div>
             </div>
           </div>
         </div>
@@ -101,22 +98,22 @@
     </section>
 
     <!-- Navigation rapide -->
-    <section class="sticky top-16 z-40 bg-white border-b border-gray-200 shadow-sm">
+    <section class="sticky top-16 z-40 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800 shadow-sm transition-colors duration-300">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav class="flex space-x-8 overflow-x-auto py-4">
-          <button @click="scrollTo('installation')" class="text-sm font-medium text-gray-600 hover:text-blue-600 whitespace-nowrap transition-colors focus:outline-none">
+          <button @click="scrollTo('installation')" class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 whitespace-nowrap transition-colors focus:outline-none">
             Installation
           </button>
-          <button @click="scrollTo('bases')" class="text-sm font-medium text-gray-600 hover:text-blue-600 whitespace-nowrap transition-colors focus:outline-none">
+          <button @click="scrollTo('bases')" class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 whitespace-nowrap transition-colors focus:outline-none">
             Les bases
           </button>
-          <button @click="scrollTo('poo')" class="text-sm font-medium text-gray-600 hover:text-blue-600 whitespace-nowrap transition-colors focus:outline-none">
+          <button @click="scrollTo('poo')" class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 whitespace-nowrap transition-colors focus:outline-none">
             POO & Avancé
           </button>
-          <button @click="scrollTo('ressources')" class="text-sm font-medium text-gray-600 hover:text-blue-600 whitespace-nowrap transition-colors focus:outline-none">
+          <button @click="scrollTo('ressources')" class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 whitespace-nowrap transition-colors focus:outline-none">
             Ressources
           </button>
-          <button @click="scrollTo('quiz')" class="text-sm font-medium text-gray-600 hover:text-blue-600 whitespace-nowrap transition-colors focus:outline-none">
+          <button @click="scrollTo('quiz')" class="text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 whitespace-nowrap transition-colors focus:outline-none">
             Quiz rapide
           </button>
         </nav>
@@ -129,14 +126,14 @@
         <div class="lg:col-span-2 space-y-12">
           <!-- Installation -->
           <section id="installation" class="scroll-mt-32">
-            <h2 class="text-3xl font-bold text-gray-900 mb-6">🏗️ Installation C++</h2>
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">🏗️ Installation C++</h2>
             
-            <div class="bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-200 rounded-lg p-6 mb-6">
-              <h3 class="text-xl font-semibold text-gray-900 mb-4">Compilateur C++</h3>
-              <p class="text-gray-700 mb-4">
+            <div class="bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 border border-blue-200 dark:border-blue-800 rounded-lg p-6 mb-6">
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Compilateur C++</h3>
+              <p class="text-gray-700 dark:text-gray-300 mb-4">
                 Choisissez un compilateur moderne (C++17/C++20 recommandé) :
               </p>
-              <div class="bg-gray-900 text-gray-100 rounded-lg p-4 font-mono text-sm overflow-x-auto mb-4">
+              <div class="bg-gray-900 dark:bg-black text-gray-100 rounded-lg p-4 font-mono text-sm overflow-x-auto mb-4">
                 <pre># Linux (Ubuntu/Debian)
 sudo apt install g++
 
@@ -147,14 +144,14 @@ brew install gcc
 pacman -S mingw-w64-x86_64-gcc</pre>
               </div>
               
-              <div class="bg-gradient-to-r from-blue-100 to-blue-50 border border-blue-300 rounded-lg p-4">
+              <div class="bg-gradient-to-r from-blue-100 to-blue-50 dark:from-blue-900/30 dark:to-blue-800/30 border border-blue-300 dark:border-blue-700 rounded-lg p-4">
                 <div class="flex items-start">
-                  <svg class="w-5 h-5 text-blue-600 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
                   </svg>
                   <div>
-                    <p class="text-sm font-medium text-blue-800 mb-1">Conseil Pro</p>
-                    <p class="text-sm text-blue-700">
+                    <p class="text-sm font-medium text-blue-800 dark:text-blue-200 mb-1">Conseil Pro</p>
+                    <p class="text-sm text-blue-700 dark:text-blue-300">
                       Utilisez GCC 11+ ou Clang 12+ pour un meilleur support du C++20.
                     </p>
                   </div>
@@ -162,26 +159,26 @@ pacman -S mingw-w64-x86_64-gcc</pre>
               </div>
             </div>
 
-            <div class="bg-gradient-to-r from-indigo-50 to-indigo-100 border border-indigo-200 rounded-lg p-6">
-              <h3 class="text-xl font-semibold text-gray-900 mb-4">IDE (Environnement de développement)</h3>
-              <p class="text-gray-700 mb-4">
+            <div class="bg-gradient-to-r from-indigo-50 to-indigo-100 dark:from-indigo-900/20 dark:to-indigo-900/20 border border-indigo-200 dark:border-indigo-800 rounded-lg p-6">
+              <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">IDE (Environnement de développement)</h3>
+              <p class="text-gray-700 dark:text-gray-300 mb-4">
                 Choisissez un IDE adapté au C++ :
               </p>
               <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <div class="bg-white border border-gray-200 rounded-lg p-4 text-center hover:border-blue-300 transition-colors">
+                <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 text-center hover:border-blue-300 dark:hover:border-blue-700 transition-colors">
                   <div class="text-2xl mb-2">💻</div>
-                  <h4 class="font-bold text-gray-900 mb-1">Visual Studio</h4>
-                  <p class="text-sm text-gray-600">Windows, excellent débuggeur</p>
+                  <h4 class="font-bold text-gray-900 dark:text-white mb-1">Visual Studio</h4>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">Windows, excellent débuggeur</p>
                 </div>
-                <div class="bg-white border border-gray-200 rounded-lg p-4 text-center hover:border-blue-300 transition-colors">
+                <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 text-center hover:border-blue-300 dark:hover:border-blue-700 transition-colors">
                   <div class="text-2xl mb-2">🧠</div>
-                  <h4 class="font-bold text-gray-900 mb-1">CLion</h4>
-                  <p class="text-sm text-gray-600">JetBrains, multiplateforme</p>
+                  <h4 class="font-bold text-gray-900 dark:text-white mb-1">CLion</h4>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">JetBrains, multiplateforme</p>
                 </div>
-                <div class="bg-white border border-gray-200 rounded-lg p-4 text-center hover:border-blue-300 transition-colors">
+                <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 text-center hover:border-blue-300 dark:hover:border-blue-700 transition-colors">
                   <div class="text-2xl mb-2">⚡</div>
-                  <h4 class="font-bold text-gray-900 mb-1">VS Code</h4>
-                  <p class="text-sm text-gray-600">Léger avec extensions C++</p>
+                  <h4 class="font-bold text-gray-900 dark:text-white mb-1">VS Code</h4>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">Léger avec extensions C++</p>
                 </div>
               </div>
             </div>
@@ -189,28 +186,28 @@ pacman -S mingw-w64-x86_64-gcc</pre>
 
           <!-- Les bases -->
           <section id="bases" class="scroll-mt-32">
-            <h2 class="text-3xl font-bold text-gray-900 mb-6">📚 Les bases essentielles</h2>
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">📚 Les bases essentielles</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <!-- Variables -->
-              <div class="bg-gradient-to-br from-blue-50 to-white border border-blue-200 rounded-xl p-6">
-                <h3 class="text-lg font-bold text-gray-900 mb-3">Variables et types</h3>
-                <div class="bg-gray-900 text-gray-100 rounded-lg p-3 font-mono text-sm overflow-x-auto mb-3">
+              <div class="bg-gradient-to-br from-blue-50 to-white dark:from-blue-900/20 dark:to-gray-800 border border-blue-200 dark:border-blue-800 rounded-xl p-6">
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Variables et types</h3>
+                <div class="bg-gray-900 dark:bg-black text-gray-100 rounded-lg p-3 font-mono text-sm overflow-x-auto mb-3">
                   <pre>int age = 25;           // Entier
 double prix = 19.99;    // Décimal
 char lettre = 'A';      // Caractère
 bool majeur = true;     // Booléen
 string nom = "Alice";   // Chaîne</pre>
                 </div>
-                <p class="text-sm text-gray-600">
+                <p class="text-sm text-gray-600 dark:text-gray-400">
                   C++ est fortement typé avec plus de contrôle que C.
                 </p>
               </div>
 
               <!-- Pointeurs -->
-              <div class="bg-gradient-to-br from-indigo-50 to-white border border-indigo-200 rounded-xl p-6">
-                <h3 class="text-lg font-bold text-gray-900 mb-3">Pointeurs et références</h3>
-                <div class="bg-gray-900 text-gray-100 rounded-lg p-3 font-mono text-sm overflow-x-auto mb-3">
+              <div class="bg-gradient-to-br from-indigo-50 to-white dark:from-indigo-900/20 dark:to-gray-800 border border-indigo-200 dark:border-indigo-800 rounded-xl p-6">
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Pointeurs et références</h3>
+                <div class="bg-gray-900 dark:bg-black text-gray-100 rounded-lg p-3 font-mono text-sm overflow-x-auto mb-3">
                   <pre>int x = 42;
 int* ptr = &x;   // Pointeur
 int& ref = x;    // Référence
@@ -218,15 +215,15 @@ int& ref = x;    // Référence
 *ptr = 100;      // Dé-référencement
 ref = 200;       // Modification via référence</pre>
                 </div>
-                <p class="text-sm text-gray-600">
+                <p class="text-sm text-gray-600 dark:text-gray-400">
                   Concepts uniques au C++ pour la gestion mémoire.
                 </p>
               </div>
 
               <!-- Conditions -->
-              <div class="bg-gradient-to-br from-cyan-50 to-white border border-cyan-200 rounded-xl p-6">
-                <h3 class="text-lg font-bold text-gray-900 mb-3">Conditions</h3>
-                <div class="bg-gray-900 text-gray-100 rounded-lg p-3 font-mono text-sm overflow-x-auto mb-3">
+              <div class="bg-gradient-to-br from-cyan-50 to-white dark:from-cyan-900/20 dark:to-gray-800 border border-cyan-200 dark:border-cyan-800 rounded-xl p-6">
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Conditions</h3>
+                <div class="bg-gray-900 dark:bg-black text-gray-100 rounded-lg p-3 font-mono text-sm overflow-x-auto mb-3">
                   <pre>if (age >= 18) {
     cout << "Majeur";
 } else {
@@ -236,15 +233,15 @@ ref = 200;       // Modification via référence</pre>
 // Ternaire
 string statut = (age >= 18) ? "majeur" : "mineur";</pre>
                 </div>
-                <p class="text-sm text-gray-600">
+                <p class="text-sm text-gray-600 dark:text-gray-400">
                   Structures de contrôle similaires à C mais avec C++.
                 </p>
               </div>
 
               <!-- Boucles -->
-              <div class="bg-gradient-to-br from-violet-50 to-white border border-violet-200 rounded-xl p-6">
-                <h3 class="text-lg font-bold text-gray-900 mb-3">Boucles</h3>
-                <div class="bg-gray-900 text-gray-100 rounded-lg p-3 font-mono text-sm overflow-x-auto mb-3">
+              <div class="bg-gradient-to-br from-violet-50 to-white dark:from-violet-900/20 dark:to-gray-800 border border-violet-200 dark:border-violet-800 rounded-xl p-6">
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Boucles</h3>
+                <div class="bg-gray-900 dark:bg-black text-gray-100 rounded-lg p-3 font-mono text-sm overflow-x-auto mb-3">
                   <pre>for (int i = 0; i < 5; i++) {
     cout << i << endl;
 }
@@ -254,7 +251,7 @@ for (auto item : items) {
     cout << item << endl;
 }</pre>
                 </div>
-                <p class="text-sm text-gray-600">
+                <p class="text-sm text-gray-600 dark:text-gray-400">
                   Boucles classiques et range-based pour modernité.
                 </p>
               </div>
@@ -263,13 +260,13 @@ for (auto item : items) {
 
           <!-- POO & Avancé -->
           <section id="poo" class="scroll-mt-32">
-            <h2 class="text-3xl font-bold text-gray-900 mb-6">🎯 POO & Concepts avancés</h2>
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">🎯 POO & Concepts avancés</h2>
             
             <div class="space-y-4">
-              <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border-l-4 border-blue-500 pl-6 pr-4 py-4">
-                <h3 class="text-lg font-bold text-gray-900 mb-2">Classes et objets</h3>
-                <p class="text-gray-700 mb-2">Programmation orientée objet en C++</p>
-                <div class="bg-gray-800 text-gray-100 rounded-lg p-3 font-mono text-sm overflow-x-auto">
+              <div class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border-l-4 border-blue-500 pl-6 pr-4 py-4 rounded-r-lg">
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Classes et objets</h3>
+                <p class="text-gray-700 dark:text-gray-300 mb-2">Programmation orientée objet en C++</p>
+                <div class="bg-gray-800 dark:bg-black text-gray-100 rounded-lg p-3 font-mono text-sm overflow-x-auto">
                   <pre>class Personne {
 private:
     string nom;
@@ -285,10 +282,10 @@ public:
                 </div>
               </div>
 
-              <div class="bg-gradient-to-r from-indigo-50 to-purple-50 border-l-4 border-indigo-500 pl-6 pr-4 py-4">
-                <h3 class="text-lg font-bold text-gray-900 mb-2">Templates</h3>
-                <p class="text-gray-700 mb-2">Programmation générique</p>
-                <div class="bg-gray-800 text-gray-100 rounded-lg p-3 font-mono text-sm overflow-x-auto">
+              <div class="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 border-l-4 border-indigo-500 pl-6 pr-4 py-4 rounded-r-lg">
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Templates</h3>
+                <p class="text-gray-700 dark:text-gray-300 mb-2">Programmation générique</p>
+                <div class="bg-gray-800 dark:bg-black text-gray-100 rounded-lg p-3 font-mono text-sm overflow-x-auto">
                   <pre>template&lt;typename T&gt;
 T max(T a, T b) {
     return (a > b) ? a : b;
@@ -300,10 +297,10 @@ double m2 = max(3.14, 2.71);</pre>
                 </div>
               </div>
 
-              <div class="bg-gradient-to-r from-purple-50 to-violet-50 border-l-4 border-purple-500 pl-6 pr-4 py-4">
-                <h3 class="text-lg font-bold text-gray-900 mb-2">Smart Pointers</h3>
-                <p class="text-gray-700 mb-2">Gestion mémoire automatique (C++11+)</p>
-                <div class="bg-gray-800 text-gray-100 rounded-lg p-3 font-mono text-sm overflow-x-auto">
+              <div class="bg-gradient-to-r from-purple-50 to-violet-50 dark:from-purple-900/20 dark:to-violet-900/20 border-l-4 border-purple-500 pl-6 pr-4 py-4 rounded-r-lg">
+                <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-2">Smart Pointers</h3>
+                <p class="text-gray-700 dark:text-gray-300 mb-2">Gestion mémoire automatique (C++11+)</p>
+                <div class="bg-gray-800 dark:bg-black text-gray-100 rounded-lg p-3 font-mono text-sm overflow-x-auto">
                   <pre>#include &lt;memory&gt;
 
 unique_ptr&lt;int&gt; ptr = make_unique&lt;int&gt;(42);
@@ -318,13 +315,13 @@ shared_ptr&lt;int&gt; ptr2 = make_shared&lt;int&gt;(100);
           <!-- Ressources -->
           <section id="ressources" class="scroll-mt-32">
             <div class="flex items-center justify-between mb-6">
-              <h2 class="text-3xl font-bold text-gray-900">📁 Ressources de formation</h2>
-              <span class="text-sm font-medium text-gray-500 bg-gray-100 px-3 py-1 rounded-full">PDF • Gratuit</span>
+              <h2 class="text-3xl font-bold text-gray-900 dark:text-white">📁 Ressources de formation</h2>
+              <span class="text-sm font-medium text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-800 px-3 py-1 rounded-full">PDF • Gratuit</span>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <!-- Guide -->
-              <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                 <div class="flex items-start mb-4">
                   <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 shadow-md">
                     <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -332,11 +329,11 @@ shared_ptr&lt;int&gt; ptr2 = make_shared&lt;int&gt;(100);
                     </svg>
                   </div>
                   <div>
-                    <h3 class="font-bold text-gray-900 text-lg mb-1">Guide Complet C++</h3>
-                    <p class="text-sm text-gray-600 mb-2">Du C++98 au C++20 moderne</p>
+                    <h3 class="font-bold text-gray-900 dark:text-white text-lg mb-1">Guide Complet C++</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Du C++98 au C++20 moderne</p>
                     <div class="flex items-center text-xs">
-                      <span class="text-gray-500 mr-3">📄 60 pages</span>
-                      <span class="text-gray-500">⚡ 4.8 MB</span>
+                      <span class="text-gray-500 dark:text-gray-400 mr-3">📄 60 pages</span>
+                      <span class="text-gray-500 dark:text-gray-400">⚡ 4.8 MB</span>
                     </div>
                   </div>
                 </div>
@@ -354,7 +351,7 @@ shared_ptr&lt;int&gt; ptr2 = make_shared&lt;int&gt;(100);
               </div>
 
               <!-- Exercices -->
-              <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                 <div class="flex items-start mb-4">
                   <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 shadow-md">
                     <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -362,11 +359,11 @@ shared_ptr&lt;int&gt; ptr2 = make_shared&lt;int&gt;(100);
                     </svg>
                   </div>
                   <div>
-                    <h3 class="font-bold text-gray-900 text-lg mb-1">35 Exercices Pratiques</h3>
-                    <p class="text-sm text-gray-600 mb-2">Algorithmes et structures de données</p>
+                    <h3 class="font-bold text-gray-900 dark:text-white text-lg mb-1">35 Exercices Pratiques</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Algorithmes et structures de données</p>
                     <div class="flex items-center text-xs">
-                      <span class="text-gray-500 mr-3">📄 42 pages</span>
-                      <span class="text-gray-500">⚡ 3.5 MB</span>
+                      <span class="text-gray-500 dark:text-gray-400 mr-3">📄 42 pages</span>
+                      <span class="text-gray-500 dark:text-gray-400">⚡ 3.5 MB</span>
                     </div>
                   </div>
                 </div>
@@ -384,7 +381,7 @@ shared_ptr&lt;int&gt; ptr2 = make_shared&lt;int&gt;(100);
               </div>
 
               <!-- Projets -->
-              <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                 <div class="flex items-start mb-4">
                   <div class="w-12 h-12 bg-gradient-to-br from-cyan-500 to-cyan-600 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 shadow-md">
                     <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -392,11 +389,11 @@ shared_ptr&lt;int&gt; ptr2 = make_shared&lt;int&gt;(100);
                     </svg>
                   </div>
                   <div>
-                    <h3 class="font-bold text-gray-900 text-lg mb-1">4 Projets Complets</h3>
-                    <p class="text-sm text-gray-600 mb-2">Applications système et jeux simples</p>
+                    <h3 class="font-bold text-gray-900 dark:text-white text-lg mb-1">4 Projets Complets</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Applications système et jeux simples</p>
                     <div class="flex items-center text-xs">
-                      <span class="text-gray-500 mr-3">📄 55 pages</span>
-                      <span class="text-gray-500">⚡ 4.2 MB</span>
+                      <span class="text-gray-500 dark:text-gray-400 mr-3">📄 55 pages</span>
+                      <span class="text-gray-500 dark:text-gray-400">⚡ 4.2 MB</span>
                     </div>
                   </div>
                 </div>
@@ -414,7 +411,7 @@ shared_ptr&lt;int&gt; ptr2 = make_shared&lt;int&gt;(100);
               </div>
 
               <!-- Référence -->
-              <div class="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                 <div class="flex items-start mb-4">
                   <div class="w-12 h-12 bg-gradient-to-br from-violet-500 to-violet-600 rounded-lg flex items-center justify-center mr-4 flex-shrink-0 shadow-md">
                     <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -422,11 +419,11 @@ shared_ptr&lt;int&gt; ptr2 = make_shared&lt;int&gt;(100);
                     </svg>
                   </div>
                   <div>
-                    <h3 class="font-bold text-gray-900 text-lg mb-1">Référence Rapide STL</h3>
-                    <p class="text-sm text-gray-600 mb-2">Containers, algorithmes et utilitaires</p>
+                    <h3 class="font-bold text-gray-900 dark:text-white text-lg mb-1">Référence Rapide STL</h3>
+                    <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Containers, algorithmes et utilitaires</p>
                     <div class="flex items-center text-xs">
-                      <span class="text-gray-500 mr-3">📄 40 pages</span>
-                      <span class="text-gray-500">⚡ 3.1 MB</span>
+                      <span class="text-gray-500 dark:text-gray-400 mr-3">📄 40 pages</span>
+                      <span class="text-gray-500 dark:text-gray-400">⚡ 3.1 MB</span>
                     </div>
                   </div>
                 </div>
@@ -447,31 +444,31 @@ shared_ptr&lt;int&gt; ptr2 = make_shared&lt;int&gt;(100);
 
           <!-- Quiz rapide -->
           <section id="quiz" class="scroll-mt-32">
-            <h2 class="text-3xl font-bold text-gray-900 mb-6">🧠 Quiz rapide</h2>
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white mb-6">🧠 Quiz rapide</h2>
             
-            <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-6">
+            <div class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-6">
               <div class="mb-4">
-                <span class="inline-block px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
+                <span class="inline-block px-3 py-1 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 rounded-full text-sm font-medium">
                   Question 1/3
                 </span>
               </div>
               
-              <h3 class="text-lg font-bold text-gray-900 mb-4">
-                Quelle est la différence principale entre <code class="bg-blue-100 px-2 py-1 rounded">new</code> et <code class="bg-blue-100 px-2 py-1 rounded">malloc()</code> en C++ ?
+              <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">
+                Quelle est la différence principale entre <code class="bg-blue-100 dark:bg-blue-900/50 dark:text-blue-200 px-2 py-1 rounded">new</code> et <code class="bg-blue-100 dark:bg-blue-900/50 dark:text-blue-200 px-2 py-1 rounded">malloc()</code> en C++ ?
               </h3>
               
               <div class="space-y-3 mb-6">
-                <label class="flex items-center p-3 bg-white border border-gray-300 rounded-lg hover:border-blue-400 cursor-pointer transition-colors">
+                <label class="flex items-center p-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 cursor-pointer transition-colors">
                   <input type="radio" name="quiz1" value="1" class="mr-3" v-model="quizAnswer">
-                  <span class="text-gray-700">new appelle le constructeur, malloc() non</span>
+                  <span class="text-gray-700 dark:text-gray-300">new appelle le constructeur, malloc() non</span>
                 </label>
-                <label class="flex items-center p-3 bg-white border border-gray-300 rounded-lg hover:border-blue-400 cursor-pointer transition-colors">
+                <label class="flex items-center p-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 cursor-pointer transition-colors">
                   <input type="radio" name="quiz1" value="2" class="mr-3" v-model="quizAnswer">
-                  <span class="text-gray-700">malloc() est plus rapide que new</span>
+                  <span class="text-gray-700 dark:text-gray-300">malloc() est plus rapide que new</span>
                 </label>
-                <label class="flex items-center p-3 bg-white border border-gray-300 rounded-lg hover:border-blue-400 cursor-pointer transition-colors">
+                <label class="flex items-center p-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 rounded-lg hover:border-blue-400 dark:hover:border-blue-500 cursor-pointer transition-colors">
                   <input type="radio" name="quiz1" value="3" class="mr-3" v-model="quizAnswer">
-                  <span class="text-gray-700">Il n'y a pas de différence</span>
+                  <span class="text-gray-700 dark:text-gray-300">Il n'y a pas de différence</span>
                 </label>
               </div>
               
@@ -485,7 +482,7 @@ shared_ptr&lt;int&gt; ptr2 = make_shared&lt;int&gt;(100);
           </section>
 
           <!-- CTA Final -->
-          <section class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-8 text-white text-center">
+          <section class="bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-800 dark:to-blue-900 rounded-2xl p-8 text-white text-center shadow-lg">
             <h3 class="text-2xl md:text-3xl font-bold mb-4">🚀 Prêt pour l'aventure C++ ?</h3>
             <p class="text-blue-100 mb-6 text-lg">
               Rejoignez notre cours interactif avec progression, quiz et apprentissage structuré !
@@ -531,12 +528,12 @@ shared_ptr&lt;int&gt; ptr2 = make_shared&lt;int&gt;(100);
         <div class="lg:col-span-1">
           <div class="sticky top-32 space-y-6">
             <!-- Explorer plus -->
-            <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
-              <h3 class="text-lg font-bold text-gray-900 mb-4">📌 Explorer plus</h3>
+            <div class="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-6 shadow-sm">
+              <h3 class="text-lg font-bold text-gray-900 dark:text-white mb-4">📌 Explorer plus</h3>
               <div class="space-y-3">
                 <router-link 
                   to="/langages/cpp/cours"
-                  class="flex items-center justify-between bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-200 text-blue-700 py-3 px-4 rounded-lg font-medium hover:from-blue-100 hover:to-blue-200 transition-all group"
+                  class="flex items-center justify-between bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-900/20 border border-blue-200 dark:border-blue-700 text-blue-700 dark:text-blue-300 py-3 px-4 rounded-lg font-medium hover:from-blue-100 hover:to-blue-200 dark:hover:from-blue-900/40 dark:hover:to-blue-900/40 transition-all group"
                 >
                   <div class="flex items-center">
                     <svg class="w-5 h-5 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -550,15 +547,15 @@ shared_ptr&lt;int&gt; ptr2 = make_shared&lt;int&gt;(100);
                 </router-link>
               </div>
               
-              <div class="mt-4 pt-4 border-t border-gray-200">
-                <p class="text-xs text-gray-500 text-center">
+              <div class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+                <p class="text-xs text-gray-500 dark:text-gray-400 text-center">
                   Cliquez pour découvrir le cours interactif
                 </p>
               </div>
             </div>
 
             <!-- Conseils -->
-            <div class="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-xl p-6">
+            <div class="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border border-blue-200 dark:border-blue-700 rounded-xl p-6">
               <div class="flex items-start">
                 <div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center mr-3 flex-shrink-0">
                   <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -566,8 +563,8 @@ shared_ptr&lt;int&gt; ptr2 = make_shared&lt;int&gt;(100);
                   </svg>
                 </div>
                 <div>
-                  <p class="text-sm font-bold text-gray-900 mb-1">Astuce Pro</p>
-                  <p class="text-xs text-gray-700">
+                  <p class="text-sm font-bold text-gray-900 dark:text-white mb-1">Astuce Pro</p>
+                  <p class="text-xs text-gray-700 dark:text-gray-300">
                     Utilisez les smart pointers (C++11+) pour éviter les fuites mémoire.
                   </p>
                 </div>
@@ -575,9 +572,9 @@ shared_ptr&lt;int&gt; ptr2 = make_shared&lt;int&gt;(100);
             </div>
 
             <!-- Pourquoi C++ -->
-            <div class="bg-gradient-to-r from-indigo-50 to-purple-50 border border-indigo-200 rounded-xl p-6">
-              <h4 class="text-sm font-bold text-gray-900 mb-3">💡 Pourquoi C++ ?</h4>
-              <ul class="space-y-2 text-xs text-gray-700">
+            <div class="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 border border-indigo-200 dark:border-indigo-700 rounded-xl p-6">
+              <h4 class="text-sm font-bold text-gray-900 dark:text-white mb-3">💡 Pourquoi C++ ?</h4>
+              <ul class="space-y-2 text-xs text-gray-700 dark:text-gray-300">
                 <li class="flex items-start">
                   <svg class="w-3 h-3 text-green-500 mt-1 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
