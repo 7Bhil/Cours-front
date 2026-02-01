@@ -1,7 +1,7 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-b from-yellow-50 to-amber-50">
+  <div class="min-h-screen bg-gradient-to-b from-yellow-50 to-amber-50 dark:from-gray-900 dark:to-gray-950 transition-colors duration-300">
     <!-- Header responsive -->
-    <header class="fixed z-10 w-full bg-gradient-to-r from-yellow-500 to-amber-600 text-gray-900 shadow-lg">
+    <header class="fixed z-10 w-full bg-gradient-to-r from-yellow-500 to-amber-600 text-gray-900 dark:text-gray-100 shadow-lg">
       <div class="container mx-auto px-4 py-3 sm:py-4">
         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
           <!-- Logo et titre AVEC BOUTON RETOUR -->
@@ -28,8 +28,8 @@
                   <span class="text-yellow-100 font-bold text-sm sm:text-base">JS</span>
                 </div>
                 <div>
-                  <h1 class="text-lg sm:text-xl font-bold text-gray-900">JavaScript Masterclass</h1>
-                  <p class="text-xs sm:text-sm text-yellow-900/80">38 chapitres</p>
+                  <h1 class="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">JavaScript Masterclass</h1>
+                  <p class="text-xs sm:text-sm text-yellow-900/80 dark:text-yellow-600/80">38 chapitres</p>
                 </div>
               </Router-Link>
             </div>
@@ -45,29 +45,29 @@
           <!-- Progression -->
           <div class="flex items-center justify-between sm:justify-center gap-4">
             <div class="flex-1 sm:flex-none flex items-center space-x-2">
-              <div class="hidden sm:block text-sm text-gray-900">Progression</div>
+              <div class="hidden sm:block text-sm text-gray-900 dark:text-gray-100">Progression</div>
               <div class="flex-1 sm:w-32 bg-yellow-900/20 rounded-full h-2">
                 <div 
                   class="h-full bg-gradient-to-r from-yellow-400 to-amber-500 rounded-full transition-all duration-700"
                   :style="{ width: progressPercentage + '%' }"
                 ></div>
               </div>
-              <span class="text-sm font-medium min-w-[40px] text-gray-900">{{ progressPercentage }}%</span>
+              <span class="text-sm font-medium min-w-[40px] text-gray-900 dark:text-gray-100">{{ progressPercentage }}%</span>
             </div>
             
             <!-- Stats -->
             <div class="flex items-center space-x-3 sm:space-x-4">
               <div class="text-center hidden sm:block">
-                <div class="text-lg font-bold text-gray-900">{{ completedCount }}</div>
-                <div class="text-xs text-yellow-900/80">Terminés</div>
+                <div class="text-lg font-bold text-gray-900 dark:text-white">{{ completedCount }}</div>
+                <div class="text-xs text-yellow-900/80 dark:text-yellow-600/80">Terminés</div>
               </div>
               <div class="text-center hidden sm:block">
-                <div class="text-lg font-bold text-gray-900">{{ totalChapters }}</div>
-                <div class="text-xs text-yellow-900/80">Chapitres</div>
+                <div class="text-lg font-bold text-gray-900 dark:text-white">{{ totalChapters }}</div>
+                <div class="text-xs text-yellow-900/80 dark:text-yellow-600/80">Chapitres</div>
               </div>
               <!-- Stats mobiles -->
               <div class="flex items-center space-x-2 sm:hidden">
-                <span class="px-2 py-1 bg-yellow-900/20 rounded text-xs text-gray-900">
+                <span class="px-2 py-1 bg-yellow-900/20 rounded text-xs text-gray-900 dark:text-gray-100">
                   {{ completedCount }}/{{ totalChapters }}
                 </span>
               </div>
@@ -86,7 +86,7 @@
           @click="mobileMenuOpen = false"
         >
           <div 
-            class="absolute top-0 left-0 h-full w-4/5 max-w-sm bg-white shadow-xl transform transition-transform overflow-y-auto"
+            class="absolute top-0 left-0 h-full w-4/5 max-w-sm bg-white dark:bg-gray-800 shadow-xl transform transition-transform overflow-y-auto border-r dark:border-gray-700"
             @click.stop
           >
             <!-- Contenu du sidebar mobile -->
@@ -94,8 +94,8 @@
               <!-- En-tête -->
               <div class="flex items-center justify-between mb-6">
                 <div>
-                  <h2 class="text-lg font-bold text-gray-800">Menu</h2>
-                  <p class="text-sm text-gray-600">Navigation</p>
+                  <h2 class="text-lg font-bold text-gray-800 dark:text-white">Menu</h2>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">Navigation</p>
                 </div>
                 <button @click="mobileMenuOpen = false" class="p-2 text-gray-600">
                   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -113,8 +113,8 @@
                     :class="[
                       'p-3 rounded-lg cursor-pointer transition-all',
                       selectedLevel === levelIndex 
-                        ? 'bg-yellow-50 border border-yellow-200' 
-                        : 'hover:bg-gray-50'
+                        ? 'bg-yellow-50 dark:bg-yellow-900/30 border border-yellow-200 dark:border-yellow-800' 
+                        : 'hover:bg-gray-50 dark:hover:bg-gray-700'
                     ]"
                   >
                     <div class="flex items-center justify-between">
@@ -124,8 +124,8 @@
                           {{ levelIndex + 1 }}
                         </div>
                         <div>
-                          <h3 class="text-sm font-semibold text-gray-800">{{ level.name }}</h3>
-                          <p class="text-xs text-gray-500">{{ getLevelProgress(levelIndex) }}% complété</p>
+                          <h3 class="text-sm font-semibold text-gray-800 dark:text-white">{{ level.name }}</h3>
+                          <p class="text-xs text-gray-500 dark:text-gray-400">{{ getLevelProgress(levelIndex) }}% complété</p>
                         </div>
                       </div>
                     </div>
@@ -140,10 +140,10 @@
                       :class="[
                         'p-2 rounded-lg cursor-pointer transition-all text-sm',
                         isSelected(levelIndex, chapterIndex) 
-                          ? 'bg-yellow-100 text-yellow-800 border border-yellow-300' 
+                          ? 'bg-yellow-100 dark:bg-yellow-900/40 text-yellow-800 dark:text-yellow-400 border border-yellow-300 dark:border-yellow-800' 
                           : chapter.unlocked 
-                            ? 'text-gray-700 hover:bg-yellow-50' 
-                            : 'text-gray-400',
+                            ? 'text-gray-700 dark:text-gray-200 hover:bg-yellow-50 dark:hover:bg-gray-700' 
+                            : 'text-gray-400 dark:text-gray-600',
                         !chapter.unlocked && 'cursor-not-allowed'
                       ]"
                     >
@@ -195,9 +195,8 @@
           </div>
         </div>
 
-        <!-- Sidebar desktop -->
         <aside class="hidden lg:block lg:w-1/3 xl:w-1/4">
-          <div class="bg-white rounded-xl shadow-lg border border-amber-100 overflow-hidden sticky top-6">
+          <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-amber-100 dark:border-gray-700 overflow-hidden sticky top-6">
             <!-- En-tête sidebar -->
             <div class="bg-gradient-to-r from-yellow-500 to-amber-600 p-4">
               <h2 class="text-lg font-bold text-gray-900">Parcours d'apprentissage</h2>
@@ -213,8 +212,8 @@
                   :class="[
                     'flex items-center justify-between p-3 rounded-lg cursor-pointer transition-all mb-2',
                     selectedLevel === levelIndex 
-                      ? 'bg-yellow-50 border border-yellow-200' 
-                      : 'hover:bg-yellow-50/50'
+                      ? 'bg-yellow-50 dark:bg-yellow-900/30 border border-yellow-200 dark:border-yellow-800' 
+                      : 'hover:bg-yellow-50/50 dark:hover:bg-gray-700'
                   ]"
                 >
                   <div class="flex items-center space-x-3">
@@ -242,9 +241,9 @@
                     :class="[
                       'group p-2 rounded-lg cursor-pointer transition-all',
                       isSelected(levelIndex, chapterIndex) 
-                        ? 'bg-yellow-100 border-2 border-yellow-400' 
+                        ? 'bg-yellow-100 dark:bg-yellow-900/40 border-2 border-yellow-400 dark:border-yellow-600' 
                         : chapter.unlocked 
-                          ? 'hover:bg-yellow-50 hover:border hover:border-yellow-200' 
+                          ? 'hover:bg-yellow-50 dark:hover:bg-gray-700 hover:border hover:border-yellow-200 dark:hover:border-gray-600' 
                           : 'opacity-50',
                       !chapter.unlocked && 'cursor-not-allowed'
                     ]"
@@ -272,7 +271,7 @@
 
                       <!-- Info chapitre -->
                       <div class="flex-1 min-w-0">
-                        <h4 class="text-xs font-medium text-gray-800 truncate group-hover:text-amber-600">
+                        <h4 class="text-xs font-medium text-gray-800 dark:text-gray-200 truncate group-hover:text-amber-600">
                           {{ chapter.title }}
                         </h4>
                         <div class="flex items-center text-xs text-gray-500">
@@ -286,7 +285,7 @@
             </div>
 
             <!-- Navigation sidebar -->
-            <div class="p-4 border-t border-yellow-100 bg-yellow-50/30">
+            <div class="p-4 border-t border-yellow-100 dark:border-gray-700 bg-yellow-50/30 dark:bg-gray-900/50">
               <div class="flex gap-2">
                 <button
                   @click="previousChapter"
@@ -325,9 +324,9 @@
 
         <!-- Contenu principal -->
         <main class="flex-1">
-          <div class="bg-white rounded-xl shadow-lg border border-amber-100 overflow-hidden">
+          <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-amber-100 dark:border-gray-700 overflow-hidden">
             <!-- Header du contenu -->
-            <div class="bg-gradient-to-r from-yellow-50 to-amber-100 p-4 sm:p-6 border-b border-amber-200">
+            <div class="bg-gradient-to-r from-yellow-50 to-amber-100 dark:from-gray-800 dark:to-gray-900 p-4 sm:p-6 border-b border-amber-200 dark:border-gray-700">
               <div class="space-y-4">
                 <!-- Breadcrumb -->
                 <div class="flex flex-wrap items-center gap-2">
@@ -344,7 +343,7 @@
                     {{ currentLevel.name }}
                   </span>
                   <span class="text-gray-400">/</span>
-                  <span class="px-3 py-1.5 bg-yellow-100 text-yellow-800 text-xs font-medium rounded-lg">
+                  <span class="px-3 py-1.5 bg-yellow-100 dark:bg-gray-700 text-yellow-800 dark:text-yellow-200 text-xs font-medium rounded-lg">
                     Chapitre {{ currentChapterNumber }}
                   </span>
                 </div>
@@ -379,7 +378,7 @@
                         'px-4 py-2.5 font-semibold rounded-lg border transition-all flex items-center justify-center gap-2 text-sm',
                         currentChapter.completed
                           ? 'bg-green-500 text-white border-green-600 hover:bg-green-600'
-                          : 'bg-yellow-100 text-yellow-800 border-yellow-300 hover:bg-yellow-200'
+                          : 'bg-yellow-100 dark:bg-gray-700 text-yellow-800 dark:text-yellow-200 border-yellow-300 dark:border-gray-600 hover:bg-yellow-200 dark:hover:bg-gray-600'
                       ]"
                     >
                       <span v-if="currentChapter.completed">✓</span>
@@ -389,8 +388,8 @@
                 </div>
 
                 <!-- Métriques -->
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                  <div class="bg-yellow-50 p-3 rounded-lg border border-yellow-200">
+                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                  <div class="bg-yellow-50 dark:bg-yellow-900/20 p-3 rounded-lg border border-yellow-200 dark:border-yellow-800">
                     <div class="flex items-center gap-2">
                       <div class="w-8 h-8 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-md flex items-center justify-center">
                         <svg class="w-4 h-4 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -398,13 +397,13 @@
                         </svg>
                       </div>
                       <div>
-                        <div class="font-bold text-gray-900 text-sm">{{ currentChapter.readTime }}</div>
-                        <div class="text-xs text-amber-700">Durée</div>
+                        <div class="font-bold text-gray-900 dark:text-white text-sm">{{ currentChapter.readTime }}</div>
+                        <div class="text-xs text-amber-700 dark:text-amber-400">Durée</div>
                       </div>
                     </div>
                   </div>
 
-                  <div class="bg-amber-50 p-3 rounded-lg border border-amber-200">
+                  <div class="bg-amber-50 dark:bg-amber-900/20 p-3 rounded-lg border border-amber-200 dark:border-amber-800">
                     <div class="flex items-center gap-2">
                       <div class="w-8 h-8 bg-gradient-to-br from-amber-400 to-amber-600 rounded-md flex items-center justify-center">
                         <svg class="w-4 h-4 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -412,13 +411,13 @@
                         </svg>
                       </div>
                       <div>
-                        <div class="font-bold text-gray-900 text-sm">{{ currentChapter.quiz.length }}</div>
-                        <div class="text-xs text-amber-700">Questions</div>
+                        <div class="font-bold text-gray-900 dark:text-white text-sm">{{ currentChapter.quiz.length }}</div>
+                        <div class="text-xs text-amber-700 dark:text-amber-400">Questions</div>
                       </div>
                     </div>
                   </div>
 
-                  <div class="bg-orange-50 p-3 rounded-lg border border-orange-200">
+                  <div class="bg-orange-50 dark:bg-orange-900/20 p-3 rounded-lg border border-orange-200 dark:border-orange-800">
                     <div class="flex items-center gap-2">
                       <div class="w-8 h-8 bg-gradient-to-br from-orange-400 to-orange-500 rounded-md flex items-center justify-center">
                         <svg class="w-4 h-4 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -426,13 +425,13 @@
                         </svg>
                       </div>
                       <div>
-                        <div class="font-bold text-gray-900 text-sm">{{ currentChapter.examplesCount || 0 }}</div>
-                        <div class="text-xs text-orange-700">Exemples</div>
+                        <div class="font-bold text-gray-900 dark:text-white text-sm">{{ currentChapter.examplesCount || 0 }}</div>
+                        <div class="text-xs text-orange-700 dark:text-orange-400">Exemples</div>
                       </div>
                     </div>
                   </div>
 
-                  <div class="bg-yellow-100 p-3 rounded-lg border border-yellow-300">
+                  <div class="bg-yellow-100 dark:bg-yellow-900/20 p-3 rounded-lg border border-yellow-300 dark:border-yellow-800">
                     <div class="flex items-center gap-2">
                       <div class="w-8 h-8 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-md flex items-center justify-center">
                         <svg class="w-4 h-4 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -440,8 +439,8 @@
                         </svg>
                       </div>
                       <div>
-                        <div class="font-bold text-gray-900 text-sm capitalize">{{ currentChapter.difficulty || 'Débutant' }}</div>
-                        <div class="text-xs text-yellow-800">Niveau</div>
+                        <div class="font-bold text-gray-900 dark:text-white text-sm capitalize">{{ currentChapter.difficulty || 'Débutant' }}</div>
+                        <div class="text-xs text-yellow-800 dark:text-yellow-400">Niveau</div>
                       </div>
                     </div>
                   </div>
@@ -472,15 +471,15 @@
                       </svg>
                     </div>
                     <div>
-                      <h2 class="text-lg sm:text-xl font-bold text-gray-900">Contenu pédagogique</h2>
-                      <p class="text-amber-700 text-sm">Apprenez les concepts fondamentaux</p>
+                      <h2 class="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">Contenu pédagogique</h2>
+                      <p class="text-amber-700 dark:text-amber-400 text-sm">Apprenez les concepts fondamentaux</p>
                     </div>
                   </div>
-                  <div v-html="currentChapter.content" class="text-sm sm:text-base"></div>
+                  <div v-html="currentChapter.content" class="text-sm sm:text-base dark:text-gray-300"></div>
                 </section>
 
                 <!-- Exemples -->
-                <section v-if="currentChapter.examples" class="bg-gradient-to-r from-yellow-50 to-amber-50 rounded-xl p-4 sm:p-6 border border-amber-200">
+                <section v-if="currentChapter.examples" class="bg-gradient-to-r from-yellow-50 to-amber-50 dark:from-gray-900/40 dark:to-gray-800/40 rounded-xl p-4 sm:p-6 border border-amber-200 dark:border-gray-700 transition-colors">
                   <div class="flex items-center gap-3 mb-4">
                     <div class="w-10 h-10 bg-gradient-to-br from-amber-400 to-amber-600 rounded-lg flex items-center justify-center">
                       <svg class="w-5 h-5 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -492,11 +491,11 @@
                       <p class="text-amber-700 text-sm">Mettez en pratique vos connaissances</p>
                     </div>
                   </div>
-                  <div v-html="currentChapter.examples" class="bg-black text-sm sm:text-base"></div>
+                  <div v-html="currentChapter.examples" class="bg-black text-sm sm:text-base dark:bg-gray-950 dark:text-gray-300 rounded p-4"></div>
                 </section>
 
                 <!-- Points clés -->
-                <section v-if="currentChapter.keyPoints" class="bg-gradient-to-r from-yellow-50 to-yellow-100 rounded-xl p-4 sm:p-6 border border-yellow-300">
+                <section v-if="currentChapter.keyPoints" class="bg-gradient-to-r from-yellow-50 to-yellow-100 dark:from-gray-900/40 dark:to-gray-800/40 rounded-xl p-4 sm:p-6 border border-yellow-300 dark:border-gray-700 transition-colors">
                   <div class="flex items-center gap-3 mb-4">
                     <div class="w-10 h-10 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-lg flex items-center justify-center">
                       <svg class="w-5 h-5 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -512,13 +511,13 @@
                     <div 
                       v-for="(point, idx) in currentChapter.keyPoints" 
                       :key="idx"
-                      class="bg-yellow-50/80 p-3 rounded-lg border border-yellow-200 hover:border-yellow-400 transition-colors"
+                      class="bg-yellow-50/80 dark:bg-gray-800/50 p-3 rounded-lg border border-yellow-200 dark:border-gray-700 hover:border-yellow-400 dark:hover:border-gray-600 transition-colors"
                     >
                       <div class="flex items-start gap-3">
                         <div class="w-6 h-6 bg-gradient-to-br from-yellow-400 to-amber-500 text-gray-900 rounded-md flex items-center justify-center font-bold text-sm flex-shrink-0">
                           {{ idx + 1 }}
                         </div>
-                        <div class="text-gray-700 text-sm sm:text-base">{{ point }}</div>
+                        <div class="text-gray-700 dark:text-gray-300 text-sm sm:text-base">{{ point }}</div>
                       </div>
                     </div>
                   </div>
@@ -531,8 +530,8 @@
                       <div class="w-16 h-16 sm:w-20 sm:h-20 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-xl flex items-center justify-center mx-auto mb-3 sm:mb-4">
                         <span class="text-2xl sm:text-3xl">🎯</span>
                       </div>
-                      <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-2">Validation des connaissances</h3>
-                      <p class="text-amber-700 text-sm sm:text-base mb-2">
+                      <h3 class="text-lg sm:text-xl font-bold text-gray-900 dark:text-white mb-2">Validation des connaissances</h3>
+                      <p class="text-amber-700 dark:text-amber-400 text-sm sm:text-base mb-2">
                         Testez votre compréhension avec {{ currentChapter.quiz.length }} questions.
                       </p>
                       <p class="text-xs sm:text-sm text-yellow-700 font-medium">

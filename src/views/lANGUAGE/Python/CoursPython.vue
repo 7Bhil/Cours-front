@@ -1,12 +1,12 @@
 <template>
   <!-- Le même template que précédemment, mais simplifié ici pour la clarté -->
-  <div class="min-h-screen bg-gradient-to-b from-emerald-50 to-gray-50">
+  <div class="min-h-screen bg-gradient-to-b from-emerald-50 to-gray-50 dark:from-gray-900 dark:to-gray-950 transition-colors duration-300">
     <!-- Header responsive -->
     <header class="fixed z-10 w-full bg-gradient-to-r from-emerald-600 to-emerald-800 text-white shadow-lg">
-  <div class="container mx-auto px-4 py-3 sm:py-4">
+  <div class="container  mx-auto px-4 py-3 sm:py-4">
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
       <!-- Logo et titre AVEC BOUTON RETOUR -->
-      <div class="flex items-center justify-between">
+      <div class="flex  items-center justify-between">
         <div class="flex items-center space-x-2">
           <!-- Bouton Retour -->
           <Router-Link 
@@ -81,7 +81,7 @@
 
 
 
-    <div class="pt-28 container mx-auto px-4 py-6">
+    <div class="pt-28 bg-gradient-to-b from-emerald-50 to-gray-50 dark:from-gray-900 dark:to-gray-950 transition-colors duration-300 container mx-auto px-4 py-6">
       <div class="flex flex-col lg:flex-row gap-6">
         <!-- Sidebar mobile overlay -->
         <div 
@@ -90,7 +90,7 @@
           @click="mobileMenuOpen = false"
         >
           <div 
-            class="absolute top-0 left-0 h-full w-4/5 max-w-sm bg-white shadow-xl transform transition-transform overflow-y-auto"
+            class="absolute top-0 left-0 h-full w-4/5 max-w-sm bg-white dark:bg-gray-800 shadow-xl transform transition-transform overflow-y-auto border-r dark:border-gray-700"
             @click.stop
           >
             <!-- Contenu du sidebar mobile -->
@@ -98,8 +98,8 @@
               <!-- En-tête -->
               <div class="flex items-center justify-between mb-6">
                 <div>
-                  <h2 class="text-lg font-bold text-gray-800">Menu Python</h2>
-                  <p class="text-sm text-gray-600">Navigation</p>
+                  <h2 class="text-lg font-bold text-gray-800 dark:text-white">Menu Python</h2>
+                  <p class="text-sm text-gray-600 dark:text-gray-400">Navigation</p>
                 </div>
                 <button @click="mobileMenuOpen = false" class="p-2">
                   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -128,8 +128,8 @@
                           {{ level.icon || (levelIndex + 1) }}
                         </div>
                         <div>
-                          <h3 class="text-sm font-semibold text-gray-800">{{ level.name }}</h3>
-                          <p class="text-xs text-gray-500">{{ getLevelProgress(levelIndex) }}% complété • {{ level.chapters.length }} chapitres</p>
+                          <h3 class="text-sm font-semibold text-gray-800 dark:text-white">{{ level.name }}</h3>
+                          <p class="text-xs text-gray-500 dark:text-gray-400">{{ getLevelProgress(levelIndex) }}% complété • {{ level.chapters.length }} chapitres</p>
                         </div>
                       </div>
                     </div>
@@ -144,10 +144,10 @@
                       :class="[
                         'p-2 rounded-lg cursor-pointer transition-all text-sm',
                         isSelected(levelIndex, chapterIndex) 
-                          ? 'bg-amber-50 text-amber-700' 
+                          ? 'bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400' 
                           : chapter.unlocked 
-                            ? 'text-gray-700 hover:bg-gray-100' 
-                            : 'text-gray-400',
+                            ? 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700' 
+                            : 'text-gray-400 dark:text-gray-600',
                         !chapter.unlocked && 'cursor-not-allowed'
                       ]"
                     >
@@ -199,13 +199,12 @@
           </div>
         </div>
 
-        <!-- Sidebar desktop -->
-        <aside class="hidden lg:block lg:w-1/3 xl:w-1/4">
-          <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden sticky top-6">
+        <aside class="hidden  lg:block lg:w-1/3 xl:w-1/4">
+          <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 overflow-hidden sticky top-6">
             <!-- En-tête sidebar -->
             <div class="bg-gradient-to-r from-emerald-600 to-emerald-700 p-4">
               <h2 class="text-lg font-bold text-white">Parcours Python</h2>
-              <p class="text-emerald-100 text-sm">{{ currentLevel.name }} • {{ getLevelProgress(selectedLevel) }}% complété</p>
+              <p class="text-emerald-100 dark:text-emerald-200 text-sm">{{ currentLevel.name }} • {{ getLevelProgress(selectedLevel) }}% complété</p>
             </div>
 
             <!-- Contenu sidebar -->
@@ -217,8 +216,8 @@
                   :class="[
                     'flex items-center justify-between p-3 rounded-lg cursor-pointer transition-all mb-2',
                     selectedLevel === levelIndex 
-                      ? 'bg-emerald-50 border border-emerald-200' 
-                      : 'hover:bg-gray-50'
+                      ? 'bg-emerald-50 dark:bg-emerald-900/30 border border-emerald-200 dark:border-emerald-800' 
+                      : 'hover:bg-gray-50 dark:hover:bg-gray-700'
                   ]"
                 >
                   <div class="flex items-center space-x-3">
@@ -227,8 +226,8 @@
                       {{ level.icon || (levelIndex + 1) }}
                     </div>
                     <div class="min-w-0 flex-1">
-                      <h3 class="text-sm font-semibold text-gray-800 truncate">{{ level.name }}</h3>
-                      <p class="text-xs text-gray-500">{{ level.subtitle || `${level.chapters.length} chapitres` }}</p>
+                      <h3 class="text-sm font-semibold text-gray-800 dark:text-white truncate">{{ level.name }}</h3>
+                      <p class="text-xs text-gray-500 dark:text-gray-400">{{ level.subtitle || `${level.chapters.length} chapitres` }}</p>
                     </div>
                   </div>
                   <div class="text-right">
@@ -247,9 +246,9 @@
                     :class="[
                       'group p-2 rounded-lg cursor-pointer transition-all',
                       isSelected(levelIndex, chapterIndex) 
-                        ? 'bg-amber-50 border border-amber-200' 
+                        ? 'bg-amber-50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-800' 
                         : chapter.unlocked 
-                          ? 'hover:bg-gray-50 hover:border-gray-200' 
+                          ? 'hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-gray-200 dark:hover:border-gray-600' 
                           : 'opacity-50',
                       !chapter.unlocked && 'cursor-not-allowed'
                     ]"
@@ -277,7 +276,7 @@
 
                       <!-- Info chapitre -->
                       <div class="flex-1 min-w-0">
-                        <h4 class="text-xs font-medium text-gray-800 truncate group-hover:text-emerald-600">
+                        <h4 class="text-xs font-medium text-gray-800 dark:text-gray-200 truncate group-hover:text-emerald-600">
                           {{ chapter.title }}
                         </h4>
                         <div class="flex items-center text-xs text-gray-500">
@@ -293,7 +292,7 @@
             </div>
 
             <!-- Navigation sidebar -->
-            <div class="p-4 border-t border-gray-100 bg-gray-50">
+            <div class="p-4 border-t border-gray-100 dark:border-gray-700 bg-gray-50 dark:bg-gray-900/50">
               <div class="flex gap-2">
                 <button
                   @click="previousChapter"
@@ -301,8 +300,8 @@
                   :class="[
                     'flex-1 px-3 py-2 text-sm font-medium rounded-lg border transition-all flex items-center justify-center',
                     hasPreviousChapter
-                      ? 'text-gray-700 border-gray-300 hover:bg-white'
-                      : 'text-gray-400 border-gray-200 cursor-not-allowed'
+                      ? 'text-gray-700 dark:text-gray-300 border-gray-300 dark:border-gray-600 hover:bg-white dark:hover:bg-gray-800'
+                      : 'text-gray-400 dark:text-gray-600 border-gray-200 dark:border-gray-700 cursor-not-allowed'
                   ]"
                 >
                   <svg class="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -332,9 +331,9 @@
 
         <!-- Contenu principal -->
         <main class="flex-1">
-          <div class="bg-white rounded-xl shadow-lg border border-gray-100 overflow-hidden">
+          <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700 overflow-hidden">
             <!-- Header du contenu -->
-            <div class="bg-gradient-to-r from-emerald-50 to-emerald-100 p-4 sm:p-6 border-b border-gray-200">
+            <div class="bg-gradient-to-r from-emerald-50 to-emerald-100 dark:from-gray-800 dark:to-gray-900 p-4 sm:p-6 border-b border-gray-200 dark:border-gray-700">
               <div class="space-y-4">
                 <!-- Breadcrumb -->
                 <div class="flex flex-wrap items-center gap-2">
@@ -351,7 +350,7 @@
                     {{ currentLevel.name }}
                   </span>
                   <span class="text-gray-400">/</span>
-                  <span class="px-3 py-1.5 bg-gray-100 text-gray-700 text-xs font-medium rounded-lg">
+                  <span class="px-3 py-1.5 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 text-xs font-medium rounded-lg">
                     Chapitre {{ currentChapterNumber }}
                   </span>
                 </div>
@@ -364,8 +363,8 @@
                         {{ currentChapter.icon || currentChapterNumber }}
                       </div>
                       <div>
-                        <h1 class="text-xl sm:text-2xl font-bold text-gray-900 mb-1">{{ currentChapter.title }}</h1>
-                        <p class="text-gray-600 text-sm sm:text-base">{{ currentChapter.description }}</p>
+                        <h1 class="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-1">{{ currentChapter.title }}</h1>
+                        <p class="text-gray-600 dark:text-gray-400 text-sm sm:text-base">{{ currentChapter.description }}</p>
                       </div>
                     </div>
                   </div>
@@ -397,7 +396,7 @@
 
                 <!-- Métriques -->
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                  <div class="bg-emerald-50 p-3 rounded-lg border border-emerald-200">
+                  <div class="bg-emerald-50 dark:bg-emerald-900/30 p-3 rounded-lg border border-emerald-200 dark:border-emerald-800">
                     <div class="flex items-center gap-2">
                       <div class="w-8 h-8 bg-emerald-500 rounded-md flex items-center justify-center">
                         <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -405,13 +404,13 @@
                         </svg>
                       </div>
                       <div>
-                        <div class="font-bold text-gray-900 text-sm">{{ currentChapter.readTime }}</div>
-                        <div class="text-xs text-gray-600">Durée</div>
+                        <div class="font-bold text-gray-900 dark:text-white text-sm">{{ currentChapter.readTime }}</div>
+                        <div class="text-xs text-gray-600 dark:text-gray-400">Durée</div>
                       </div>
                     </div>
                   </div>
 
-                  <div class="bg-green-50 p-3 rounded-lg border border-green-200">
+                  <div class="bg-green-50 dark:bg-green-900/30 p-3 rounded-lg border border-green-200 dark:border-green-800">
                     <div class="flex items-center gap-2">
                       <div class="w-8 h-8 bg-green-500 rounded-md flex items-center justify-center">
                         <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -419,13 +418,13 @@
                         </svg>
                       </div>
                       <div>
-                        <div class="font-bold text-gray-900 text-sm">{{ currentChapter.quiz?.length || 0 }}</div>
-                        <div class="text-xs text-gray-600">Questions</div>
+                        <div class="font-bold text-gray-900 dark:text-white text-sm">{{ currentChapter.quiz?.length || 0 }}</div>
+                        <div class="text-xs text-gray-600 dark:text-gray-400">Questions</div>
                       </div>
                     </div>
                   </div>
 
-                  <div class="bg-amber-50 p-3 rounded-lg border border-amber-200">
+                  <div class="bg-amber-50 dark:bg-amber-900/30 p-3 rounded-lg border border-amber-200 dark:border-amber-800">
                     <div class="flex items-center gap-2">
                       <div class="w-8 h-8 bg-amber-500 rounded-md flex items-center justify-center">
                         <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -433,13 +432,13 @@
                         </svg>
                       </div>
                       <div>
-                        <div class="font-bold text-gray-900 text-sm">{{ currentChapter.examplesCount || 0 }}</div>
-                        <div class="text-xs text-gray-600">Exemples</div>
+                        <div class="font-bold text-gray-900 dark:text-white text-sm">{{ currentChapter.examplesCount || 0 }}</div>
+                        <div class="text-xs text-gray-600 dark:text-gray-400">Exemples</div>
                       </div>
                     </div>
                   </div>
 
-                  <div class="bg-blue-50 p-3 rounded-lg border border-blue-200">
+                  <div class="bg-blue-50 dark:bg-blue-900/30 p-3 rounded-lg border border-blue-200 dark:border-blue-800">
                     <div class="flex items-center gap-2">
                       <div class="w-8 h-8 bg-blue-500 rounded-md flex items-center justify-center">
                         <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -447,8 +446,8 @@
                         </svg>
                       </div>
                       <div>
-                        <div class="font-bold text-gray-900 text-sm capitalize">{{ currentChapter.difficulty || 'Débutant' }}</div>
-                        <div class="text-xs text-gray-600">Niveau</div>
+                        <div class="font-bold text-gray-900 dark:text-white text-sm capitalize">{{ currentChapter.difficulty || 'Débutant' }}</div>
+                        <div class="text-xs text-gray-600 dark:text-gray-400">Niveau</div>
                       </div>
                     </div>
                   </div>
@@ -479,15 +478,15 @@
                       </svg>
                     </div>
                     <div>
-                      <h2 class="text-lg sm:text-xl font-bold text-gray-900">Contenu pédagogique</h2>
-                      <p class="text-gray-600 text-sm">Apprenez les concepts fondamentaux</p>
+                      <h2 class="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">Contenu pédagogique</h2>
+                      <p class="text-gray-600 dark:text-gray-400 text-sm">Apprenez les concepts fondamentaux</p>
                     </div>
                   </div>
-                  <div v-html="currentChapter.content" class="content-prose text-sm sm:text-base"></div>
+                  <div v-html="currentChapter.content" class="content-prose text-sm sm:text-base dark:text-gray-300"></div>
                 </section>
 
                 <!-- Exemples pratiques -->
-                <section v-if="currentChapter.examples" class="bg-green-50 rounded-xl p-4 sm:p-6 border border-green-200">
+                <section v-if="currentChapter.examples" class="bg-green-50 dark:bg-green-900/10 rounded-xl p-4 sm:p-6 border border-green-200 dark:border-green-900/30 transition-colors">
                   <div class="flex items-center gap-3 mb-4">
                     <div class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center">
                       <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -495,15 +494,15 @@
                       </svg>
                     </div>
                     <div>
-                      <h2 class="text-lg sm:text-xl font-bold text-gray-900">Exemples pratiques</h2>
-                      <p class="text-gray-600 text-sm">Mettez en pratique vos connaissances</p>
+                      <h2 class="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">Exemples pratiques</h2>
+                      <p class="text-gray-600 dark:text-gray-400 text-sm">Mettez en pratique vos connaissances</p>
                     </div>
                   </div>
-                  <div v-html="currentChapter.examples" class="content-prose text-sm sm:text-base"></div>
+                  <div v-html="currentChapter.examples" class="content-prose text-sm sm:text-base dark:text-gray-300"></div>
                 </section>
 
                 <!-- Points clés -->
-                <section v-if="currentChapter.keyPoints" class="bg-amber-50 rounded-xl p-4 sm:p-6 border border-amber-200">
+                <section v-if="currentChapter.keyPoints" class="bg-amber-50 dark:bg-amber-900/10 rounded-xl p-4 sm:p-6 border border-amber-200 dark:border-amber-900/30 transition-colors">
                   <div class="flex items-center gap-3 mb-4">
                     <div class="w-10 h-10 bg-amber-500 rounded-lg flex items-center justify-center">
                       <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -511,21 +510,21 @@
                       </svg>
                     </div>
                     <div>
-                      <h2 class="text-lg sm:text-xl font-bold text-gray-900">Points clés</h2>
-                      <p class="text-gray-600 text-sm">Les concepts essentiels</p>
+                      <h2 class="text-lg sm:text-xl font-bold text-gray-900 dark:text-white">Points clés</h2>
+                      <p class="text-gray-600 dark:text-gray-400 text-sm">Les concepts essentiels</p>
                     </div>
                   </div>
                   <div class="space-y-3">
                     <div 
                       v-for="(point, idx) in currentChapter.keyPoints" 
                       :key="idx"
-                      class="bg-white p-3 rounded-lg border border-amber-200 hover:border-amber-300 transition-colors"
+                      class="bg-white dark:bg-gray-800 p-3 rounded-lg border border-amber-200 dark:border-amber-900/50 hover:border-amber-300 dark:hover:border-amber-700 transition-colors"
                     >
                       <div class="flex items-start gap-3">
                         <div class="w-6 h-6 bg-amber-500 text-white rounded-md flex items-center justify-center font-bold text-sm flex-shrink-0">
                           {{ idx + 1 }}
                         </div>
-                        <div class="text-gray-700 text-sm sm:text-base">{{ point }}</div>
+                        <div class="text-gray-700 dark:text-gray-300 text-sm sm:text-base">{{ point }}</div>
                       </div>
                     </div>
                   </div>

@@ -496,19 +496,19 @@ end</pre>
             </div>
           </section>
           <!-- Section Ressources de formation -->
-<section id="ressources" class="scroll-mt-24 bg-white rounded-xl border border-gray-200 p-6 md:p-8 shadow-sm">
+<section id="ressources" class="scroll-mt-24 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 p-6 md:p-8 shadow-sm transition-colors">
   <div class="flex items-center mb-6">
     <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
       <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
       </svg>
     </div>
-    <h2 class="text-2xl md:text-3xl font-bold text-gray-900">Ressources de formation</h2>
+    <h2 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">Ressources de formation</h2>
   </div>
 
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     <!-- Guide complet ruby -->
-    <div class="bg-gradient-to-br from-blue-50 to-white border border-blue-100 rounded-xl p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+    <div class="bg-gradient-to-br from-blue-50 to-white dark:from-blue-900/20 dark:to-gray-800 border border-blue-100 dark:border-blue-900/30 rounded-xl p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
       <div class="flex items-start mb-4">
         <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
           <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -516,8 +516,8 @@ end</pre>
           </svg>
         </div>
         <div>
-          <h3 class="font-bold text-gray-900 mb-1">Guide complet ruby</h3>
-          <p class="text-sm text-gray-600 mb-2">Cours détaillé de ruby 8 à ruby 17</p>
+          <h3 class="font-bold text-gray-900 dark:text-white mb-1">Guide complet ruby</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">Cours détaillé de ruby 8 à ruby 17</p>
           <div class="flex items-center">
             <svg class="w-4 h-4 text-gray-400 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
@@ -526,7 +526,7 @@ end</pre>
           </div>
         </div>
       </div>
-      <ul class="text-sm text-gray-600 space-y-2 mb-4 pl-2">
+      <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-2 mb-4 pl-2">
         <li class="flex items-center">
           <svg class="w-4 h-4 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
@@ -558,7 +558,7 @@ end</pre>
     </div>
 
     <!-- Exercices pratiques -->
-    <div class="bg-gradient-to-br from-green-50 to-white border border-green-100 rounded-xl p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+    <div class="bg-gradient-to-br from-green-50 to-white dark:from-green-900/20 dark:to-gray-800 border border-green-100 dark:border-green-900/30 rounded-xl p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
       <div class="flex items-start mb-4">
         <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
           <svg class="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -566,8 +566,8 @@ end</pre>
           </svg>
         </div>
         <div>
-          <h3 class="font-bold text-gray-900 mb-1">Exercices pratiques</h3>
-          <p class="text-sm text-gray-600 mb-2">100 exercices avec solutions</p>
+          <h3 class="font-bold text-gray-900 dark:text-white mb-1">Exercices pratiques</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">100 exercices avec solutions</p>
           <div class="flex items-center">
             <svg class="w-4 h-4 text-gray-400 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"/>
@@ -608,7 +608,7 @@ end</pre>
     </div>
 
     <!-- Spring Boot Projets -->
-    <div class="bg-gradient-to-br from-purple-50 to-white border border-purple-100 rounded-xl p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
+    <div class="bg-gradient-to-br from-purple-50 to-white dark:from-purple-900/20 dark:to-gray-800 border border-purple-100 dark:border-purple-900/30 rounded-xl p-6 hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1">
       <div class="flex items-start mb-4">
         <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
           <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -616,8 +616,8 @@ end</pre>
           </svg>
         </div>
         <div>
-          <h3 class="font-bold text-gray-900 mb-1">Spring Boot Projets</h3>
-          <p class="text-sm text-gray-600 mb-2">3 projets complets Spring Boot</p>
+          <h3 class="font-bold text-gray-900 dark:text-white mb-1">Spring Boot Projets</h3>
+          <p class="text-sm text-gray-600 dark:text-gray-400 mb-2">3 projets complets Spring Boot</p>
           <div class="flex items-center">
             <svg class="w-4 h-4 text-gray-400 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
@@ -626,7 +626,7 @@ end</pre>
           </div>
         </div>
       </div>
-      <ul class="text-sm text-gray-600 space-y-2 mb-4 pl-2">
+      <ul class="text-sm text-gray-600 dark:text-gray-400 space-y-2 mb-4 pl-2">
         <li class="flex items-center">
           <svg class="w-4 h-4 text-green-500 mr-2 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>

@@ -26,7 +26,8 @@ const Cpp = () => import('../views/lANGUAGE/C++/C++.vue');
 const CppCours = () => import('../views/lANGUAGE/C++/CoursC++.vue');
 const Profile = () => import('../views/Profile.vue');
 const Ruby = () => import('../views/lANGUAGE/Ruby/Ruby.vue');
-const NotFound = () => import('../views/NotFound.vue'); // Ajoutez ce composant
+const AdminDashboard = () => import('../views/admin/AdminDashboard.vue');
+const NotFound = () => import('../views/NotFound.vue');
 
 const routes = [
   // Routes publiques
@@ -140,6 +141,12 @@ const routes = [
     name: 'technology',
     component: TechnologyView
   },
+  {
+    path: '/admin/dashboard',
+    name: 'AdminDashboard',
+    component: AdminDashboard,
+    meta: { requiresAdmin: true }
+  },
 
   // Route 404 (catch-all) - DOIT ÊTRE LA DERNIÈRE
   {
@@ -152,21 +159,36 @@ const routes = [
 // Création du router
 const router = createRouter({
   history: createWebHistory(),
-  routes
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    if (savedPosition) {
+      return savedPosition;
+    } else {
+      return { top: 0 };
+    }
+  }
 });
 
 // Fonction de garde d'authentification
 const authGuard = (to, from, next) => {
   const isAuthenticated = apiService.isAuthenticated();
+  const user = apiService.getCurrentUser();
+  const isAdmin = user?.is_superuser;
   
+  // Si la route nécessite d'être administrateur
+  if (to.matched.some(record => record.meta.requiresAdmin)) {
+    if (!isAuthenticated || !isAdmin) {
+      next('/');
+      return;
+    }
+  }
+
   // Si la route nécessite une authentification ET l'utilisateur n'est pas connecté
   if (to.matched.some(record => record.meta.requiresAuth) && !isAuthenticated) {
-    // Rediriger vers la page de connexion
     next('/login');
   } 
   // Si la route est pour les invités seulement ET l'utilisateur est déjà connecté
   else if (to.matched.some(record => record.meta.requiresGuest) && isAuthenticated) {
-    // Rediriger vers la page d'accueil
     next('/');
   } 
   // Sinon, continuer

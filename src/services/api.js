@@ -191,6 +191,15 @@ export const apiService = {
   getCurrentUser() {
     const userStr = localStorage.getItem('user');
     return userStr ? JSON.parse(userStr) : null;
+  },
+
+  async getUsersProgress() {
+    try {
+      const response = await apiClient.get('/admin/users-progress/');
+      return { success: true, data: response.data };
+    } catch (error) {
+      return handleApiError(error, 'Erreur lors de la récupération des données administrateur');
+    }
   }
 };
 
