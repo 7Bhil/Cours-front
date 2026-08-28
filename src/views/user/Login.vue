@@ -36,16 +36,16 @@
       </div>
 
       <form @submit.prevent="handleSubmit" class="space-y-5">
-        <!-- Email -->
+        <!-- Email or Username -->
         <div>
           <label for="email" class="block text-sm font-medium text-gray-700 mb-1">
-            Email
+            Nom d'utilisateur ou Email
           </label>
           <input
             id="email"
             v-model="formData.email"
-            type="email"
-            placeholder="john@example.com"
+            type="text"
+            placeholder="admin ou john@example.com"
             class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-transparent outline-none transition"
             :class="{ 'border-red-500': errors.email }"
           />
@@ -176,10 +176,7 @@ const validateForm = () => {
   let isValid = true;
   
   if (!formData.email.trim()) {
-    errors.email = "L'email est requis";
-    isValid = false;
-  } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-    errors.email = 'Email invalide';
+    errors.email = "L'identifiant est requis";
     isValid = false;
   }
   
@@ -198,10 +195,16 @@ const handleSubmit = async () => {
   loginError.value = '';
   
   try {
+    const inputVal = formData.email.trim();
     const credentials = {
-      email: formData.email,
       password: formData.password
     };
+    
+    if (inputVal.includes('@')) {
+      credentials.email = inputVal;
+    } else {
+      credentials.username = inputVal;
+    }
     
     const response = await apiService.login(credentials);
     
@@ -261,7 +264,7 @@ const fillTestData = () => {
 };
 
 const fillAdminData = () => {
-  formData.email = 'admin@example.com';
+  formData.email = 'admin';
   formData.password = 'admin123';
 };
 </script>
